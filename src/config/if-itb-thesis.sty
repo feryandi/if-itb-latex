@@ -35,6 +35,10 @@
 \usepackage{hyperref}       % Package untuk link di daftar isi.
 \usepackage{titlesec}       % Package Format judul
 \usepackage{parskip}
+\usepackage{pgfgantt}		
+\usepackage{ragged2e}
+\usepackage{libertine}
+\usepackage{booktabs}
 
 % Line satu setengah spasi
 \renewcommand{\baselinestretch}{1.5}
@@ -61,4 +65,14 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-
+% For Gantt Chart
+\newcounter{myWeekNum}
+\stepcounter{myWeekNum}
+%
+\newcommand{\myWeek}{\themyWeekNum
+    \stepcounter{myWeekNum}
+    \ifnum\themyWeekNum=53
+         \setcounter{myWeekNum}{1}
+    \else\fi
+}
+%
