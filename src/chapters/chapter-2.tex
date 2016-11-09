@@ -1,18 +1,114 @@
-\chapter{Tinjauan Pustaka}
+\chapter{Studi Literatur}
 
-Bab Studi Literatur digunakan untuk mendeskripsikan kajian literatur yang terkait dengan persoalan tugas akhir. Tujuan studi literatur adalah:
+Pada bab ini akan mendeskripsikan kajian literatur yang terkait dengan persoalan tugas akhir. Studi literatur ini akan dijadikan dasar dalam melakukan penyelesaian persoalan.
+
+\section{Penggunaan \textit{Spreadsheet}}
+Secara harafiah, \textit{spreadsheet} adalah suatu perangkat lunak yang dapat melakukan kalkulasi terhadap angka serta mengorganisir informasi yang ada di dalamnya berdasarkan kolom dan baris \parencite{meriamwebster-spreadsheet}. \textit{Spreadsheet} dapat digunakan untuk melakukan kalkulasi terhadap suatu rumus atau formula yang sulit jika dikalkulasikan dengan cara manual. Selain itu, \textit{spreadsheet} dapat juga digunakan untuk melakukan ramalan terhadap suatu perubahan variabel masukan. Pada perkembangannya, \textit{spreadsheet} memiliki fitur-fitur tambahan seperti visualisasi data dan ekstraksi data penting dari kumpulan data yang ada.
+
+Penelitian tentang penggunaan \textit{spreadsheet} pada bisnis pernah dilakukan sebelumnya pada tahun 2014. Subjek yang diteliti adalah akuntan manajemen \parencite{Bradbard2014}. Pada penelitian tersebut, didapatkan gambaran umum mengenai penggunaan \textit{spreadsheet} secara umum. Menurut hasil penelitian tersebut beberapa fitur yang sering digunakan oleh pengguna \textit{spreadsheet} secara terurut dari yang paling sering digunakan adalah sebagai berikut,
 
 \begin{enumerate}
-    \item menunjukkan kepada pembaca adanya gap seperti pada rumusan masalah yang memang belum terselesaikan,
-    \item memberikan pemahaman yang secukupnya kepada pembaca tentang teori atau pekerjaan terkait yang terkait langsung dengan penyelesaian persoalan, serta\parencite{salam}
-    \item menyampaikan informasi apa saja yang sudah ditulis/dilaporkan oleh pihak lain (peneliti/Tugas Akhir/Tesis) tentang hasil penelitian/pekerjaan mereka yang sama atau mirip kaitannya dengan persoalan tugas akhir.
+    \item Menghitung fungsi matematika dasar (tambah, kurang, kali, bagi, dan lainnya)
+    \item Mengelola \textit{worksheet} dan \textit{workbook} (menambahkan, menghapus, merubah nama, dan lainnya)
+    \item Melakukan perubahan format dasar (menebalkan, memberi garis bawah, format angkat, dan lainnya)
+    \item Melakukan pengurutan data, penghitungan subtotal, serta meringkas data
+    \item Menggunakan fitur \textit{cell addressing} baik absolut maupun relatif
+    \item Penggunaan fungsi kondisi (IF, COUNTIF), fungsi logika (AND, OR), fungsi pencarian (VLOOKUP, HLOOKUP), menautkan \textit{workbook} lain, serta fungsi pembulatan (ROUND, CEILING, FLOOR)
 \end{enumerate}
 
-\blindtext
+Penggunaan \textit{spreadsheet} sangat bergantung kepada domain bisnis atau organisasi yang menggunakan. Pada bisnis yang berorientasi komersial, \textit{spreadsheet} dapat digunakan sebagai alat bantu perhitungan laba, pengeluaran, investasi, dan pajak. Pada organisasi-organisasi non komersial, \textit{spreadsheet} dapat digunakan sebagai salah satu bentuk basis data yang menangani penyimpanan, pengelolaan, dan pengumpulan data yang mudah dan cepat.
 
-\blindtext
+\section{Kesalahan dalam Penggunaan \textit{Spreadsheet}}
+Jelasin banyaknya kesalahan pada penggunaan spreadsheet!!!
 
-\section{Dasar Teori}
+\section{Tipe Kesalahan dalam Penggunaan \textit{Spreadsheet}}
+Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan kepada penggunanya untuk melakukan banyak manipulasi dan pengelolaan data. Tingginya fleksibilitas ini dapat berakibat mudahnya \textit{human error} terjadi pada saat penggunaan \textit{spreadsheet} yang menyebabkan terjadinya kesalahan-kesalahan pada data. Tipe-tipe kesalahan pada \textit{spreadsheet} dapat dibagi menjadi dua jenis tipe kesalahan yakni kesalahan kuantitatif, dan kesalahan kualitatif \parencite{Panko1998}.
+
+    \subsection{Kesalahan Kualitatif}
+    Kesalahan kualitatif merupakan kesalahan yang berhubungan dengan kualitas \textit{spreadsheet} tersebut. Beberapa kesalahan yang dapat diklasifikasikan sebagai kesalahan kualitatif adalah \parencite{Powell2009}:
+
+    \begin{enumerate}
+        \item Melakukan \textit{hard-code} pada suatu angka di dalam formula
+        \item Menggunakan formula yang panjang dalam perhitungan
+        \item Susunan data yang tidak direncanakan dengan baik
+        \item Tidak adanya dokumentasi mengenai \textit{spreadsheet} yang dibuat
+    \end{enumerate}
+
+    Kesalahan ini tidak langsung mengakibatkan nilai hasil keluaran yang salah namun menurunkan kualitas dari \textit{spreadsheet} tersebut \parencite{Rajalingham2001}. Selain itu, kesalahan kualitatif dapat menyebabkan kesalahan kuantitatif terutama pada saat penggunaan fungsi analisis \textit{what-if} pada \textit{spreadsheet} \parencite{Panko1998}.
+
+    \subsection{Kesalahan Kuantitatif}
+    Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah didalam operasi perhitungannya. Kesalahan kuantitatif dapat dibagi menjadi tiga tipe kesalahan yakni \parencite{Panko1998}:
+
+    \begin{enumerate}
+        \item Kesalahan mekanikal (\textit{mechanical error}) yang biasanya terjadi akibat kesalahan pengetikan angka atau rujukan sel yang salah pada suatu formula
+        \item Kesalahan logika (\textit{logical error}) yang terjadi pada pembuatan formula yang salah atau penggunaan fungsi yang tidak tepat
+        \item Kesalahan akibat kelalaian pada interpretasi situasi atau spesifikasi yang diberikan sehingga \textit{spreadsheet} yang dihasilkan tidak sesuai dengan domain permasalahan yang ada \parencite{Powell2009} (\textit{ommision error})
+    \end{enumerate}
+
+\section{Penanganan Kesalahan pada \textit{Spreadsheet}}
+Berdasarkan penelitian yang dilakukan oleh Panko \parencite{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
+
+    \begin{enumerate}
+        \item Membangun \textit{preliminary design} sebelum pembuatan \textit{spreadsheet} agar terdapat perencanaan yang baik di dalam pembangunan data di dalam \textit{spreadsheet}
+        \item Melakukan proteksi terhadap sel yang tidak boleh diubah.
+        \item Melakukan pengecekan terhadap semua rumus dan formula yang dimasukan bahkan hingga rumus yang cukup sederhana dengan cara melakukan pengecekan manual.
+        \item Membuat dokumentasi untuk \textit{spreadsheet} yang dibuat.
+        \item Tidak menekan pembuat \textit{spreadsheet} terhadap kesalahan yang dibuat dengan memberikan hukuman. Kesalahan yang terjadi pada \textit{spreadsheet} umumnya masih berada pada batas normal \textit{human error} sehingga memberikan hukuman akan membuat rasa takut dalam melaporkan kesalahan.
+        \item Melakukan inspeksi terhadap formula, rumus, dan kode yang dibuat baik oleh individual maupun secara berkelompok.
+    \end{enumerate}
+
+\section{Basis Data Relasional}
+Perujukan literatur \parencite{knuth2008art} dapat dilakukan dengan menambahkan entri baru di berkas. Tulisan ini merujuk pada \parencite{knuth2001art}
+
+    \subsection{Subbab}
+
+    \blindtext
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{resources/chapter-2-infrastructure-diagram.png}
+        \caption{Contoh gambar}
+    \end{figure}
+
+    \subsubsection{Subsubbab}
+
+    \blindtext
+
+\section{Struktur \textit{File} pada \textit{Spreadsheet}}
+Perujukan literatur \parencite{knuth2008art} dapat dilakukan dengan menambahkan entri baru di berkas. Tulisan ini merujuk pada \parencite{knuth2001art}
+
+    \subsection{Subbab}
+
+    \blindtext
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{resources/chapter-2-infrastructure-diagram.png}
+        \caption{Contoh gambar}
+    \end{figure}
+
+    \subsubsection{Subsubbab}
+
+    \blindtext
+
+\section{Ekstraksi Data}
+Perujukan literatur \parencite{knuth2008art} dapat dilakukan dengan menambahkan entri baru di berkas. Tulisan ini merujuk pada \parencite{knuth2001art}
+
+    \subsection{Subbab}
+
+    \blindtext
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{resources/chapter-2-infrastructure-diagram.png}
+        \caption{Contoh gambar}
+    \end{figure}
+
+    \subsubsection{Subsubbab}
+
+    \blindtext
+
+\section{??Aplikasi Formulir Berbasis Web}
 Perujukan literatur \parencite{knuth2008art} dapat dilakukan dengan menambahkan entri baru di berkas. Tulisan ini merujuk pada \parencite{knuth2001art}
 
     \subsection{Subbab}
