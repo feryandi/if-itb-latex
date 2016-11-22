@@ -3,9 +3,51 @@
 Pada bab ini akan mendeskripsikan kajian literatur yang terkait dengan persoalan tugas akhir. Studi literatur ini akan dijadikan dasar dalam melakukan penyelesaian persoalan.
 
 \section{\textit{Spreadsheet}}
+\subsection{Definisi Umum}
 Secara harafiah, \textit{spreadsheet} adalah suatu perangkat lunak yang dapat melakukan kalkulasi terhadap angka serta mengorganisir informasi yang ada di dalamnya berdasarkan kolom dan baris \parencite{meriamwebster-spreadsheet}. Konsep dasar pada aplikasi \textit{spreadsheet} modern adalah sebuah aplikasi yang berupa sekumpulan sel terdiri dari baris dan kolom yang disebut \textit{sheet} yang dapat digambarkan sebagai matriks yang besar \parencite{Ronen1989}.
 
 Sel-sel pada \textit{spreadsheet} dapat diisi data berupa data mentah maupun formula. Data mentah dapat berupa angka, teks, tanggal, dan nilai mata uang. Formula merupakan perintah yang dapat dimengerti komputer untuk menghitung dan memanipulasi data pada sel. Data hasil pengolahan dan masukan pada \textit{spreadsheet} ditampilkan dalam bentuk sel yang namanya terdiri dari nama kolom dan nilai baris (Contoh: A1 untuk kolom pertama dan baris pertama). Selain itu, sel tersebut juga dapat memiliki \textit{properties} berupa \textit{value} yang diisikan, format sel, serta format data yang digunakan.
+
+\subsection{Teknologi \textit{Spreadsheet}}
+Perkembangan teknologi \textit{spreadsheet} digital modern dimulai pada tahun 1978, saat Bricklin mengembangkan \textit{working prototype} dari konsep dasar \textit{spreadsheet} menggunakan Integer BASIC. Pada tahun yang sama, Frankston dan Fylstra bergabung dan membentuk sebuah perangkat lunak bernama VisiCalc (Visible Calculator) yang merupakan sebuah perangkat lunak \textit{spreadsheet} pertama yang bekerja dengan baik dan sukses dipasaran. Setelah keberhasilan VisiCalc, mulai muncul aplikasi serupa yang semakin baik salah satunya adalah Lotus. Dengan berkembangnya daya komputasi dan munculnya konsep \textit{graphical user interface}, Microsoft mengembangkan Microsoft Excel yang merupakan \textit{spreadsheet} pertama yang menggunakan antarmuka grafis dan menggunakan \textit{mouse} sebagai alat kontrol \parencite{power2004brief}.
+
+Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan tipenya. Perangkat lunak \textit{spreadsheet} ini dapat dibagi berdasarkan konektivitasnya yakni \textit{offline spreadsheet} dan \textit{online spreadsheet}. Selain itu, perangkat lunak \textit{spreadsheet} dapat juga dibagi berdasarkan keterbukaan dari \textit{source code} yakni \textit{open source} dan \textit{closed source}. Dari pembagian tersebut, beberapa perangkat lunak yang dapat dijadikan contoh untuk memenuhi ciri tersebut adalah; Microsoft Excel (\textit{Offline Spreadsheet}), Open Office (\textit{Offline and Open Source Spreadsheet}), EtherCalc (\textit{Online and Open Source Spreadsheet}), Google Sheet (\textit{Online Spreadsheet}). Bagian ini akan membahas masing-masing perangkat lunak tersebut secara umum.
+
+    \subsubsection{Microsoft Excel}
+    Microsoft Excel adalah perangkat lunak yang dikembangkan oleh Microsoft yang menyediakan fitur dasar dari \textit{spreadsheet} serta dengan fitur-fitur lainnya yang selalu ditambahkan pada setiap iterasi pengembangan Excel. Microsoft Excel dapat dimiliki oleh pengguna melalui pembelian paket Microsoft Office yang berisikan produk esensial Microsoft lainnya \parencite{MSExcelProduct}. Hingga Excel 2010, perangkat lunak ini memiliki beberapa keterbatasan seperti yang dapat dilihat pada Tabel \ref{KeterbatasanExcel}.
+
+    \begin{table}[htb]
+        \caption{Keterbatasan pada Microsoft Excel 2010 hingga versi terbaru}
+        \label{KeterbatasanExcel}
+        \begin{center}
+            \begin{tabular}{ | l | c | }
+                \hline
+                Fitur & Batas \\ \hline
+                Ukuran \textit{worksheet} & 1.048.576 baris dan 16.384 kolom \\
+                Panjang kolom & 255 karakter \\
+                Tinggi baris & 409 poin \\
+                Jumlah format atau \textit{style} sel unik & 64.000 \\
+                \textit{Hyperlink} pada \textit{worksheet} & 66.530 \textit{hyperlink} \\
+                Tingkat presisi angka & 15 digit \\
+                Panjang formula & 8.192 karakter \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    Sejak Microsoft Excel 2007, Microsoft menggunakan format Office Open XML (OOXML) sebagai format penyimpanan \parencite{MSExcelSupport}. Office Open XML dikembangkan oleh Microsoft mulai dari tahun 2000 dengan diimplementasinya dukungan XML pada Microsoft Office 2000. Pada awal penggunaan aplikasi \textit{office}, terdapat permasalahan \textit{data interoperability} antar mesin dan sulitnya manipulasi data. Office Open XML diharapkan dapat menyelesaikan permasalahan ini dengan membentuk standar yang dapat diimplementasi berbagai aplikasi \textit{office} \parencite{OOXMLFormat}.
+
+    Fitur-fitur yang ada pada Microsoft Excel terdiri dari fitur dasar yang tersedia pada \textit{spreadsheet} pada umumnya seperti perhitungan matematika, pengurutan dan penyaringan data, serta visualisasi data. Selain fitur dasar tersebut, terdapat pula fitur seperti \textit{import} dan \textit{export} data dari basis data. Dengan fitur ini, pengguna dapat mengambil data dari basis data dan menampilkannya dalam bentuk tabel sederhana serta memasukannya kembali ke basis data. Untuk mempermudah ekstraksi informasi, terdapat juga fitur \textit{pivot table} yang dapat mengolah banyak data menjadi informasi yang diinginkan \parencite{MSExcelSupport}. 
+
+    \subsubsection{LibreOffice}
+    nanti aja
+
+    \subsubsection{EtherCalc}
+    nanti aja
+
+    \subsubsection{Google Sheet}
+    nanti aja
+
 
 \section{Penggunaan \textit{Spreadsheet}}
 \textit{Spreadsheet} dapat digunakan untuk melakukan kalkulasi terhadap suatu rumus atau formula yang sulit jika dikalkulasikan dengan cara manual. Selain itu, \textit{spreadsheet} dapat juga digunakan untuk melakukan ramalan terhadap suatu perubahan variabel masukan. Pada perkembangannya, \textit{spreadsheet} memiliki fitur-fitur tambahan seperti visualisasi data dan ekstraksi data penting dari kumpulan data yang ada.
@@ -51,10 +93,10 @@ Penelitian yang dilakukan oleh Panko juga menemukan 88\% dari 113 \textit{spread
   \end{longtable}
 Dari kumpulan data diatas, dapat dilihat bahwa didalam pembentukan \textit{spreadsheet} pada bidang bisnis, tidak mungkin terlepas dari kesalahan. Dengan tingginya tingkat kesalahan ini, bisnis dapat mengalami kerugian secara material maupun moral yang cukup besar \parencite{EUSPRIGHorrorStories}. Hal ini mengindikasikan bahwa tingginya tingkat kesalahan harus dapat diselesaikan agar tidak terjadi kerugian di dalam penggunaan \textit{spreadsheet} terutama dalam bisnis.
 
-\section{Tipe Kesalahan dalam Penggunaan \textit{Spreadsheet}}
+\subsection{Tipe Kesalahan dalam Penggunaan \textit{Spreadsheet}}
 Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan kepada penggunanya untuk melakukan banyak manipulasi dan pengelolaan data. Tingginya fleksibilitas ini dapat berakibat mudahnya \textit{human error} terjadi pada saat penggunaan \textit{spreadsheet} yang menyebabkan terjadinya kesalahan-kesalahan pada data. Tipe-tipe kesalahan pada \textit{spreadsheet} dapat dibagi menjadi dua jenis tipe kesalahan yakni kesalahan kuantitatif, dan kesalahan kualitatif \parencite{Panko1998}. 
 
-    \subsection{Kesalahan Kualitatif}
+    \subsubsection{Kesalahan Kualitatif}
     Kesalahan kualitatif merupakan kesalahan yang berhubungan dengan kualitas \textit{spreadsheet} tersebut. Beberapa kesalahan yang dapat diklasifikasikan sebagai kesalahan kualitatif adalah \parencite{Powell2009}:
 
     \begin{enumerate}
@@ -66,16 +108,16 @@ Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan ke
 
     Kesalahan ini tidak langsung mengakibatkan nilai hasil keluaran yang salah namun menurunkan kualitas dari \textit{spreadsheet} tersebut \parencite{Rajalingham2001}. Selain itu, kesalahan kualitatif dapat menyebabkan kesalahan kuantitatif terutama pada saat penggunaan fungsi analisis \textit{what-if} pada \textit{spreadsheet} \parencite{Panko1998}.
 
-    \subsection{Kesalahan Kuantitatif}
+    \subsubsection{Kesalahan Kuantitatif}
     Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah didalam operasi perhitungannya. Kesalahan kuantitatif dapat dibagi menjadi tiga tipe kesalahan yakni \parencite{Panko1998}:
 
     \begin{enumerate}
         \item Kesalahan mekanikal (\textit{mechanical error}) yang biasanya terjadi akibat kesalahan pengetikan angka atau rujukan sel yang salah pada suatu formula
         \item Kesalahan logika (\textit{logical error}) yang terjadi pada pembuatan formula yang salah atau penggunaan fungsi yang tidak tepat
-        \item Kesalahan akibat kelalaian pada interpretasi situasi atau spesifikasi yang diberikan sehingga \textit{spreadsheet} yang dihasilkan tidak sesuai dengan domain permasalahan yang ada \parencite{Powell2009} (\textit{ommision error})
+        \item Kesalahan akibat kelalaian pada interpretasi situasi atau spesifikasi yang diberikan sehingga \textit{spreadsheet} yang dihasilkan tidak sesuai dengan domain permasalahan yang ada atau \textit{ommision error} \parencite{Powell2009}
     \end{enumerate}
 
-\section{Penanganan Kesalahan pada \textit{Spreadsheet}}
+\subsection{Penanganan Kesalahan pada \textit{Spreadsheet}}
 Berdasarkan penelitian yang dilakukan oleh Panko \parencite{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
 
     \begin{enumerate}
@@ -87,51 +129,97 @@ Berdasarkan penelitian yang dilakukan oleh Panko \parencite{Panko1998}, dijabark
         \item Melakukan inspeksi terhadap formula, rumus, dan kode yang dibuat baik oleh individual maupun secara berkelompok.
     \end{enumerate}
 
-\section{Teknologi \textit{Spreadsheet}}
-Perkembangan teknologi \textit{spreadsheet} digital modern dimulai pada tahun 1978, saat Bricklin mengembangkan \textit{working prototype} dari konsep dasar \textit{spreadsheet} menggunakan Integer BASIC. Pada tahun yang sama, Frankston dan Fylstra bergabung dan membentuk sebuah perangkat lunak bernama VisiCalc (Visible Calculator) yang merupakan sebuah perangkat lunak \textit{spreadsheet} pertama yang bekerja dengan baik dan sukses dipasaran. Setelah keberhasilan VisiCalc, mulai muncul aplikasi serupa yang semakin baik salah satunya adalah Lotus. Dengan berkembangnya daya komputasi dan munculnya konsep \textit{graphical user interface}, Microsoft mengembangkan Microsoft Excel yang merupakan \textit{spreadsheet} pertama yang menggunakan antarmuka grafis dan menggunakan \textit{mouse} sebagai alat kontrol \parencite{power2004brief}.
+\section{Data pada \textit{Spreadsheet}}
 
-Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan tipenya. Perangkat lunak \textit{spreadsheet} ini dapat dibagi berdasarkan konektivitasnya yakni \textit{offline spreadsheet} dan \textit{online spreadsheet}. Selain itu, perangkat lunak \textit{spreadsheet} dapat juga dibagi berdasarkan keterbukaan dari \textit{source code} yakni \textit{open source} dan \textit{closed source}. Dari pembagian tersebut, beberapa perangkat lunak yang dapat dijadikan contoh untuk memenuhi ciri tersebut adalah; Microsoft Excel (\textit{Offline Spreadsheet}), Open Office (\textit{Offline and Open Source Spreadsheet}), EtherCalc (\textit{Online and Open Source Spreadsheet}), Google Sheet (\textit{Online Spreadsheet}). Bagian ini akan membahas masing-masing perangkat lunak tersebut secara umum.
+\subsection{Tipe Struktur Data pada \textit{Spreadsheet}}
+Pada penelitian yang dilakukan oleh Chen dan Cafarella, \textit{spreadsheet} dapat dibagi menjadi 2 jenis yakni; \textit{data frame} dan \textit{non-data frame}. \textit{Data frame} merupakan tipe \textit{spreadsheet} yang terdiri dari 2 komponen utama: area nilai dan area atribut atau metadata (biasanya berada di atas dan atau di kiri area nilai). \textit{Non-data frame} adalah tipe \textit{spreadsheet} selain tipe \textit{data frame} yang telah didefinisikan sebelumnya. Tipe \textit{non-data frame} dapat dibagi menjadi beberapa jenis yakni:
 
-    \subsection{Microsoft Excel}
-    Microsoft Excel adalah perangkat lunak yang dikembangkan oleh Microsoft yang menyediakan fitur dasar dari \textit{spreadsheet} serta dengan fitur-fitur lainnya yang selalu ditambahkan pada setiap iterasi pengembangan Excel. Microsoft Excel dapat dimiliki oleh pengguna melalui pembelian paket Microsoft Office yang berisikan produk esensial Microsoft lainnya \parencite{MSExcelProduct}. Hingga Excel 2010, perangkat lunak ini memiliki beberapa keterbatasan seperti yang dapat dilihat pada Tabel \ref{KeterbatasanExcel}.
+    \begin{enumerate}
+        \item Relasi merupakan tipe \textit{spreadsheet} yang dapat langsung diubah ke model relasional.
+        \item Formulir merupakan \textit{spreadsheet} yang tidak ditujukan sebagai penyimpanan dan didesain untuk diisi oleh manusia.
+        \item Diagram yang digunakan sebagai visualisasi data, biasanya berisi banyak data tanpa skema informasi yang detil.
+        \item Daftar atau \textit{List} merupakan catatan sejumlah nama atau hal (tentang kata-kata, nama orang, barang, dan sebagainya) yang disusun berderet dari atas ke bawah \parencite{pusat1991kamus}.
+        \item Jadwal merupakan \textit{spreadsheet} digunakan sebagai pembuatan dan pengelolaan jadwal.
+        \item Silabus merupakan kerangka unsur kursus pendidikan, disajikan dalam aturan yang logis, atau dalam tingkat kesulitan yang makin meningkat \parencite{pusat1991kamus}.
+        \item \textit{Scorecard} yakni suatu alat manajemen yang biasanya berguna untuk membantu manajer melacak aktivitas yang dilakukan oleh stafnya.
+    \end{enumerate}
 
-    \begin{table}[htb]
-        \caption{Keterbatasan pada Microsoft Excel 2010 hingga versi terbaru}
-        \label{KeterbatasanExcel}
-        \begin{center}
-            \begin{tabular}{ | l | c | }
-                \hline
-                Fitur & Batas \\ \hline
-                Ukuran \textit{worksheet} & 1.048.576 baris dan 16.384 kolom \\
-                Panjang kolom & 255 karakter \\
-                Tinggi baris & 409 poin \\
-                Jumlah format atau \textit{style} sel unik & 64.000 \\
-                \textit{Hyperlink} pada \textit{worksheet} & 66.530 \textit{hyperlink} \\
-                Tingkat presisi angka & 15 digit \\
-                Panjang formula & 8.192 karakter \\
-                \hline
-            \end{tabular}
-        \end{center}
-    \end{table}
+Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ahli dan didapatkan bahwa 50.5\% \textit{spreadsheet} merupakan tipe \textit{data frame}, dimana 32.5\% memiliki label atribut dibagian atas atau bawah. Sedangkan 49.5\% \textit{spreadsheet} bertipe \textit{non-data frame} terdiri dari 22.0\% relasi, 10.5\% formulir, 3.5\% diagram, 3\% berupa \textit{list}, dan 10.5\% lainnya \parencite{Chen2013}.
 
-    Sejak Microsoft Excel 2007, Microsoft menggunakan format Office Open XML (OOXML) sebagai format penyimpanan \parencite{MSExcelSupport}. Office Open XML dikembangkan oleh Microsoft mulai dari tahun 2000 dengan diimplementasinya dukungan XML pada Microsoft Office 2000. Pada awal penggunaan aplikasi \textit{office}, terdapat permasalahan \textit{data interoperability} antar mesin dan sulitnya manipulasi data. Office Open XML diharapkan dapat menyelesaikan permasalahan ini dengan membentuk standar yang dapat diimplementasi berbagai aplikasi \textit{office} \parencite{OOXMLFormat}.
+\subsection{Ekstraksi Data pada \textit{Spreadsheet}}
+Pada penelitian yang dilakukan oleh Chen, ekstraksi data pada sebuah \textit{spreadsheet} bertipe \textit{data frame} dapat dibagi menjadi tiga proses yakni: \textit{frame finder}, \textit{hierarchy extractor}, dan \textit{tuple builder}. Proses \textit{frame finder} dilakukan dengan cara mengidentifikasi \textit{data frame} serta mencari lokasi dari atribut dan nilai. Pada proses \textit{hierarchy extractor}, atribut yang ada pada \textit{data frame} yang ditemukan dicari hirarkinya setelah itu proses \textit{tuple builder} membentuk \textit{tuple} relasional untuk setiap nilai yang ada. Proses ini tidak membedakan \textit{spreadsheet} tipe \textit{data frame} atau bukan, sehingga diasumsikan jika \textit{tuple} yang dihasilkan memiliki kualitas yang baik, dapat dikatakan bahwa \textit{spreadsheet} masukan bertipe \textit{data frame} dan sebaliknya. \parencite{Chen2013}
 
-    Fitur-fitur yang ada pada Microsoft Excel terdiri dari fitur dasar yang tersedia pada \textit{spreadsheet} pada umumnya seperti perhitungan matematika, pengurutan dan penyaringan data, serta visualisasi data. Selain fitur dasar tersebut, terdapat pula fitur seperti \textit{import} dan \textit{export} data dari basis data. Dengan fitur ini, pengguna dapat mengambil data dari basis data dan menampilkannya dalam bentuk tabel sederhana serta memasukannya kembali ke basis data. Untuk mempermudah ekstraksi informasi, terdapat juga fitur \textit{pivot table} yang dapat mengolah banyak data menjadi informasi yang diinginkan \parencite{MSExcelSupport}. 
+    \subsubsection{\textit{Frame Finder}}
+    Tujuan dari proses \textit{frame finder} adalah mengidentifikasi wilayah nilai dan wilayah atribut yang dapat berupa \textit{left attribute} maupun \textit{top attribute}. Untuk mensimplifikasi permasalahan, Chen menganggap bahwa \textit{data frame} tidak akan berada sejajar secara horisontal, namun hanya secara vertikal. Sehingga proses ini dapat disimplifikasi menjadi labeling terhadap baris per baris. Label yang akan diberikan adalah \textit{title}, \textit{header}, \textit{data}, dan \textit{footnote}.
 
-    \subsection{LibreOffice}
+    Pelabelan dapat dilakukan dengan algoritma \textit{conditional random field} (CRF) karena terdapat keterkaitan antara satu baris terhadap baris yang lain didalam penggunaan baris. Contohnya, jika baris telah teridentifikasi sebagai \textit{header}, maka besar kemungkinan bahwa baris selanjutnya adalah \textit{data} atau \textit{header}. CRF memiliki kemampuan untuk melakukan \textit{machine learning} yang memperhitungkan label pada elemen sebelumnya.
 
+    \subsubsection{\textit{Hierarcy Extractor}}
+    Proses ini bertujuan untuk mendapatkan hirarki dari atribut-atribut yang ada. Masukan dari proses ini adalah \textit{data frame} dengan \textit{top attribute} dan \textit{left attribute} dan keluarannya berupa hirarki untuk masing-masing atribut atas dan kiri tersebut. Proses ini dapat dilakukan melalui dua algoritma: \textit{classification} dan \textit{enforced-tree classification}.
 
-    \subsection{EtherCalc}
+    \textit{Classification} dilakukan dengan cara berbeda untuk \textit{left attribute} dan \textit{top attribute}. Pada \textit{left attribute}, klasifikasi dapat dilakukan dengan dua cara: pengecekan terhadap \textit{formatting} pada sebuah sel dan kedekatan sel secara geometris. Semakin mirip \textit{formatting} sebuah sel, maka semakin mungkin bahwa kedua sel bukan merupakan pasangan \textit{parent} dan \textit{child} dan semakin dekat sel secara geometris, kemungkinan kedua sel meruapakan  pasangan \textit{parent} dan \textit{child} semakin besar. Sedangkan pada \textit{top attribute} dapat dilakukan pengecekan posisi antar baris atribut bagian atas.
 
+    Kelemahan pada metode klasifikasi sebelumnya adalah terdapat kemungkinan tidak dapat dibentuk pohon dari hasil klasifikasi. \textit{Enforced-tree classification} mencoba untuk menyelesaikan permasalahan ini dengan dua langkah tambahan yakni: memastikan bahwa suatu atribut hanya dapat memiliki satu \textit{parent} dimana yang terpilih menjadi \textit{parent} adalah atribut dengan probabilitas tertinggi, dan memastikan bahwa tidak ada \textit{cycle} yang terbentuk dengan cara menghapus keterhubungan dengan nilai probabilitas terkecil. Klasifikasi ini tetap menggunakan metode klasifikasi fitur yang dilakukan pada algoritma \textit{classification}.
 
-    \subsection{Google Sheet}
+    \subsubsection{\textit{Tuple Builder}}
+    Proses ini dilakukan dengan cara mengiterasi setiap \textit{value (v)} dan mencari atribut akar pada atribut bagian kiri dan atas dari \textit{v}. Setelah dibentuk \textit{relational tuple} untuk nilai \textit{v} dengan atribut bagian kiri dan atas tersebut. Tingkat akurasi dari proses ini sangat bergantung dari dua proses sebelumnya.
 
+% \section{\textit{Data Governance}}
+% Penggunaan \textit{spreadsheet} pada bisnis tidak terlepas dari adanya penyimpanan dan pengelolaan informasi. 
 
-\section{\textit{Data Governance}}
+\section{Studi dan Penelitian Terkait}
+    \subsection{\textit{Senbazuru: A Prototype Spreadsheet Database Management System}}
+    Senbazuru \parencite{Chen2013-2} merupakan prototipe yang dikembangkan dengan tujuan untuk mempermudah pencarian, pengaksesan, pengubahan, dan melakukan \textit{query} terhadap \textit{spreadsheet}. Pengembangan ini ingin menyelesaikan permasalahan dimana data \textit{spreadsheet} sangat tersebar diberbagai tempat sehingga untuk mendapatkan informasi yang diinginkan atau membandingkan antar informasi di dalam beberapa \textit{spreadsheet} sangatlah sulit. 
 
+    Didalam pengembangan prototipe ini, kesulitan teknikal yang harus dihadapi adalah proses ekstraksi dan perbaikan data. Didalam melakukan ekstraksi data, harus dilakukan beberapa proses berikut: mendeteksi mana atribut dan nilai, mengidentifikasi hirarki atribut, membentuk \textit{relational tuple}, dan membentuk \textit{tuple} tersebut menjadi tabel relasional. Dari hasil dari ekstrasi ini, masih sangat mungkin memiliki kesalahan sehingga proses perbaikan diperlukan didalam pembentukan tabel relasional ini. Proses perbaikan pada protitipe ini dilakukan manual dengan bantuan pengguna.
 
-\section{Metadata}
+    \subsubsection{Arsitektur Sistem}
 
+    \textit{Spreadsheet Database Maanagement System} (SSDBMS) yang dikembangkan pada prototipe ini memiliki tiga proses utama yakni: \textit{search}, \textit{extract}, dan \textit{query}. Proses pencarian dilakukan terhadap repositori \textit{spreadsheet} yang ada di internet, lalu data \textit{spreadsheet} tersebut diekstraksi dan dijadikan tabel relasional, dan setelah itu pengguna dapat melakukan \textit{query} terhadap tabel yang telah dibentuk.
 
-\section{Studi Terkait / Penelitian Terkait}
-\blindtext
+        \paragraph{\textit{Search}}
+        Komponen pencarian ini memudahkan pengguna untuk menemukan dataset yang tepat menggunakan bantuan internet. Saat prototipe ini dikembangkan, Senbazuru telah mengindeks 1800 \textit{spreadsheet} yang didapatkan dari U.S. Census Bureau. Pengindeksan menggunakan bantuan \textit{library} Python yakni xlrd untuk mengekstraksi teks dari sel lalu menggunakan Apache Lucene untuk melakukan indeks pada teks. Pencarian menggunakan metode \textit{term frequency–inverse document frequency} (TF-IDF) untuk mendapatkan relevansi dokumen.
+        
+        \paragraph{\textit{Extract}}
+        Proses ekstraksi data pada \textit{spreadsheet} dilakukan melalui empat tahapan yakni:
+
+        \begin{enumerate}
+            \item \textit{Frame Finder}
+
+            Tahap ini dilakukan untuk mencari \textit{frame} pada \textit{spreadsheet} bertipe \textit{data frame}. Dengan menggunakan algoritma \textit{conditional random field} (CRF) untuk memberikan label pada setiap baris yang tidak kosong pada \textit{spreadsheet}. Tahap ini akan menghasilkan \textit{data frame} yang selanjutnya akan digunakan pada tahap selanjutnya, baris lain yang dianggap bukan \textit{data frame} akan diabaikan.
+
+            \item \textit{Hierarchy Extractor}
+            
+            Tahap selanjutnya adalah ekstraksi hirarki pada wilayah atribut dari \textit{data frame} yang ditemukan. Pada setiap atribut, akan dicari atribut mana yang dideskripsikan oleh atribut lainnya dan seterusnya hingga terbentuk hirarki dari atribut-atribut yang ada. Kesalahan pada pembentukan hirarki sangat mungkin terjadi sehingga pengguna akan diberikan kemampuan untuk memperbaiki hirarki yang salah pada bagian \textit{repair interface}. Setelah perbaikan dilakukan oleh pengguna, Senbazuru akan menjalankan kembali CRF untuk melakukan pembelajaran terhadap label baru yang diberikan.
+
+            \item \textit{Tuple Builder}
+            
+            Bagian ini melakukan pembentukan \textit{tuple} antara wilayah nilai dan wilayah atribut yang sesuai.
+
+            \item \textit{Relation Constructor}
+
+            Tahap ini melakukan transalasi dari \textit{tuple} yang terbentuk menjadi tabel relasional dengan cara membentuk kluster terhadap atribut yang satu jenis. Contohnya, terdapat atribut \textit{Male}, \textit{total}, dan \textit{Female}, ketiga atribut tersebut memiliki jenis yang sama sehingga harus digabungkan menjadi satu kolom yakni \textit{gender}. Pada Senbazuru, teknik pengklusteran ini menggunakan bantuan koleksi skema dari Freebase dan YAGO.
+        \end{enumerate}
+
+        \paragraph{\textit{Query}}
+        Setelah proses sebelumnya selesai, maka pengguna dapat memasukan perintah relasional terhadap data \textit{spreadsheet} yang telah diubah menjadi tabel relasional. Pada prototipe yang dikembangkan, perintah yang diimplementasikan adalah \textit{join} dan \textit{select}.
+
+    \subsubsection{Kesimpulan Penelitian}
+    Senbazuru merupakan prototipe untuk manajemen basis data berbasis \textit{spreadsheet} yang dapat melakukan pencarian data pada internet melalui kata kunci yang diberikan. Prototipe ini berhasil melakukan ekstraksi data secara otomatis walaupun tidak terlepas dari kesalahan. Kesalahan yang terjadi masih harus seringkali dilakukan perbaikan secara manual. Namun dengan penggunaan algoritma CRF, protitipe dapat mengurangi kesalahan yang terjadi. Prototipe ini juga ditujukan sebagai demo kepada peserta konferensi VLDB dan diharapkan dapat menarik perhatian komunitas basis data.
+
+\subsection{\textit{Spreadsheet As a Relational Database Engine}}
+Penelitian \parencite{Tyszkiewicz2010} pernah dilakukan terhadap pembuatan \textit{spreadsheet} menjadi mesin basis data relasional. Penelitian ini dilatarbelakangi dengan tingginya penggunaan \textit{spreadsheet} pada banyak bidang dan kurangnya kualitas data yang ada didalamnya yang dapat menyebabkan kesalahan-kesalahan terjadi pada perhitungan dan prediksi. Solusi yang dipaparkan pada penelitian ini adalah dengan menggabungkan \textit{spreadsheet} dan \textit{database engine} dengan menggunakan formula sebagai ganti dari \textit{SQL query}.
+
+    \subsubsection{Arsitektur Sistem}
+
+    Pada implementasinya, sebuah \textit{workbook} akan memiliki satu \textit{worksheet} untuk setiap tabel data dan satu \textit{worksheet} untuk setiap \textit{view} pada basis data. Dengan menggunakan \textit{external compiler} yang menerima masukan berupa SQL yang akan mengubahnya kedalam bentuk \textit{spreadsheet}. Program tersebut akan mengubah SQL menjadi beberapa formula yang diterima oleh \textit{spreadsheet} tersebut.
+
+    Terdapat dua bagian utama pada \textit{spreadsheet} hasil implementasi yakni: tabel data dan bagian \textit{view}. Bagian tabel data adalah tempat pengguna untuk memasukkan, mengubah, serta menghapus data. Secara teori, bagian tabel data tidak memiliki formula, namun didalam implementasinya mengikuti implementasi SQL dimana perlu dilakukan validasi data dan verifikasi terhadap \textit{primary key}, \textit{foreign key}, dan batasan lain yang ada diperintah \textit{create table}. 
+
+    Bagian \textit{view worksheet} tidak dapat diubah oleh pengguna dan berisikan formula-formula yang independen terhadap data yang dimasukkan oleh pengguna. Selain itu, bagian \textit{view} berisikan kolom-kolom yang berguna sebagai \textit{intermediate result} yang selanjutnya akan digunakan oleh formula lain. Pada awalnya sel-sel akan berisikan "" yang merepresentasikan sel yang belum digunakan.
+
+    \subsubsection{Kesimpulan Penelitian}
+
+    Excel dan \textit{spreadsheet} lain tidak didesain untuk menjadi \textit{database engine} sehingga kebanyakan formula akan dilakukan menggunakan \textit{linear scan} dan hal ini dapat mengurangi performansi. Beberapa cara untuk meningkatkan performansi adalah mengeksploitasi \textit{lazy evaluation} dari \textit{if statement}, mengkomputasi hanya beberapa sel tetangga yang berkaitan, serta menggunakan file atau \textit{workbook} lain untuk membagi \textit{query} dan membangkitkannya ketika dibutuhkan.
+
+    Pada tes perfomansi yang dilakukan pada penelitian ini dapat disimpulkan bahwa untuk operasi dasar dan \textit{query} sederhana penggunaan \textit{spreadsheet} dapat digunakan dengan baik dengan waktu yang cukup cepat. Tingkat efektifitas penggunaan pada arsitektur ini cukup rendah, namun hasil tes tersebut menunjukan bahwa arsitektur ini memiliki potensial yang dapat dikembangkan.
