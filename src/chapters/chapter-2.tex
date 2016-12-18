@@ -118,7 +118,7 @@ Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan ke
     \end{enumerate}
 
 \subsection{Penanganan Kesalahan pada \textit{Spreadsheet}}
-Berdasarkan penelitian yang dilakukan oleh Panko \parencite{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
+Untuk mengatasi kesalahan yang dijelaskan pada subbab sebelumnya, menurut penelitian yang dilakukan oleh Panko \parencite{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
 
     \begin{enumerate}
         \item Membangun \textit{preliminary design} sebelum pembuatan \textit{spreadsheet} agar terdapat perencanaan yang baik di dalam pembangunan data di dalam \textit{spreadsheet}
@@ -147,7 +147,6 @@ Pada penelitian yang dilakukan oleh Chen dan Cafarella, \textit{spreadsheet} dap
 Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ahli dan didapatkan bahwa 50.5\% \textit{spreadsheet} merupakan tipe \textit{data frame}, dimana 32.5\% memiliki label atribut dibagian atas atau bawah. Sedangkan 49.5\% \textit{spreadsheet} bertipe \textit{non-data frame} terdiri dari 22.0\% relasi, 10.5\% formulir, 3.5\% diagram, 3\% berupa \textit{list}, dan 10.5\% lainnya \parencite{Chen2013}.
 
 \subsection{Pengolahan Data pada \textit{Spreadsheet}}
-    \subsubsection{\textit{Extract-Transform-Load} (ETL)}
     \textit{Extract-Transform-Load} (ETL) adalah proses yang digunakan sebagai metode integrasi data dari beberapa sumber dan aplikasi. ETL biasanya digunakan pada saat melakukan proses \textit{data warehouse} dimana data dari sumber eksternal diambil, lalu ditransformasikan ke bentuk yang sesuai dengan kebutuhan (didalam prosesnya bisa terkadung pengecekan kualitas), dan memasukannya ke dalam basisdata yang telah ditentukan \parencite{Bansal2014}. Terdapat tiga fase pada proses ETL yakni:
 
     \begin{enumerate}
@@ -156,7 +155,7 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
         \item \textit{Load}, pada fase ini data yang telah ditransformasikan dimasukan ke dalam \textit{data mart} atau \textit{data warehouse} yang ditentukan.
     \end{enumerate}
 
-    \subsubsection{Metode ETL pada \textit{Spreadsheet}} \label{Metode Pencarian}
+    \subsubsection{Metode ETL pada \textit{Spreadsheet}} \label{metodepencarian}
     Pada penelitian yang dilakukan oleh Chen, pengolahan data pada sebuah \textit{spreadsheet} bertipe \textit{data frame} dapat dibagi menjadi tiga proses yakni: \textit{frame finder}, \textit{hierarchy extractor}, dan \textit{tuple builder}. Proses \textit{frame finder} dilakukan dengan cara mengidentifikasi \textit{data frame} serta mencari lokasi dari atribut dan nilai. Pada proses \textit{hierarchy extractor}, atribut yang ada pada \textit{data frame} yang ditemukan dicari hirarkinya setelah itu proses \textit{tuple builder} membentuk \textit{tuple} relasional untuk setiap nilai yang ada. Proses ini tidak membedakan \textit{spreadsheet} tipe \textit{data frame} atau bukan, sehingga diasumsikan jika \textit{tuple} yang dihasilkan memiliki kualitas yang baik, dapat dikatakan bahwa \textit{spreadsheet} masukan bertipe \textit{data frame} dan sebaliknya. \parencite{Chen2013}
 
         \paragraph{\textit{Frame Finder}}
