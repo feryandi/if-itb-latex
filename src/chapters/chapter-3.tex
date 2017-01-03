@@ -5,25 +5,24 @@ Pada bab ini akan diuraikan analisis persoalan penanganan kesalahan pada \textit
 \section{Aspek Penanganan Kesalahan Pada \textit{Spreadsheet}} \label{AspekAplikasi}
 Pada Subbab \ref{KesalahanPenggunaan} dijelaskan bahwa terdapat dua jenis kesalahan yang dapat terjadi pada penggunaan \textit{spreadsheet} yakni kesalahan kualitatif dan kesalahan kuantitatif. Kesalahan kualitatif merupakan kesalahan penggunaan \textit{spreadsheet} yang berhubungan dengan kualitas dan prosedur penggunaan. Contoh kesalahan kualitatif yang sering terjadi adalah penggunaan \textit{spreadsheet} sebagai basis data. Kesalahan kuantitatif merupakan kesalahan yang menyebabkan keluaran menjadi salah. Contoh kesalahan kuantitatif yang sering terjadi adalah kesalahan masukan yang tidak divalidasi.
 
-Pencegahan untuk kesalahan-kesalahan ini dapat dilihat pada Subbab \ref{PenangananKesalahan}. Salah satu caranya adalah pembuatan \textit{preliminary design} terhadap \textit{spreadsheet} yang dibuat. Oleh karena itu, pada aplikasi \textit{spreadsheet} yang dibangun akan tersimpan secara terintegrasi di dalam basis data yang ditentukan dan melalui pemeriksaan masukan saat memasukkan data. Dengan aplikasi ini diharapkan dapat menangani kesalahan kualitatif yang berupa penggunaan \textit{spreadsheet} sebagai basis data dengan cara menghubungkan \textit{spreadsheet} ke basis data yang sesungguhnya secara langsung. Serta menangani kesalahan kuantitatif dengan cara melakukan validasi masukan. Aplikasi \textit{spreadsheet} yang baik harus dapat diakses dan digunakan secara kolaboratif yang dapat dilakukan dengan membuat aplikasi \textit{spreadsheet} tersebut berbasis \textit{web}. Aspek-aspek aplikasi \textit{web} yang perlu diperhatikan dalam membangun aplikasi \textit{spreadsheet} adalah:
-\begin{enumerate}
-	\item \textit{Response time}
+Pencegahan untuk kesalahan-kesalahan ini dapat dilihat pada Subbab \ref{PenangananKesalahan}. Salah satu caranya adalah pembuatan \textit{preliminary design} terhadap \textit{spreadsheet} yang dibuat. Oleh karena itu, pada aplikasi \textit{spreadsheet} yang dibangun akan tersimpan secara terintegrasi di dalam basis data yang ditentukan dan melalui pemeriksaan masukan saat memasukkan data. Dengan aplikasi ini diharapkan dapat menangani kesalahan kualitatif yang berupa penggunaan \textit{spreadsheet} sebagai basis data dengan cara menghubungkan \textit{spreadsheet} ke basis data yang sesungguhnya secara langsung. Serta menangani kesalahan kuantitatif dengan cara melakukan validasi masukan. 
 
+Aplikasi \textit{spreadsheet} yang baik harus dapat diakses dan digunakan secara kolaboratif yang dapat dilakukan dengan membuat aplikasi \textit{spreadsheet} tersebut berbasis \textit{web}. Aspek-aspek aplikasi \textit{web} yang perlu diperhatikan dalam membangun aplikasi \textit{spreadsheet} adalah:
+\begin{enumerate}
+	\item \textit{Response time}\\
 	Membangun aplikasi berbasis \textit{web} menggunakan HTTP sebagai protokol komunikasi dan tentunya didalam komunikasi tersebut membutuhkan waktu untuk mengirimkan \textit{request} dari klien. Jika waktu yang dibutuhkan untuk melakukan respon lambat, akan sulit terjadi kolaborasi dan memperbesar kemungkinan terjadinya \textit{race condition} pada masukan pengguna. Sehingga diperlukan waktu respon yang cepat untuk dapat menangani banyak \textit{request} dalam satu waktu dan dalam waktu yang singkat.
 
-	\item Akses yang konkuren
-
+	\item Akses yang konkuren\\
 	Aplikasi berbasis \textit{web} yang akan dibuat harus dapat diakses secara konkuren yakni diakses bersama-sama oleh banyak klien dalam satu waktu. Pengaksesan secara konkuren dapat berdampak pada terpanggilnya banyak \textit{query} dalam satu waktu. Oleh karena itu aplikasi yang dibuat harus dapat menjalankan secara konkuren setiap \textit{request} yang masuk.
 
-	\item Akses basis data
-
+	\item Akses basis data\\
 	Akses terhadap basis data dibutuhkan sebagai media penyimpanan yang persisten dan konsisten. Oleh karena itu, akses terhadap basis data diperlukan untuk kemudahan penyimpanan dan pengambilan data serta mengatasi permasahalan ketidaksamaan \textit{versioning} diantara suatu \textit{file spreadsheet}.
 
 \end{enumerate}
 
 Keempat aspek pada aplikasi berbasis \textit{web} tersebut akan menjadi aspek utama yang dikembangkan didalam pembuatan aplikasi \textit{spreadsheet} berbasis aplikasi \textit{web}.
 
-Berdasarkan pada Subbab \ref{KesalahanPenggunaan}, terdapat dua jenis tipe kesalahan \parencite{Panko1998} yang bisa terjadi pada penggunaan \textit{spreadsheet} yakni:
+Berdasarkan pada Subbab \ref{KesalahanPenggunaan}, terdapat dua jenis tipe kesalahan \citep{Panko1998} yang bisa terjadi pada penggunaan \textit{spreadsheet} yakni:
 \begin{enumerate}
 	\item Kesalahan Kualitatif
 
@@ -72,7 +71,7 @@ Di dalam pembangunan perangkat lunak \textit{spreadsheet} untuk mengurangi kesal
   	Pada Tugas Akhir ini, akan dipilih model interaksi dengan berbasis \textit{spreadsheet} sehingga pengguna dapat dengan lebih mudah didalam menggunakannya karena tidak memerlukan pembelajaran kembali di dalam menggunakan aplikasi. Selain itu, data yang dimasukan lebih mudah untuk dilihat secara menyeluruh dibandingkan dengan berbasis formulir yang hanya dapat menerima satu masukan dalam suatu formulir.
 
 \section{Penentuan Bagian Data dan Label}
-Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \textit{spreadsheet} pada umumnya berbentuk tabel yang terdiri dari dua unsur utama yakni data dan label atau disebut juga tipe \textit{data frame} \parencite{Chen2013}. Bagian data merupakan bagian yang biasanya dinamis dan merupakan masukan pengguna. Bagian label merupakan bagian yang memberikan keterangan dan konteks mengenai data yang dimaksud. Pada Gambar \ref{DataFrameSederhana} dapat dilihat bahwa area dengan nomor 1 disebut sebagai label yang menjelaskan data-data dibawahnya yakni pada area nomor 2.
+Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \textit{spreadsheet} pada umumnya berbentuk tabel yang terdiri dari dua unsur utama yakni data dan label atau disebut juga tipe \textit{data frame} \citep{Chen2013}. Bagian data merupakan bagian yang biasanya dinamis dan merupakan masukan pengguna. Bagian label merupakan bagian yang memberikan keterangan dan konteks mengenai data yang dimaksud. Pada Gambar \ref{DataFrameSederhana} dapat dilihat bahwa area dengan nomor 1 disebut sebagai label yang menjelaskan data-data dibawahnya yakni pada area nomor 2.
 
 \begin{figure}[htb]
     \centering
@@ -114,19 +113,17 @@ Sistem akan melakukan validasi terhadap ketiga hal tersebut dan menolak data mas
 \section{Penyimpanan dan Pemulihan Data}
 Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spreadsheet} maupun data masukan pada struktur disimpan ke dalam basis data yang presisten. Terdapat 2 jenis data yang harus disimpan ke dalam basis data di dalam membangun aplikasi \textit{spreadsheet} ini, yakni:
 
-\begin{enumerate}[itemsep=1\itemsep plus 1fill]\interlinepenalty10000
-	\item Penyimpanan \textit{File Spreadsheet}
-
+\begin{enumerate}
+	\item Penyimpanan \textit{File Spreadsheet} \\
 	\textit{File spreadsheet} yang dimaksud adalah data struktural seperti \textit{value} pada suatu sel, \textit{properties} suatu sel seperti warna, \textit{border}, dan \textit{alignment}, serta hal-hal lain yang berhubungan dengan bagaimana suatu \textit{file spreadsheet} ditampilkan pada aplikasi. Tipe penyimpanan yang dapat digunakan untuk menampung data ini adalah NoSQL karena tipe ini cocok untuk menangani data yang kurang terstruktur seperti \textit{file spreadsheet} yang struktur penempatan datanya berbeda tiap pengguna. Cara penyimpanan yang cocok untuk menangani struktur ini adalah \textit{document based} atau \textit{key-value}.
 
-	\item Penyimpanan Data dan Label
-	
-	Data yang disimpan merupaakn hasil dari pendeteksian label dan data yang akan diubah menjadi \textit{tuple} relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple} yang diilustrasikan oleh Chen tahun 2013 pada \textit{paper} mengenai Senbazuru.
+	\item Penyimpanan Data dan Label \\
+	Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi \textit{tuple} relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple} yang diilustrasikan oleh Chen tahun 2013 pada \textit{paper} mengenai Senbazuru.
 
 	\begin{figure}[htb]
 	    \centering
 	    \includegraphics[width=0.6\textwidth]{resources/chapter-3-relational-tuple.png}
-	    \caption{Contoh \textit{Tuple} Relasional \parencite{Chen2013}}
+	    \caption{Contoh \textit{Tuple} Relasional \citep{Chen2013}}
 		\label{RelationalTuple}
 	\end{figure}
 
