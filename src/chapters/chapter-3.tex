@@ -5,7 +5,7 @@ Pada bab ini akan diuraikan analisis persoalan penanganan kesalahan pada \textit
 \section{Aspek Penanganan Kesalahan Pada \textit{Spreadsheet}} \label{AspekAplikasi}
 Pada Subbab \ref{KesalahanPenggunaan} dijelaskan bahwa terdapat dua jenis kesalahan yang dapat terjadi pada penggunaan \textit{spreadsheet} yakni kesalahan kualitatif dan kesalahan kuantitatif. Kesalahan kualitatif merupakan kesalahan penggunaan \textit{spreadsheet} yang berhubungan dengan kualitas dan prosedur penggunaan. Contoh kesalahan kualitatif yang sering terjadi adalah penggunaan \textit{spreadsheet} sebagai basis data. Kesalahan kuantitatif merupakan kesalahan yang menyebabkan keluaran menjadi salah. Contoh kesalahan kuantitatif yang sering terjadi adalah kesalahan masukan yang tidak divalidasi.
 
-Pencegahan untuk kesalahan-kesalahan ini dapat dilihat pada Subbab \ref{PenangananKesalahan}. Salah satu caranya adalah pembuatan \textit{preliminary design} terhadap \textit{spreadsheet} yang dibuat. Oleh karena itu, pada aplikasi \textit{spreadsheet} yang dibangun akan tersimpan secara terintegrasi di dalam basis data yang ditentukan dan melalui pemeriksaan masukan saat memasukkan data. Dengan aplikasi ini diharapkan dapat menangani kesalahan kualitatif yang berupa penggunaan \textit{spreadsheet} sebagai basis data dengan cara menghubungkan \textit{spreadsheet} ke basis data yang sesungguhnya secara langsung. Serta menangani kesalahan kuantitatif dengan cara melakukan validasi masukan. 
+Pencegahan untuk kesalahan-kesalahan ini dapat dilihat pada Subbab \ref{PenangananKesalahan}. Salah satu caranya adalah pembuatan \textit{preliminary design} terhadap \textit{spreadsheet} yang dibuat. Hal ini dapat dilakukan dengan cara pengembangan aplikasi pengumpulan data berbentuk \textit{spreadsheet} yang menangani kolaborasi, validasi, dan penyimpanan. Dengan aplikasi ini diharapkan dapat menangani kesalahan kualitatif seperti yang dijelaskan pada contoh sebelumnya yakni penggunaan \textit{spreadsheet} sebagai basis data dengan cara menghubungkan \textit{spreadsheet} ke basis data yang sesungguhnya secara langsung. Serta menangani kesalahan kuantitatif dengan cara melakukan validasi masukan.
 
 Aplikasi \textit{spreadsheet} yang baik harus dapat diakses dan digunakan secara kolaboratif yang dapat dilakukan dengan membuat aplikasi \textit{spreadsheet} tersebut berbasis \textit{web}. Aspek-aspek aplikasi \textit{web} yang perlu diperhatikan dalam membangun aplikasi \textit{spreadsheet} adalah:
 \begin{enumerate}
@@ -33,7 +33,25 @@ Berdasarkan pada Subbab \ref{KesalahanPenggunaan}, terdapat dua jenis tipe kesal
 	Kesalahan kuantitatif merupakan kesalahan yang menyebabkan hasil perhitungan menjadi salah atau tidak valid. Contoh kesalahan jenis ini yang sering terjadi adalah kesalahan mekanikal dimana pengguna salah memasukan data yang tidak sesuai dengan konstrain yang ada. Hal ini dapat diatasi dengan adanya validasi sebelum data diterima. 
 \end{enumerate}
 
-Dari kedua tipe tersebut, pada Tugas Akhir ini akan lebih ditekankan kepada kesalahan kuantitatif yang bertipe kesalahan mekanikal dengan memanfaatkan teknik validasi pada masukan.
+Dari kedua tipe tersebut, pada Tugas Akhir ini akan lebih ditekankan kepada kesalahan kuantitatif yang bertipe kesalahan mekanikal dengan memanfaatkan teknik validasi pada masukan. 
+
+Dengan menggunakan aplikasi ini, terdapat perubahan alur penggunaan \textit{spreadsheet}. Gambar dibawah ini merupakan alur penggunaan aplikasi \textit{spreadsheet} biasa pada Gambar \ref{GambarWorkflowBiasa} dan aplikasi \textit{spreadsheet} yang dibangun pada Tugas Akhir ini pada Gambar \ref{GambarWorkflow}. 
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=0.7\textwidth]{resources/chapter-3-workflow-biasa.jpg}
+	    \caption{Alur Kerja Aplikasi \textit{Spreadsheet} Biasa}
+		\label{GambarWorkflowBiasa}
+	\end{figure}
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=1\textwidth]{resources/chapter-3-workflow.jpg}
+	    \caption{Alur Kerja Aplikasi \textit{Spreadsheet} yang Akan Dibuat}
+		\label{GambarWorkflow}
+	\end{figure}
+
+Dapat dilihat bahwa terdapat proses tambahan yang dilakukan pada aplikasi yang akan dibuat. Proses tersebut terdiri dari pencarian bagian label dan data serta proses validasi. Hasil dari identifikasi label dan data akan dijadikan \textit{tuple} relasional yang disimpan dalam bentuk basis data. 
 
 \section{Isu Penting pada Aplikasi \textit{Spreadsheet}}
 Di dalam membangun aplikasi \textit{spreadsheet} tersebut, terdapat beberapa isu yang harus ditangani yakni:
@@ -118,12 +136,12 @@ Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spread
 	\textit{File spreadsheet} yang dimaksud adalah data struktural seperti \textit{value} pada suatu sel, \textit{properties} suatu sel seperti warna, \textit{border}, dan \textit{alignment}, serta hal-hal lain yang berhubungan dengan bagaimana suatu \textit{file spreadsheet} ditampilkan pada aplikasi. Tipe penyimpanan yang dapat digunakan untuk menampung data ini adalah NoSQL karena tipe ini cocok untuk menangani data yang kurang terstruktur seperti \textit{file spreadsheet} yang struktur penempatan datanya berbeda tiap pengguna. Cara penyimpanan yang cocok untuk menangani struktur ini adalah \textit{document based} atau \textit{key-value}.
 
 	\item Penyimpanan Data dan Label \\
-	Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi \textit{tuple} relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple} yang diilustrasikan oleh Chen tahun 2013 pada \textit{paper} mengenai Senbazuru.
+	Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi \textit{tuple} relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple}.
 
 	\begin{figure}[htb]
 	    \centering
 	    \includegraphics[width=0.6\textwidth]{resources/chapter-3-relational-tuple.png}
-	    \caption{Contoh \textit{Tuple} Relasional \citep{Chen2013}}
+	    \caption{Contoh \textit{Tuple} Relasional}
 		\label{RelationalTuple}
 	\end{figure}
 
@@ -131,11 +149,4 @@ Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spread
 \end{enumerate}
 
 \section{Rencana Tindak Lanjut}
-Berdasarkan analisa yang telah dijelaskan pada bab-bab sebelumnya, pada Tugas Akhir ini akan dibangun aplikasi \textit{spreadsheet} dengan menggunakan EtherCalc sebagai teknologi utama. Pada Subbab \ref{TeknologiSpreadsheet} telah dijelaskan bahwa EtherCalc merupakan perangkat lunak \textit{spreadsheet} yang \textit{open source} dan memiliki kemampuan kolaborasi didalam penggunaannya. Sehingga dengan menggunakan EtherCalc, aspek-aspek yang telah dijelaskan pada Subbab \ref{AspekAplikasi} yang harus ada didalam pembangunan \textit{spreadsheet} ini sudah dapat dipenuhi. Pada Tugas Akhir ini akan dilakukan pengembangan dari EtherCalc yang berupa identifikasi label dan data, penanganan validasi data dan keterhubungannya dengan basis data relasional. Alur kerja dari aplikasi \textit{spreadsheet} yang akan dibuat dapat dilihat pada Gambar \ref{GambarWorkflow}. 
-
-	\begin{figure}[htb]
-	    \centering
-	    \includegraphics[width=1\textwidth]{resources/chapter-3-workflow.jpg}
-	    \caption{Alur Kerja Aplikasi \textit{Spreadsheet}}
-		\label{GambarWorkflow}
-	\end{figure}
+Berdasarkan analisa yang telah dijelaskan pada bab-bab sebelumnya, pada Tugas Akhir ini akan dibangun aplikasi \textit{spreadsheet} dengan menggunakan EtherCalc sebagai teknologi utama. Pada Subbab \ref{TeknologiSpreadsheet} telah dijelaskan bahwa EtherCalc merupakan perangkat lunak \textit{spreadsheet} yang \textit{open source} dan memiliki kemampuan kolaborasi didalam penggunaannya. Sehingga dengan menggunakan EtherCalc, aspek-aspek yang telah dijelaskan pada Subbab \ref{AspekAplikasi} yang harus ada didalam pembangunan \textit{spreadsheet} ini sudah dapat dipenuhi. Pada Tugas Akhir ini akan dilakukan pengembangan dari EtherCalc yang berupa identifikasi label dan data, penanganan validasi data dan keterhubungannya dengan basis data relasional. Alur kerja dari aplikasi \textit{spreadsheet} yang akan dibuat dapat dilihat pada Gambar \ref{GambarWorkflow} pada Subbab \ref{AspekAplikasi}.

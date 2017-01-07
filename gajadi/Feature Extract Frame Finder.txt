@@ -1,0 +1,34 @@
+
+    Untuk menambah akurasi, dapat dilakukan ekstraksi fitur terhadap baris-baris yang diidentifikasi untuk memperkuat dugaan terhadap suatu label. Fitur yang digunakan dapat dibagi menjadi dua yakni: \textit{layout features} dan \textit{textual features}. Fitur-fitur tersebut dapat dilihat pada Tabel \ref{FeatureExtractionFF}.
+
+    \begin{table}[htb]
+        \caption{Ekstraksi fitur pada proses \textit{frame finder}}
+        \label{FeatureExtractionFF}
+        \begin{center}
+            \begin{tabular}{ | l | l | }
+                \hline
+                & \textit{Layout Features} \\ \hline
+                1 & Sel memiliki huruf tebal \\
+                2 & Sel berada diujung kiri \\
+                3 & Sel berada diujung kanan \\
+                4 & Sel memiliki indentasi \\
+                5 & Sel diatur rata tengah \\
+                6 & Sel diatur rata kiri \\
+                7 & Sel digabung (\texit{merged}) \\
+                8 & Hanya punya satu kolom \\
+                \hline
+                & \textit{Textual Features} \\ \hline
+                1 & Memiliki tanda titik dua \\
+                2 & Memiliki tanda baca \\
+                3 & Jumlah kata dalam sel > 40 \\
+                4 & Rasio angka pada sel terhadap tahun > 0.6 \\
+                5 & Baris kosong \\
+                6 & Semua kata berhuruf kecil \\
+                7 & Semua kata berhuruf besar \\
+                8 & Semua kata diawali huruf besar \\
+                9 & Rasio sel berangka > 0.6 \\
+                10 & Kata diawali dengan "tabel" \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}

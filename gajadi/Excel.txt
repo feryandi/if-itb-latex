@@ -1,0 +1,23 @@
+Hingga Excel 2010, perangkat lunak ini memiliki beberapa keterbatasan seperti yang dapat dilihat pada Tabel \ref{KeterbatasanExcel}.
+
+    \begin{table}[htb]
+        \caption{Keterbatasan pada Microsoft Excel 2010 hingga versi terbaru}
+        \label{KeterbatasanExcel}
+        \begin{center}
+            \begin{tabular}{ | l | c | }
+                \hline
+                Fitur & Batas \\ \hline
+                Ukuran \textit{worksheet} & 1.048.576 baris dan 16.384 kolom \\
+                Panjang kolom & 255 karakter \\
+                Tinggi baris & 409 poin \\
+                Jumlah format atau \textit{style} sel unik & 64.000 \\
+                \textit{Hyperlink} pada \textit{worksheet} & 66.530 \textit{hyperlink} \\
+                Tingkat presisi angka & 15 digit \\
+                Panjang formula & 8.192 karakter \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+
+    Fitur-fitur yang ada pada Microsoft Excel terdiri dari fitur dasar yang tersedia pada \textit{spreadsheet} pada umumnya seperti perhitungan matematika, pengurutan dan penyaringan data, serta visualisasi data. Selain fitur dasar tersebut, terdapat pula fitur seperti \textit{import} dan \textit{export} data dari basis data. Dengan fitur ini, pengguna dapat mengambil data dari basis data dan menampilkannya dalam bentuk tabel sederhana serta memasukannya kembali ke basis data. Untuk mempermudah ekstraksi informasi, terdapat juga fitur \textit{pivot table} yang dapat mengolah banyak data menjadi informasi yang diinginkan \parencite{MSExcelSupport}. 

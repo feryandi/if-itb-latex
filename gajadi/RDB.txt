@@ -1,0 +1,55 @@
+
+
+\section{Mekanisme Penyimpanan Data}
+Jelasin disini alternatif yang mungkin sebagai penyimpanan data buat hasil dari inputan lewat spreadsheet
+Juga jelasin kenapa harus menggunakan basisdata buat penyimpanan
+mungkin bisa ditulis dan dijelaskan di data governance???? 
+masih bingung buat ngehubunginnnya sih :((((
+
+
+\subsection{Basis Data Relasional}
+Basisdata relasional merupakan sebuah basisdata digital yang berbasiskan pada \textit{paper} yang ditulis oleh E. F. Codd pada tahun 1970. Pada basisdata relasional, model data diatur kedalam bentuk tabel atau relasi yang terdiri dari baris dan kolom, dengan sebuah kunci (\textit{key}) unik untuk setiap barisnya. Sebuah tabel mengambarkan koleksi objek atau relasi yang memiliki kesamaan jenis atau sifat dimana setiap kolomnya dapat mengambarkan suatu objek atau relasi yang biasa disebut sebagai \textit{record} \parencite{codd1970relational, OracleRDB}.
+
+    \subsubsection{Struktur Basis Data Relasional}
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{resources/chapter-2-relational-db.png}
+        \caption{Ilustrasi basisdata relasional}
+        \label{IlustrasiRDB}
+    \end{figure}
+    E. F. Codd mendefinisikan basisdata relasional dapat dijelaskan secara sederhana menggunakan representasi tabel atau \textit{array}. Secara terminologi, tabel disebut juga sebagai relasi dan merupakan kumpulan \textit{tuple} yang memiliki atribut yang sama. Atribut direpresentasikan sebagai kolom sedangkan \textit{tuple} direpresentasikan sebagai baris. Gambar \ref{IlustrasiRDB} merupakan ilustrasi dari sebuah tabel pada basisdata relasional.
+
+    Selain terminologi tersebut, tabel atau \textit{array} dapat dikatakan sebuah data yang relasional jika dapat memenuhi beberapa sifat berikut:
+
+    \begin{enumerate}
+        \item Setiap baris merepresentasikan sebuah \textit{tuple} sejumlah \textit{n} relasi R
+        \item Keterurutan baris tidak perlu diperhatikan (\textit{immaterial})
+        \item Setiap baris harus berbeda satu dengan yang lainnya
+        \item Keterurutan kolom perlu diperhatikan sesuai dengan domain yang dimodelkan
+        \item Setiap kolom diberikan label yang sesuai dengan nama domain yang dimodelkan
+    \end{enumerate}
+
+    Sebagai contoh, pada Tabel \ref{ContohTabel} dapat dilihat merupakan contoh sebuah tabel bernama \textit{mahasiswa} dengan 3 derajat relasi yang memiliki atribut NIM, nama, dan jurusan seorang mahasiswa. Setiap baris merupakan kombinasi data yang unik dan tidak berulang.
+
+    \begin{table}[htb]
+        \caption{Sebuah relasi pada domain mahasiswa}
+        \label{ContohTabel}
+        \begin{center}
+            \begin{tabular}{ l c c c }
+                \hline
+                mahasiswa & NIM & nama & jurusan \\
+                & 13513042 & Feryandi N. & 135 \\
+                & 13613006 & Dani Y. P. & 134 \\
+                & 18013024 & Haidar A. D. & 180 \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    Konsep lain yang juga dijelaskan oleh Codd adalah adanya \textit{primary key} dan \textit{foreign key}. \textit{Primary key} adalah sebuah nilai unik yang dimiliki oleh sebuah \textit{tuple}, sehingga \textit{tuple} tersebut dapat diidentifikasi secara unik hanya dengan menggunakan nilai tersebut. Pada pemodelan data, relasi satu dengan yang lainnya dapat saling berhubungan hal dapat direpresentasikan menggunakan \textit{foreign key}. Sebuah nilai dapat dikatakan \textit{foreign key} jika nilai tersebut bukanlah merupakan \textit{primary key} pada relasi R, tetapi merupakan \textit{primary key} pada relasi S lainnya \parencite{codd1970relational}. Pada Tabel \ref{ContohTabel}, NIM merupakan \textit{primary key} dari relasi tersebut dan jurusan merupakan \textit{foreign key} yang merujuk ke \textit{primary key} pada tabel relasi lain.
+
+    \subsubsection{\textit{Relational Database Management System (RDBMS)}}
+
+    \subsubsection{Sifat Transaksi pada RDBMS}    
+
+\subsection{Basis Data Non-Relational (NoSQL)}

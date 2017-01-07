@@ -186,7 +186,7 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
 
     \subsubsection{Arsitektur Sistem}
 
-    \textit{Spreadsheet Database Maanagement System} (SSDBMS) yang dikembangkan pada prototipe ini memiliki tiga proses utama yakni: \textit{search}, \textit{extract}, dan \textit{query}. Proses pencarian dilakukan terhadap repositori \textit{spreadsheet} yang ada di internet, lalu data \textit{spreadsheet} tersebut diekstraksi dan dijadikan tabel relasional, dan setelah itu pengguna dapat melakukan \textit{query} terhadap tabel yang telah dibentuk.
+    \textit{Spreadsheet Database Management System} (SSDBMS) yang dikembangkan pada prototipe ini memiliki tiga proses utama yakni: \textit{search}, \textit{extract}, dan \textit{query}. Proses pencarian dilakukan terhadap repositori \textit{spreadsheet} yang ada di internet, lalu data \textit{spreadsheet} tersebut diekstraksi dan dijadikan tabel relasional, dan setelah itu pengguna dapat melakukan \textit{query} terhadap tabel yang telah dibentuk.
 
         \paragraph{\textit{Search}}
         Komponen pencarian ini memudahkan pengguna untuk menemukan dataset yang tepat menggunakan bantuan internet. Saat prototipe ini dikembangkan, Senbazuru telah mengindeks 1800 \textit{spreadsheet} yang didapatkan dari U.S. Census Bureau. Pengindeksan menggunakan bantuan \textit{library} Python yakni xlrd untuk mengekstraksi teks dari sel lalu menggunakan Apache Lucene untuk melakukan indeks pada teks. Pencarian menggunakan metode \textit{term frequency–inverse document frequency} (TF-IDF) untuk mendapatkan relevansi dokumen.
