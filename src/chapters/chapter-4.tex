@@ -1,13 +1,116 @@
-\chapter{Evaluasi dan Pembahasan}
+\chapter{Rancangan, Implementasi, dan Pengujian}
 
-\section{Tujuan Pengujian}
-\blindtext
+\section{Perancangan Perangkat Lunak}
+Subbab perncangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebutuhan fungsional dan non-fungsional, desain perangkat lunak, serta interaksinya.
 
-\section{Skenario Pengujian}
-\blindtext
+	\subsection{Deskripsi Umum Aplikasi}
+	Aplikasi pengumpulan data yang dibuat merupakan pengembangan terhadap aplikasi \textit{spreadsheet} kolaboratif yang sudah ada sebelumnya yakni EtherCalc. Aplikasi yang ditambahkan ini yang akan melakukan pengaturan koneksi ke basis data. Saat pengguna menginginkan penyimpanan data ke dalam basis data yang dituju, aplikasi ini akan melakukan pencarian bagian label dan data dan melakukan validasi masukan sebelum memasukkan data ke dalam basis data. 
 
-\section{Hasil Pengujian}
-\blindtext
+	\subsection{Spesifikasi Kebutuhan}
+	Pada subbab ini akan dipaparkan \textit{use case} aplikasi yang akan dibuat serta kebutuhan fungsional dan non-fungsional dari aplikasi. Kasus penggunaan oleh pengguna diberi ID dengan format UC-XX dengan UC menyatakan \textit{use case} dan XX menyatakan nomor. Pengguna adalah pihak yang menggunakan aplikasi \textit{spreadsheet} yang sudah ditambahkan fitur pengumpulan data. Kasus penggunaan oleh pengguna dijelaskan pada Tabel \ref{KebutuhanPengguna}.
 
-\section{Pembahasan}
-\blindtext
+	\begin{longtable}{ | p{2cm} | p{10cm} | }
+	    \caption{Kasus Penggunaan oleh Pengguna}
+	    \label{KebutuhanPengguna}\\ \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    UC-01 & Pengguna dapat menentukan basis data tujuan dengan konfigurasi basis data yang diinginkan. \\ \hline
+	    UC-02 & Pengguna dapat memuat \textit{spreadsheet} serta menyimpan data ke dalam basis data saat dibutuhkan. \\ \hline
+	    UC-03 & Pengguna dapat memperbaiki atribut yang terdeteksi secara otomatis. \\ \hline
+	    UC-04 & Pengguna dapat memberikan batasan dan validasi pada suatu domain data. \\ \hline
+	\end{longtable}
+
+	Berdasarkan kasus penggunaan di atas, dirancang kebutuhan fungsional perangkat lunak yang diberi ID dengan format FR-XX dengan FR merupakan singkatan dari \textit{functional requirement} dan XX menyatakan nomor kebutuhan. Kebutuhan fungsional dijelaskan pada Tabel \ref{KebutuhanFungsional}.
+
+	\begin{longtable}{ | p{2cm} | p{6cm} | p{4cm} | }
+	    \caption{Kebutuhan Fungsional Aplikasi}
+	    \label{KebutuhanFungsional}\\ \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \endhead
+	    FR-01 & Aplikasi dapat melakukan koneksi kepada basis data yang ditentukan oleh pengguna melalui data masukan berupa \textit{host}, \textit{port}, \textit{username}, \textit{password}, dan \textit{database} dari basis data yang dituju. & UC-01 \\ \hline
+	    FR-02 & Aplikasi dapat melakukan perintah basis data kepada basis data yang dituju seperti CREATE, ALTER, UPDATE, DELETE, INSERT, SELECT dan DROP. & UC-01, UC-02 \\ \hline
+	    FR-03 & Aplikasi menyediakan tombol untuk melakukan \textit{commit} terhadap data yang akan disimpan. & UC-02 \\ \hline
+	    FR-04 & Aplikasi dapat menampilkan hasil identifikasi label dan data & UC-03 \\ \hline
+	    FR-05 & Aplikasi menyediakan fitur bagi pengguna agar dapat mengubah hasil identifikasi label dan data & UC-03 \\ \hline
+	    FR-06 & Aplikasi menyediakan fitur bagi pengguna agar dapat menambahkan batasan masukan pada suatu data & UC-04 \\ \hline
+	    FR-07 & Aplikasi dapat melakukan validasi data masukan sesuai dengan batasan yang diberikan oleh pengguna & UC-04 \\ \hline
+	\end{longtable}
+
+	Selain kebutuhan fungsional, dijabarkan juga kebutuhan non-fungsional yang memiliki ID dengan format NF-XX dengan NF merupakan singkatan dari \textit{non-functional requrirement} dan XX menyatakan nomor. Kebutuhan non-fungsional disajikan pada Tabel \ref{KebutuhanNonfungsional}.
+
+	\begin{longtable}{ | p{2cm} | p{6cm} | p{4cm} | }
+	    \caption{Kebutuhan Non-fungsional Aplikasi}
+	    \label{KebutuhanNonfungsional}\\ \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \endhead
+	    NF-01 & Data masukan pengguna disimpan secara persisten. & UC-01, UC-02 \\ \hline
+	    NF-02 & Aplikasi dapat berjalan diatas aplikasi \textit{spreadsheet} EtherCalc & - \\ \hline
+	\end{longtable}
+
+	\subsection{Kebutuhan Modul} \label{KebutuhanModul}
+	Pembangunan fitur ini diatas aplikasi EtherCalc terdiri dari lima buah modul, yaitu:
+	\begin{enumerate}
+		\item Modul \texttt{player}, bertugas sebagai jembatan antara \textit{front-end} dan \textit{back-end} dari fitur.
+		\item Modul \texttt{db}, bertugas untuk antarmuka baca tulis basis data.
+		\item Modul \texttt{framefinder}, bertugas untuk mendeteksi secara otomatis bagian label dan data pada tabel.
+		\item Modul \texttt{hierarchyfinder}, bertugas untuk mendeteksi secara otomatis tabel-tabel yang ada dalam suatu \textit{sheet}.
+		\item Modul \texttt{checker}, bertugas untuk melakukan pengecekan data sebelum diteruskan ke basis data.
+	\end{enumerate}
+
+	Ketergantungan antar modul dapat dilihat pada Gambar \ref{ModuleDependency}
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=0.6\textwidth]{resources/chapter-4-module-dependecy.png}
+	    \caption{Ketergantungan Antar Modul}
+		\label{ModuleDependency}
+	\end{figure}
+
+	\subsection{Kolaborasi Antar Modul}
+	Proses fitur ini akan dilakukan melalui modul \texttt{player} yang dapat menerima perintah pengguna melalui \textit{front-end}. Selanjutnya modul \texttt{framefinder} akan melakukan pendeteksian label dan data secara otomatis pada masing-masing tabel yang terdapat pada \textit{sheet}. Tabel-tabel tersebut didapatkan melalui modul \texttt{hierarchyfinder}. Selanjutnya, pada saat menerima perintah penyimpanan, modul \texttt{checker} akan dipanggil oleh \texttt{player}. Jika data masukan sudah benar, maka modul \texttt{db} akan melakukan pennyimpanan ke dalam basis data. Kolaborasi antar modul disajikan pada Gambar \ref{ModuleFlow}.
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=0.4\textwidth]{resources/chapter-4-module-flow.png}
+	    \caption{Kolaborasi Antar Modul}
+		\label{ModuleFlow}
+	\end{figure}
+
+
+\section{Implementasi}
+Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab \ref{KebutuhanModul} dengan menggunakan bahasa Javascript, menyesuaikan dengan modul lain yang telah ada pada aplikasi EtherCalc.
+	\subsection{Modul Player}
+	Modul \texttt{player} merupakan modul yang menjembatani masukan pengguna dari yang berasal dari \textit{front-end} sehingga dapat diterima oleh modul yang berada di \textit{back-end}. Modul ini terdiri dari fungsi-fungsi yang dapat dipanggil oleh \textit{front-end} diantaranya:
+	\begin{enumerate}
+		\item Save, melakukan pemanggilan terhadap modul \texttt{checker} dan melakukan penyimpanan ke basis data.
+		\item Scan, melakukan identifikasi tabel melalui pemanggilan modul \texttt{framefinder} yang selanjutnya akan menampilkan hasil identifikasi dan kolom perubahan konfigurasi yang dapat diisi pengguna.
+		\item SaveConfig, melakukan penyimpanan konfigurasi tabel yang dilakukan oleh pengguna.
+		\item Connect, melakukan koneksi ke basis data yang dipilih.
+	\end{enumerate}
+
+	\subsection{Modul DB}
+	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL.
+
+	\subsection{Modul Framefinder}
+	Modul \texttt{framefinder} melakukan pengidentifikasian terhadap tabel yang ada sehingga dapat diketahui baris yang merupakan \textit{header} dan \textit{data}. Implementasi modul ini dilakukan dengan mengikuti implementasi yang dilakukan pada penelitian yang dilakukan oleh Chen \citep{Chen2013}.
+	
+	\subsection{Modul Hierarchyfinder}
+	Modul \texttt{hierarchyfinder} menggunakan algoritma hierarchical clustering untuk dapat mengetahui mana yang merupakan suatu kesatuan tabel pada suatu \textit{sheet}. Modul ini dapat menentukan tabel-tabel yang terdapat pada suatu \textit{sheet} yang selanjutnya akan dilakukan identifikasi label oleh modul \texttt{framefinder}.
+
+	\subsection{Modul Checker}
+	Modul \texttt{checker} memiliki tugas untuk melakukan pengecekan terhadap masukan pengguna pada konfigurasi serta melakukan pengecekan kesesuaian nilai masukan berdasarkan tipe, \textit{range}, serta relasi yang ditentukan oleh pengguna. Jika seluruh kriteria telah dipenuhi, maka modul ini akan memanggil modul \texttt{db} untuk melakukan penyimpanan data.
+
+% \section{Pengujian}
+% \blindtext
+
+% \section{Pembahasan}
+% \blindtext
