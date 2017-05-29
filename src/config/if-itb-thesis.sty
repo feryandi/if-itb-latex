@@ -44,6 +44,7 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{enumitem}
+\usepackage{listings}
 
 \captionsetup[longtable]{skip=0.1em}
 
@@ -54,6 +55,23 @@
 
 % Line satu setengah spasi
 \renewcommand{\baselinestretch}{1.5}
+
+% Kode lebih kecil
+\let\OldTexttt\texttt
+\renewcommand{\texttt}[1]{\OldTexttt{\small{#1}}}
+
+% Listing Code thingy
+\lstset{frame=tb,
+  breaklines=true,
+  showstringspaces=false,
+  columns=flexible,
+  numbers=none,
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  tabsize=3
+}
+\renewcommand{\lstlistingname}{Kode}
+\newcommand{\listingsfont}{\ttfamily}
 
 % Add comma between Author and Year
 %\renewcommand*{\nameyeardelim}{\addcomma\space}
