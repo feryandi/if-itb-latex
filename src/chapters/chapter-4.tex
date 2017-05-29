@@ -180,10 +180,179 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	Hasil dari pengelompokan ini berupa kelompok-kelompok tabel pada \textit{spreadsheet}. Setiap tabel yang teridentifikasi selanjutnya akan dicari bagian \textit{header} dan \textit{label} menggunakan modul \texttt{framefinder}.
 
 	\subsection{Modul Framefinder}
-	Modul \texttt{framefinder} melakukan pengidentifikasian terhadap tabel yang ada sehingga dapat diketahui baris yang merupakan \textit{header} dan \textit{data}. Implementasi modul ini dilakukan dengan mengikuti implementasi yang dilakukan pada penelitian yang dilakukan oleh Chen \citep{Chen2013}. (Jelasin detil dikit implementasinya)
+	Modul \texttt{framefinder} melakukan pengidentifikasian terhadap tabel yang ada sehingga dapat diketahui baris yang merupakan \textit{header} dan \textit{data}. Implementasi modul ini dilakukan dengan mengikuti implementasi yang dilakukan pada penelitian yang dilakukan oleh Chen \citep{Chen2013}. Modul ini terdiri dari 5 kelas yang dapat dilihat pada Tabel \ref{KelasModulFF}.
+
+	\begin{longtable}{ | p{3cm} | p{10cm} | }
+	    \caption{Kelas pada Modul \texttt{FrameFinder}}
+	    \label{KelasModulFF}\\ \hline
+	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    LoadSheet & Kelas ini berfungsi sebagai kelas yang melakukan pengambilan data dan konversi sel dan \textit{sheet} pada \textit{spreadsheet} ke dalam bentuk kelas-kelas yang ada pada modul ini.\\ \hline
+	    MySheet & Merupakan kelas bentukan yang merepresentasikan \textit{sheet} pada \textit{spreadsheet} yang dipilih.\\ \hline
+	    MyCell & Merupakan kelas untuk merepresentasikan \textit{properties} yang ada pada sel pada \textit{sheet} yang dipilih.\\ \hline
+	    FeatureSheetRow & Melakukan ekstraksi fitur-fitur yang terdapat pada suatu \textit{sheet} pada \textit{spreadsheet}.\\ \hline
+	    PredictSheetRows & Kelas ini digunakan untuk menghasilkan file dalam format yang dapat dibaca oleh algoritma Conditional Random Field (CRF) dari fitur-fitur yang telah diekstraksi pada \textit{sheet}.\\ \hline
+	\end{longtable}
+
+	\subsubsection{Kelas LoadSheet}
+	Kelas ini melakukan pengambilan data pada \textit{spreadsheet} dengan cara membaca file \textit{spreadsheet} dan membentuk representasi kelas yang dibutuhkan. Kelas ini memiliki satu atribut utama yakni cmysheet yang merupakan kelas MySheet. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiLoadSheet}.
+
+	\begin{longtable}{ | p{4cm} | p{9cm} | }
+	    \caption{Fungsi pada Kelas LoadSheet}
+	    \label{FungsiLoadSheet}\\ \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    loadSheetDict & Fungsi ini merupakan fungsi utama yang bertugas untuk membuat representasi \textit{spreadsheet} yang diterima ke dalam kelas MySheet.\\ \hline
+	    getValueType & Untuk mendapatkan tipe representasi data yang diberikan oleh \textit{spreadsheet}. Contoh: tanggal, nominal uang, desimal, dan lain-lain.\\ \hline
+	    getDataType & Untuk mendapatkan tipe data primitif pada suatu sel.\\ \hline
+	    featureIndentation & Digunakan untuk mengecek keberadaan \textit{property} \textit{indentation} pada sel.\\ \hline
+	    featureAlignStyle & Digunakan untuk mengecek keberadaan \textit{property} \textit{align} pada sel\\ \hline
+	    featureFontBold & Digunakan untuk mengecek keberadaan \textit{property} \textit{bold} pada sel\\ \hline
+	    featureFontHeight & Digunakan untuk mengecek keberadaan \textit{property} \textit{height} pada sel\\ \hline
+	    featureFontUnderline & Digunakan untuk mengecek keberadaan \textit{property} \textit{underline} pada sel\\ \hline
+	    featureFontItalic & Digunakan untuk mengecek keberadaan \textit{property} \textit{italic} pada sel\\ \hline
+	    featureFontBgcolor & Digunakan untuk mengecek keberadaan \textit{property} \textit{background color} pada sel\\ \hline
+	    fFeatureBorderStyle & Digunakan untuk mengecek keberadaan \textit{property} \textit{border} pada sel.\\ \hline
+	\end{longtable}
+
+	\subsubsection{Kelas MySheet}
+	Kelas MySheet merupakan kelas yang merepresentasikan \textit{sheet} pada \textit{spreadsheet} yang dipilih. Kelas ini memiliki 4 atribut yang dapat dilihat pada Tabel \ref{AtributMySheet}.
+
+	\begin{longtable}{ | p{3cm} | p{8cm} | }
+	    \caption{Atribut pada Kelas MySheet}
+	    \label{AtributMySheet}\\ \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    sheetdict & Merupakan representasi kumpulan sel-sel pada suatu \textit{sheet}. Tiap sel direpresentasikan dalam bentuk kelas MyCell.\\ \hline
+	    mergerowdict & Merupakan kumpulan sel-sel yang digabungkan.\\ \hline
+	    maxcolnum & Nilai kolom terbesar pada sel.\\ \hline
+	    maxrownum & Nilai baris terbesar pada sel.\\ \hline
+	\end{longtable}
+
+	Pada kelas ini terdapat 3 fungsi yang dapat dilihat pada Tabel \ref{FungsiMySheet}.
+
+	\begin{longtable}{ | p{4cm} | p{9cm} | }
+	    \caption{Fungsi pada Kelas MySheet}
+	    \label{FungsiMySheet}\\ \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    getCellsArray & Digunakan untuk mendapatkan seluruh refresentasi sel pada kelas ini dalam bentuk \textit{array}.\\ \hline
+	    addMergeCell & Digunakan pada saat terdapat sel yang digabungkan. Sel tersebut akan dimasukkan ke dalam daftar \textit{merged cells}.\\ \hline
+	    insertCell & Menambahkan sel ke dalam kelas ini. Sel yang ditambahkan akan direpresentasikan dalam bentuk kelas MyCell.\\ \hline
+	\end{longtable}
+
+	\subsubsection{Kelas MyCell}
+	Kelas MyCell merupakan kelas yang merepresentasikan sel pada suatu \textit{sheet}. Kelas ini memiliki 17 atribut yang dapat dilihat pada Tabel \ref{AtributMyCell}.
+
+	\begin{longtable}{ | p{3cm} | p{8cm} | }
+	    \caption{Atribut pada Kelas MyCell}
+	    \label{AtributMyCell}\\ \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+	    x & Merupakan letak sel pada koordinat X.\\ \hline
+	    y & Merupakan letak sel pada koordinat Y. \\ \hline
+	    w & Nilai lebar sel.\\ \hline
+	    h & Nilai tinggi sel.\\ \hline
+	    cstr & Isi sel dalam bentuk \textit{string}.\\ \hline
+	    mtype & Tipe konten yang ada di dalam sel.\\ \hline
+	    indents & Nilai indentasi jika terdapat indentasi pada konten.\\ \hline
+	    centeralign & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{align} sel merupakan rata tengah atau tidak.\\ \hline
+	    leftalign & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{align} sel merupakan rata kiri atau tidak.\\ \hline
+	    rightalign & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{align} sel merupakan rata kanan atau tidak.\\ \hline
+	    bottomborder & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{bottom border} ada atau tidak.\\ \hline
+	    upperborder & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{upper border} ada atau tidak.\\ \hline
+	    leftborder & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{left border} ada atau tidak.\\ \hline
+	    rightborder & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{right border} ada atau tidak.\\ \hline
+	    bold & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{bold} ada atau tidak.\\ \hline
+	    italic & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{italic} ada atau tidak.\\ \hline
+	    underline & Bernilai \textit{true} atau \textit{false} bergantung pada \textit{property} \textit{underline} ada atau tidak.\\ \hline
+	\end{longtable}
+
+	% Pada kelas ini terdapat 3 fungsi yang dapat dilihat pada Tabel \ref{FungsiMyCell}.
+
+	% \begin{longtable}{ | p{4cm} | p{9cm} | }
+	%     \caption{Fungsi pada Kelas MyCell}
+	%     \label{FungsiMyCell}\\ \hline
+	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	%     \endfirsthead
+	%     \hline
+	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	%     \endhead
+	%     writestrAlignstyle & Mendapatkan representasi \textit{string} untuk \textit{align} pada sel. Digunakan pada saat penulisan ke dalam file untuk dibaca pada algoritma CRF.\\ \hline
+	%     writestrBorderstyle & Mendapatkan representasi \textit{string} untuk \textit{border} pada sel. Digunakan pada saat penulisan ke dalam file untuk dibaca pada algoritma CRF.\\ \hline
+	%     getIndents & Digunakan untuk menentukan nilai atribut indentasi dengan menghitung seberapa dalam indentasi pada konten.\\ \hline
+	% \end{longtable}
+
+	\subsubsection{Kelas FeatureSheetRow}
+	Kelas ini bertugas untuk melakukan ekstraksi fitur pada tiap baris sel yang telah dikumpulkan dari \textit{spreadsheet}. Fitur-fitur yang diambil untuk setiap barisnya dapat dilihat pada Tabel \ref{FiturEkstraksi}.
+
+	\begin{longtable}{ | p{10cm} | }
+	    \caption{Fitur yang Diambil dari Sel}
+	    \label{FiturEkstraksi}\\ \hline
+	    \centering\bfseries{Fitur} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Fitur} \tabularnewline \hline
+	    \endhead
+	    Baris memiliki sel yang digabung \\ \hline
+	    Sel pada baris mencapai kolom paling kanan \\ \hline
+	    Sel pada baris mencapai kolom paling kiri \\ \hline
+	    Baris hanya memiliki 1 kolom \\ \hline
+	    Baris memiliki sel rata tengah \\ \hline
+	    Baris memiliki sel rata kiri \\ \hline
+	    Baris memiliki sel yang ditebalkan (\textit{bold}) \\ \hline
+	    Baris memiliki sel berindentasi \\ \hline
+	    Baris memiliki sel berisi kata `Table` \\ \hline
+	    Baris memiliki sel berisi kata berawalan tanda baca \\ \hline
+	    Baris memiliki sel dengan presentase angka tinggi \\ \hline
+	    Baris memiliki sel berisi huruf besar seluruhnya \\ \hline
+	    Baris memiliki sel berisi kata dengan awal huruf besar \\ \hline
+	    Baris memiliki sel berisi kata dengan awal huruf kecil \\ \hline
+	    Baris memiliki persentase sel memiliki isi tinggi \\ \hline
+	    Baris memiliki persentase sel memiliki isi berupa kata tinggi \\ \hline
+	    Baris memiliki sel berisi karakter spesial \\ \hline
+	    Baris memiliki sel berisi karakter titik koma \\ \hline
+	    Baris memiliki jumlah sel berisi tahun tinggi \\ \hline
+	    Baris memiliki persentase sel berisi tahun tinggi \\ \hline
+	    Baris memiliki jumlah sel berisi kata dengan huruf yang banyak tinggi \\ \hline
+	\end{longtable}
+
+	Fitur-fitur diatas mengikuti fitur yang didefinisikan pada penelitian yang dilakukan oleh Chen \citep{Chen2013}. Fitur-fitur ini akan digunakan dalam perhitungan algoritma CRF.
+
+	\subsubsection{Kelas PredictSheetRows}
+	Kelas PredictSheetRows memiliki tugas untuk melakukan konversi fitur-fitur yang telah didapatkan pada kelas FeatureSheetRow menjadi bentuk file teks yang dapat dibaca oleh program CRFPP yang akan menjalankan algoritma CRF pada file tersebut. Contoh file yang dihasilkan oleh kelas ini dapat dilihat pada Kode \ref{KodeFile}.\\
+
+	\begin{lstlisting}[frame=single, basicstyle=\linespread{1}\scriptsize\listingsfont, captionpos=b, caption={File Berisikan Fitur Tiap Baris}, label=KodeFile]
+	DeadlineTA.xls____Sheet1____1 1 0 1 0 0 1 0 1 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 Header
+	DeadlineTA.xls____Sheet1____2 0 1 1 0 0 1 0 0 0 0 0 1 0 0 1 0 1 1 0 0 0 0 0 Data
+	DeadlineTA.xls____Sheet1____3 0 1 1 0 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 Data
+	DeadlineTA.xls____Sheet1____4 0 1 1 0 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 Data
+	DeadlineTA.xls____Sheet1____5 0 1 1 0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 Data
+	\end{lstlisting}
+
+	File tersebut ditulis dalam format \texttt{namafile\_namasheet\_bariske [fitur-fitur pada baris] label}. File ini yang akan diolah oleh algoritma dan digunakan untuk memprediksi label dari setiap baris tersebut.
+
+	(Jangan lupa gimana cara manggil si aplikasi CRF, walaupun diimplementasi ga dimodul ini banget)
 
 	\subsection{Modul Checker}
 	Modul \texttt{checker} memiliki tugas untuk melakukan pengecekan terhadap masukan pengguna pada konfigurasi serta melakukan pengecekan kesesuaian nilai masukan berdasarkan tipe, \textit{range}, serta relasi yang ditentukan oleh pengguna. Jika seluruh kriteria telah dipenuhi, maka modul ini akan memanggil modul \texttt{db} untuk melakukan penyimpanan data. (Jelasin checkingnya)
+
+	\subsection{Antarmuka}
 
 \section{Pengujian}
 % \blindtext
