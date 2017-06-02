@@ -107,6 +107,8 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\end{longtable}
 	(( jelasin yang menerima input pengguna pake script ))
 
+	(( jelasin alur pemanggilan kelas-kelas / API ))
+
 	\subsection{Modul DB}
 	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL. Modul ini hanya terdiri dari satu kelas utama yakni kelas \texttt{db}. Kelas ini memiliki tugas sebagai penghubung aplikasi ke basis data MySQL yang dipilih. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiModulDB}.
 
@@ -345,9 +347,7 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	DeadlineTA.xls____Sheet1____5 0 1 1 0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 Data
 	\end{lstlisting}
 
-	File tersebut ditulis dalam format \texttt{namafile\_namasheet\_bariske [fitur-fitur pada baris] label}. File ini yang akan diolah oleh algoritma dan digunakan untuk memprediksi label dari setiap baris tersebut.
-
-	(Jangan lupa gimana cara manggil si aplikasi CRF, walaupun diimplementasi ga dimodul ini banget)
+	File tersebut ditulis dalam format \texttt{namafile\_namasheet\_bariske [fitur-fitur pada baris] label}. File ini yang akan diolah oleh algoritma dan digunakan untuk memprediksi label dari setiap baris tersebut. Algoritma yang digunakan adalah Conditional Random Field dan menggunakan aplikasi CRFPP yang berjalan eksternal diluar kelas ini untuk membaca file, membaca model, serta memprediski label.
 
 	\subsection{Modul Checker}
 	Modul \texttt{checker} memiliki tugas untuk melakukan pengecekan terhadap masukan pengguna pada konfigurasi serta melakukan pengecekan kesesuaian nilai masukan berdasarkan tipe, \textit{range}, serta relasi yang ditentukan oleh pengguna. Jika seluruh kriteria telah dipenuhi, maka modul ini akan memanggil modul \texttt{db} untuk melakukan penyimpanan data. (Jelasin checkingnya)
