@@ -25,7 +25,7 @@ Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan 
 
     LibreOffice Calc memiliki berbagai kemampuan yang dimiliki oleh kebanyakan \textit{spreadsheet}. Didalam melakukan penyimpanan file, Calc menggunakan format OpenDocument. Format OpenDocument dikembangkan oleh Organization for the Advancement of Structured Information Standards (OASIS) yang bertujuan untuk membentuk \textit{open standard} bagi \textit{office document} \citep{OpenDocument}. 
 
-    \subsubsection{EtherCalc}
+    \subsubsection{EtherCalc} \label{AboutEtherCalc}
     EtherCalc merupakan perangkat lunak \textit{spreadsheet online} yang \textit{open-source} yang dikembangkan oleh Audrey Tang. EtherCalc merupakan pengembangan yang didasarkan dari perangkat lunak serupa yakni WikiCalc dan SocialCalc. WikiCalc merupakan aplikasi \textit{spreadsheet} yang mengandalkan komputasi server untuk dapat berkolaborasi, sedangkan SocialCalc merupakan aplikasi \textit{spreadsheet} yang menggunakan kemampuan javascript untuk melakukan komputasi pada \textit{client-side}. EtherCalc dikembangkan diatas Node.js dan menggunakan javascript sebagai alat komputasi. Perangkat lunak hanya akan melakukan panggilan ke \textit{server} saat melakukan suatu aksi dan \textit{server} yang bertugas untuk menyimpan kumpulan aksi tersebut agar pengguna lain yang ikut berkolaborasi dapat melihat \textit{spreadsheet} yang sama satu dengan yang lain \citep{EtherCalc}. Gambar \ref{IlustrasiEtherCalc} merupakan gambaran umum cara kerja EtherCalc dalam berkolaborasi.
 
     \begin{figure}[htb]
@@ -75,6 +75,7 @@ Tingkatan nilai untuk dimensi tersebut dapat berbeda pada setiap kasus yang ada.
 Penelitian telah dilakukan oleh Panko \citep{Panko1998} untuk mengetahui banyaknya kesalahan yang terjadi pada pengembangan \textit{spreadsheet} terutama pada sektor bisnis. Dari penelitian ini, didapatkan bahwa 20\% hingga 40\% \textit{spreadsheet} mengandung kesalahan. Pada kasus tertentu, bahkan ditemukan 90\% \textit{spreadsheet} yang diteliti memiliki kesalahan \citep{Journal1996}. 
 
 Penelitian yang dilakukan oleh Panko juga menemukan 88\% dari 113 \textit{spreadsheet} yang diaudit melalui 7 lebih studi yang diteliti. Beberapa hasil yang telah di rangkum oleh penelitian tersebut mengunakan \textit{spreadsheet} yang digunakan di dunia nyata dapat dilihat pada Tabel \ref{StudiKesalahan}.
+  \begin{small}
   \begin{longtable}{ | L{3cm} | R{2cm} | R{2cm} | R{2cm} | L{3cm} | }
     \caption{Studi terhadap Kesalahan pada \textit{Spreadsheet}}
     \label{StudiKesalahan}\\ \hline
@@ -93,6 +94,7 @@ Penelitian yang dilakukan oleh Panko juga menemukan 88\% dari 113 \textit{spread
     Powell, Lawson, and Baker (2007) & 25 & - & 64\%  & Kesalahan perhitungan dan formula \\ \hline
     Powell, Baker \& Lawson (2007) & 50 & - & 86\%  & Kesalahan perhitungan dan formula \\ \hline
   \end{longtable}
+  \end{small}
 Dari kumpulan data diatas, dapat dilihat bahwa didalam pembentukan \textit{spreadsheet} pada bidang bisnis, tidak mungkin terlepas dari kesalahan. Dengan tingginya tingkat kesalahan ini, bisnis dapat mengalami kerugian secara material maupun moral yang cukup besar \citep{EUSPRIGHorrorStories}. Hal ini mengindikasikan bahwa tingginya tingkat kesalahan harus dapat diselesaikan agar tidak terjadi kerugian di dalam penggunaan \textit{spreadsheet} terutama dalam bisnis.
 
 \subsection{Tipe Kesalahan dalam Penggunaan \textit{Spreadsheet}} \label{KesalahanPenggunaan}
