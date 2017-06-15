@@ -1,6 +1,6 @@
 \chapter{Rancangan, Implementasi, dan Pengujian}
 
-\section{Perancangan Perangkat Lunak}
+\section{Perancangan Perangkat Lunak} \label{PerancanganPL}
 Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebutuhan fungsional dan non-fungsional, desain perangkat lunak, serta interaksinya.
 
 	\subsection{Deskripsi Umum Aplikasi}
@@ -62,6 +62,7 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 	    \endhead
 	    NF-01 & Data masukan pengguna disimpan secara persisten. & UC-01, UC-02 \\ \hline
 	    NF-02 & Aplikasi dapat berjalan diatas aplikasi \textit{spreadsheet} EtherCalc. & - \\ \hline
+	    NF-03 & Laporan hasil analisis \textit{response time} dan \textit{storage} yang digunakan. & - \\ \hline
 	\end{longtable}
 	\end{small}
 
@@ -526,30 +527,61 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	Modul ini berinteraksi langsung dengan modul \texttt{player} pada saat akan melakukan penyimpanan \textit{state} tabel konfigurasi dan menampilkan tabel konfigurasi pada \textit{front-end}. Selain itu, modul ini juga berhubungan dengan modul \texttt{db} pada saat melakukan penyimpanan.
 
 \section{Pengujian}
-Pengujian dilakukan 
-\subsection{Tujuan Pengujian}
+Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tidak kepada aplikasi EtherCalc secara keseluruhan. Pada subbab ini akan dibahas kasus-kasus yang diuji dan hasil dari pengujian tersebut.
 
-\subsection{Lingkungan Pengujian}
+	\subsection{Tujuan Pengujian}
+	Pada fitur yang dibangun pada Tugas Akhir ini, pengujian yang dilakukan mempunyai tujuan yaitu:
+	\begin{enumerate}
+		\item Memastikan bahwa fitur yang diimplementasi dapat berjalan dengan baik. Pengujian yang dilakukan akan dikaitkan pada kasus-kasus penggunaan yang dapat terjadi. Dari pengujian akan dilihat kesesuaian hasil sesungguhnya dengan hasil yang diinginkan.
+		\item Menganalisis dampak penambahan dan penggunaan fitur yang diimplementasi dengan mengukur \textit{response time} fitur-fitur yang diimplementasi. Hal ini dilakukan untuk mengetahui pengaruh penambahan fitur terhadap keseluruhan aplikasi.
+		\item Menganalisis penggunaan tambahan penyimpanan yang dibutuhkan untuk menyimpan data pada dua basis data yang berbeda.
+	\end{enumerate}
 
-\subsection{Eksekusi Pengujian}
+	\subsection{Lingkungan Pengujian}
+	Pengujian dilakukan pada komputer dengan spesifikasi pada Tabel \ref{LingPengujian}.
 
-\subsection{Hasil Pengujian}
+	\begin{small}
+	\begin{longtable}{ | p{3cm} | p{9cm} | }
+	    \caption{Spesifikasi Lingkungan Pengujian}
+	    \label{LingPengujian}\\ \hline
+	    \centering\bfseries{Komponen} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Komponen} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \endhead
+		Prosesor & AMD A8-4500M APU with Radeon(tm) HD Graphics 1.90GHz\\ \hline
+		Memori Fisik & 12 GB\\ \hline
+		\textit{Storage} & 50 GB\\ \hline
+		Sistem Operasi & Arch Linux 64-bit\\ \hline
+		Docker version & ???.??\\ \hline
+		\textit{Web browser} & Mozila Firefox ????\\ \hline
+	\end{longtable}
+	\end{small}
 
+	\subsection{Eksekusi Pengujian}
+	Kasus pengujian disesuaikan dengan kebutuhan fungsional dan non-fungsional yang sudah dijelaskan pada Subbab \ref{PerancanganPL}. Setiap kasus uji diberi kode TC-XX dengan XX adalah nomor kasus uji. Daftar kasus uji dapat diperhatikan pada Tabel \ref{KasusUjiFA}.
 
-\begin{tabular}{|*{2}{l|}}
-	\hline
-	\multicolumn{1}{|l}{Deskripsi} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-	\multicolumn{1}{|l}{Prosedur Pengujian} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-	\multicolumn{1}{|l}{Masukan} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-	\multicolumn{1}{|l}{Keluaran yang Diharapkan} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-	\multicolumn{1}{|l}{Hasil yang Didapat} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-	\multicolumn{1}{|l}{Kesimpulan} & \multicolumn{1}{|c|}{Fuzzy c-means clustering} \\ \hline
-\end{tabular}
+	\begin{small}
+	\begin{longtable}{ | p{2cm} | p{8cm} | p{3cm} | }
+	    \caption{Kasus Uji Fitur Aplikasi}
+	    \label{KasusUjiFA}\\ \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Tujuan} & \centering\bfseries{ID kebutuhan terkait} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Tujuan} & \centering\bfseries{ID kebutuhan terkait} \tabularnewline \hline
+	    \endhead
+		TC-01 & Terkoneksi ke basis data MySQL yang dipilih pengguna dan dapat menggunakan basis data tersebut& FR-01, FR-02 \\ \hline
+		TC-02 & Mendeteksi label dan data secara otomatis pada \textit{spreadsheet} & FR-04, FR-05 \\ \hline
+		TC-03 & Menambahkan tabel konfigurasi secara manual sesuai dengan masukan pengguna & FR-04 \\ \hline
+		TC-04 & Pengguna dapat mengubah atribut yang ada pada tabel konfigurasi & FR-06 \\ \hline
+		TC-05 & Data dapat dimasukkan ke basis data sesuai dengan tabel konfigurasi & FR-03, FR-09, NF-01 \\ \hline
+		TC-06 & Data yang dimasukkan ke basis data berhasil divalidasi sesuai aturan pengguna & FR-07, FR-08, FR-09, NF-01 \\ \hline	
+		TC-07 & Pengujian \textit{response time} yang terjadi akibat fitur yang ditambahkan & FN-03 \\ \hline
+		TC-08 & Melakukan perbandingan penggunaan \textit{storage} untuk penyimpanan data & FN-03 \\ \hline
+	\end{longtable}
+	\end{small}
 
-Use-case
-Perbandingan database
-Response time (simpan dan detection)
-% \blindtext
+	Skenario dari masing-masing kasus uji dapat diperhatikan pada Lampiran A. Setiap skenario diberi kode dengan format TC-XX-YY dengan TC-XX adalah ID kasus uji dan YY adalah nomor skenario.
 
-\section{Pembahasan}
-% \blindtext
+	% \subsection{Hasil Pengujian}
+	% yokkelarin
