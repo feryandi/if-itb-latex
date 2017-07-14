@@ -26,14 +26,14 @@ Hal-hal tersebut merupakan beberapa masalah utama yang cukup penting untuk disel
 \begin{enumerate}
     \item Bagaimana cara menangani konflik yang terjadi pada saat kolaborasi?
     \item Bagaimana cara melakukan validasi terhadap data masukan?
-    \item Bagaimana cara penentuan bagian label dan data pada \textit{spreadsheet} untuk dijadikan skema relasional?
+    \item Bagaimana cara penentuan bagian label dan data pada \textit{spreadsheet} untuk dijadikan skema relasi?
     \item Bagaimana cara melakukan penyimpanan data yang telah dibuat?
     \item Bagaimana perubahan alur kerja yang terjadi akibat penggunaan aplikasi yang dibuat?
 \end{enumerate}
 
 \section{Tujuan}
 
-Tujuan yang ingin dicapai dalam Tugas Akhir ini adalah mengembangkan perangkat lunak pengumpulan data berbentuk \textit{spreadsheet} yang dapat mengurangi tingkat kesalahan pada data masukan. Dengan adanya perangkat lunak ini diharapkan dapat memvalidasi data masukan dengan lebih baik dan diharapkan dapat meningkatkan efisiensi pengumpulan data dengan bantuan basis data.
+Tujuan yang ingin dicapai dalam Tugas Akhir ini adalah mengembangkan perangkat lunak pengumpulan data berbentuk \textit{spreadsheet} yang dapat melakukan validasi dan menemukan kesalahan pada data masukan. Dengan adanya perangkat lunak ini diharapkan dapat memvalidasi data masukan dengan lebih baik dan diharapkan mempercepat pengumpulan data.
 
 \section{Batasan Masalah}
 
@@ -41,9 +41,12 @@ Dalam pengerjaan Tugas Akhir ini, terdapat beberapa batasan-batasan yang perlu d
 
 \begin{enumerate}
     \item Fitur kolaborasi pada \textit{spreadsheet} bukan fokus utama, fitur akan diambil dari aplikasi \textit{spreadsheet} yang telah ada.
-    \item Fokus data masukan pada Tugas Akhir ini berupa data mentah yang belum direkapitulasi.
+    %\item Fokus data masukan pada Tugas Akhir ini berupa data mentah yang belum direkapitulasi.
+    \item Jenis \textit{spreadsheet} yang ditangani adalah \textit{data frame} dan relasi.
     \item Tingkat normalisasi struktur basis data yang terbentuk yang berasal dari data pada \textit{spreadsheet} bukan merupakan fokus utama pada Tugas Akhir ini.
-    \item Basis data yang didukung untuk digunakan dalam penyimpanan data hanya MySQL
+    \item Basis data yang didukung untuk digunakan dalam penyimpanan data hanya MySQL.
+    \item Hasil akhir dari aplikasi disimpan dalam bentuk basis data.
+    \item Aplikasi hanya mendukung penggunaan satu \textit{sheet} dalam satu \textit{spreadsheet}.
 \end{enumerate}
 
 \section{Metodologi}

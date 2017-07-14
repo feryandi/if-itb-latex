@@ -113,27 +113,36 @@ Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan ke
     Kesalahan ini tidak langsung mengakibatkan nilai hasil keluaran yang salah namun menurunkan kualitas dari \textit{spreadsheet} tersebut \citep{Rajalingham2001}. Selain itu, kesalahan kualitatif dapat menyebabkan kesalahan kuantitatif terutama pada saat penggunaan fungsi analisis \textit{what-if} pada \textit{spreadsheet} \citep{Panko1998}.
 
     \subsubsection{Kesalahan Kuantitatif}
-    Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah didalam operasi perhitungannya. Kesalahan kuantitatif dapat dibagi menjadi tiga tipe kesalahan yakni \citep{Panko1998}:
+    Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah didalam operasi perhitungannya. Kesalahan jenis ini dapat dibagi menjadi empat jenis kesalahan \citep{Howe2006}, yakni:
+
+    % \begin{enumerate}
+    %     \item Kesalahan mekanikal (\textit{mechanical error}) yang biasanya terjadi akibat kesalahan pengetikan angka atau rujukan sel yang salah pada suatu formula
+    %     \item Kesalahan logika (\textit{logical error}) yang terjadi pada pembuatan formula yang salah atau penggunaan fungsi yang tidak tepat
+    %     \item Kesalahan akibat kelalaian pada interpretasi situasi atau spesifikasi yang diberikan sehingga \textit{spreadsheet} yang dihasilkan tidak sesuai dengan domain permasalahan yang ada atau \textit{ommision error} \citep{Powell2009}
+    % \end{enumerate}
 
     \begin{enumerate}
-        \item Kesalahan mekanikal (\textit{mechanical error}) yang biasanya terjadi akibat kesalahan pengetikan angka atau rujukan sel yang salah pada suatu formula
-        \item Kesalahan logika (\textit{logical error}) yang terjadi pada pembuatan formula yang salah atau penggunaan fungsi yang tidak tepat
-        \item Kesalahan akibat kelalaian pada interpretasi situasi atau spesifikasi yang diberikan sehingga \textit{spreadsheet} yang dihasilkan tidak sesuai dengan domain permasalahan yang ada atau \textit{ommision error} \citep{Powell2009}
+        \item Kesalahan \textit{clerical} dan non-material merupakan kesalahan yang tidak berpengaruh pada hasil dan perhitungan, namun tetap merupakan kesalahan. Contohnya adalah kesalahan ejaan.
+        \item \textit{Rule violations} merupakan kesalahan yang melanggar aturan yang telah ditetapkan. Contohnya nilai seseorang tidak boleh melebihi angka 100.
+        \item Kesalahan \textit{data-entry} merupakan kesalahan yang terjadi saat memasukan data. Contohnya data yang seharusnya angka, namun dimasukkan berupa teks.
+        \item Kesalahan \textit{formula}  merupakan kesalahan yang terjadi akibat penggunaan \textit{formula}. Kesalahan yang terjadi bisa berupa referensi tidak sesuai, penggunaan konstanta yang salah, atau kesalahan logika.
     \end{enumerate}
 
-\subsection{Penanganan Kesalahan pada \textit{Spreadsheet}} \label{PenangananKesalahan}
-Untuk mengatasi kesalahan yang dijelaskan pada subbab sebelumnya, menurut penelitian yang dilakukan oleh Panko \citep{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
+    Pada penelitian yang dilakukan oleh Howe, diketahui bahwa faktor yang berpengaruh terhadap ditemukannya kesalahan \textit{formula} adalah umur, indeks prestasi, serta pengalaman pemrograman. Sedangkan kesalahan lain, tidak dipengaruhi oleh faktor-faktor eksternal yang diuji. \citep{Howe2006} Hal ini juga terlihat pada penelitian yang dilakuakn oleh Bishop, dimana profesional lebih baik dalam mendeteksi kesalahan \textit{formula} hingga lebih baik 16\% dibandingkan orang kebanyakan. \citep{bishop2008empirical} Sehingga, dapat terlihat bahwa dengan pelatihan yang baik, kesalahan formula dapat berkurang, namun kesalahan lain tidak berkurang cukup signifikan.
 
-    \begin{enumerate}
-        \item Membangun \textit{preliminary design} sebelum pembuatan \textit{spreadsheet} agar terdapat perencanaan yang baik di dalam pembangunan data di dalam \textit{spreadsheet}
-        \item Melakukan proteksi terhadap sel yang tidak boleh diubah.
-        \item Melakukan pengecekan terhadap semua rumus dan formula yang dimasukan bahkan hingga rumus yang cukup sederhana dengan cara melakukan pengecekan manual.
-        \item Membuat dokumentasi untuk \textit{spreadsheet} yang dibuat.
-        \item Tidak menekan pembuat \textit{spreadsheet} terhadap kesalahan yang dibuat dengan memberikan hukuman. Kesalahan yang terjadi pada \textit{spreadsheet} umumnya masih berada pada batas normal \textit{human error} sehingga memberikan hukuman akan membuat rasa takut dalam melaporkan kesalahan.
-        \item Melakukan inspeksi terhadap formula, rumus, dan kode yang dibuat baik oleh individual maupun secara berkelompok.
-    \end{enumerate}
+% \subsection{Penanganan Kesalahan pada \textit{Spreadsheet}} \label{PenangananKesalahan}
+% Untuk mengatasi kesalahan yang dijelaskan pada subbab sebelumnya, menurut penelitian yang dilakukan oleh Panko \citep{Panko1998}, dijabarkan beberapa metode untuk menangani dan mengurangi kesalahan yang sering terjadi. Beberapa metode yang dapat digunakan yakni:
 
-\section{Data pada \textit{Spreadsheet}}
+%     \begin{enumerate}
+%         \item Membangun \textit{preliminary design} sebelum pembuatan \textit{spreadsheet} agar terdapat perencanaan yang baik di dalam pembangunan data di dalam \textit{spreadsheet}
+%         \item Melakukan proteksi terhadap sel yang tidak boleh diubah.
+%         \item Melakukan pengecekan terhadap semua rumus dan formula yang dimasukan bahkan hingga rumus yang cukup sederhana dengan cara melakukan pengecekan manual.
+%         \item Membuat dokumentasi untuk \textit{spreadsheet} yang dibuat.
+%         \item Tidak menekan pembuat \textit{spreadsheet} terhadap kesalahan yang dibuat dengan memberikan hukuman. Kesalahan yang terjadi pada \textit{spreadsheet} umumnya masih berada pada batas normal \textit{human error} sehingga memberikan hukuman akan membuat rasa takut dalam melaporkan kesalahan.
+%         \item Melakukan inspeksi terhadap formula, rumus, dan kode yang dibuat baik oleh individual maupun secara berkelompok.
+%     \end{enumerate}
+
+\section{Data pada \textit{Spreadsheet}} \label{JenisSpreadsheet}
 
 \subsection{Tipe Struktur Data pada \textit{Spreadsheet}}
 Pada penelitian yang dilakukan oleh Chen dan Cafarella, \textit{spreadsheet} dapat dibagi menjadi 2 jenis yakni; \textit{data frame} dan \textit{non-data frame}. \textit{Data frame} merupakan tipe \textit{spreadsheet} yang terdiri dari 2 komponen utama: area nilai dan area atribut atau metadata (biasanya berada di atas dan atau di kiri area nilai). \textit{Non-data frame} adalah tipe \textit{spreadsheet} selain tipe \textit{data frame} yang telah didefinisikan sebelumnya. Tipe \textit{non-data frame} dapat dibagi menjadi beberapa jenis yakni:

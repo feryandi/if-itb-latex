@@ -125,6 +125,17 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 	    MYSQL_PASSWORD: user
 	\end{lstlisting}
 
+	Untuk menyimpan \textit{state} konfigurasi tabel dan \textit{mapping} tabel konfigurasi dengan data pada basis data, digunakan dua tabel basis data yang sudah didefinisikan sebelumnya. Kedua tabel basis data ini dinamakan s\_database\_state dan s\_database\_wlog, kedua tabel ini tidak memiliki keterhubungan. Atribut yang terdapat pada kedua tabel ini dapat dilihat pada diagram struktur basis data pada Gambar \ref{StructureDiagram}.
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=0.5\textwidth]{resources/chapter-4-architect-db.png}
+	    \caption{Diagram Struktur Tabel Penyimpanan Konfigurasi}
+		\label{StructureDiagram}
+	\end{figure}
+
+	Tabel konfigurasi yang ditampilkan kepada pengguna akan berasal dari tabel s\_database\_state dan juga disimpan pada tabel tersebut. Kegunaan  s\_database\_wlog adalah mencatat pemetaan data kepada tabel konfigurasi sehingga saat tabel konfigurasi dihapus, data yang berasal dari tabel konfigurasi tersebut dapat juga dihapus.
+
 	Modul-modul dan fitur dibuat diatas aplikasi EtherCalc, sehingga arsitektur aplikasi akan mengikuti arsitektur aplikasi EtherCalc yang telah dijelaskan pada Subbab \ref{TeknologiSpreadsheet}.
 
 \section{Implementasi}
@@ -553,8 +564,8 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 		Memori Fisik & 12 GB\\ \hline
 		\textit{Storage} & 50 GB\\ \hline
 		Sistem Operasi & Arch Linux 64-bit\\ \hline
-		Docker version & ???.??\\ \hline
-		\textit{Web browser} & Mozila Firefox ????\\ \hline
+		Docker version & 1.13.1\\ \hline
+		\textit{Web browser} & Mozilla Firefox 51.0.1\\ \hline
 	\end{longtable}
 	\end{small}
 
