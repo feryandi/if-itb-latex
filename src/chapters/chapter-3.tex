@@ -101,11 +101,19 @@ Dari studi yang telah dilaksanakan pada subbab \ref{TeknologiSpreadsheet}, aplik
 Dari perbandingan diatas, diambil solusi dengan menggunakan aplikasi \textit{spreadsheet} berbasis web yang dapat diakses secara konkuren dan memiliki \textit{portability} yang lebih baik. Selain itu, untuk dapat mengembangkan fitur aplikasi dengan lebih baik, akan dipilih aplikasi yang berbentuk \textit{open source}. Alasan lain dipilihnya \textit{open source} adalah aplikasi berbasis \textit{open source} dapat dipasang pada \textit{platform} yang diinginkan oleh pengguna. Pengguna atau perusahaan yang menggunakan aplikasi dapat membangun infrastrukturnya sendiri sehingga dapat mengatur privasi dan performa aplikasi sesuai dengan keinginan pengguna. Sehingga dipilih aplikasi yang memiliki tipe \textit{online spreadsheet} dan \textit{open source} yaitu EtherCalc. Fitur kolaborasi yang dibutuhkan akan ditangani oleh aplikasi EtherCalc ini dan bukan merupakan bagian dari fitur yang akan dikembangkan.
 
 \section{Analisis Penanganan Konflik saat Kolaborasi}
-Penanganan konflik telah ditangani oleh EtherCalc menggunakan mekanisme \textit{conflict resolution} yang berasal dari SocialCalc. Mekanisme penanganan konflik menggunakan fitur \textit{undo}/\textit{redo} yang telah ada. Berdasarkan website resmi dari EtherCalc, langkah-langkah penanganan konflik yang terjadi adalah sebagai berikut,
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1\textwidth]{resources/chapter-3-conflict-res.png}
+    \caption{Mekanisme Penanganan Konflik \citep{EtherCalc}}
+	\label{MekanismeKonflik}
+\end{figure}
+
+Penanganan konflik telah ditangani oleh EtherCalc menggunakan mekanisme \textit{conflict resolution} yang berasal dari SocialCalc. Mekanisme penanganan konflik menggunakan fitur \textit{undo}/\textit{redo} yang telah ada. Gambaran mekanisme tersebut dapat dilihat pada Gambar \ref{MekanismeKonflik}. Berdasarkan gambaran tersebut dan \textit{website} resmi dari EtherCalc, langkah-langkah penanganan konflik yang terjadi adalah sebagai berikut:
 
 \begin{enumerate}
-	\item Ketika klien melakukan \textit{broadcasts} perintah. Perintah tersebut dimasukkan ke \textit{pending queue}.
-	\item Ketika klien menerima perintah, akan dilakukan pengecekan \textit{pending queue}.
+	\item Ketika klien mengirimkan suatu perintah. Perintah tersebut dimasukkan ke \textit{pending queue}.
+	\item Ketika klien menerima \textit{broadcast} perintah, akan dilakukan pengecekan \textit{pending queue}.
 	\item Jika \textit{pending queue} kosong, maka perintah akan langsung dijalankan.
 	\item Jika perintah baru sama dengan \textit{pending queue}, perintah akan dijalankan dan dihapus dari \textit{pending queue}.
 	\item Jika tidak, maka dilakukan pengecekan apakah terjadi konflik.
@@ -113,15 +121,6 @@ Penanganan konflik telah ditangani oleh EtherCalc menggunakan mekanisme \textit{
 	\item Setelah semua konflik terselesaikan, jalankan perintah seperti biasa.
 	\item Jika masih terdapat perintah yang ditandai untuk dilakukan \textit{Redo}, maka perintah tersebut dijalankan kembali.
 \end{enumerate}
-
-Gambaran mekanisme tersebut dapat dilihat pada Gambar \ref{MekanismeKonflik}.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=1\textwidth]{resources/chapter-3-conflict-res.png}
-    \caption{Mekanisme Penanganan Konflik \citep{EtherCalc}}
-	\label{MekanismeKonflik}
-\end{figure}
 
 \section{Analisis Jenis \textit{Spreadsheet} yang Ditangani}
 Pada Subbab \ref{JenisSpreadsheet} telah dijelaskan jenis-jenis \textit{spreadsheet} yang biasanya dibuat. Persentase jenis \textit{spreadsheet} terbesar yang dibuat berjenis \textit{data frame} dengan persentase 50.5\%. \textit{Data frame} merupakan tipe \textit{spreadsheet} yang terdiri dari 2 komponen utama: area nilai dan area atribut atau metadata (biasanya berada di atas dan atau di kiri area nilai). Karena tingginya angka penggunaan menggunakan tipe ini, aplikasi akan melakukan penanganan pada \textit{spreadsheet} bertipe \textit{data frame}.
@@ -163,7 +162,7 @@ Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \t
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.3\textwidth]{resources/chapter-3-simple-dataframe.png}
+    \includegraphics[width=0.3\textwidth]{resources/chapter-3-simple-dataframe2.png}
     \caption{Contoh \textit{Data Frame} Sederhana}
 	\label{DataFrameSederhana}
 \end{figure}
@@ -225,7 +224,7 @@ Didalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasa
 	    \caption{Tabel dengan \textit{Header} yang Berhirarki}
 		\label{TabelTipe3}
 	\end{figure}\\
-	Tabel dapat memiliki \textit{header} yang berhubungan satu dengan yang lain dan membentuk hirarki seperti pada contoh Gambar \ref{TabelTipe3}. Tabel dengan \textit{header} yang memiliki hirarki akan tetap dianggap memiliki satu baris \textit{header}. Transformasi yang dilakukan adalah dengan menggabungkan kata-kata pada tiap \textit{header} dan dijadikan sebagai satu nama \textit{header}. Hasil transformasi tabel tersebut dapat dilihat pada Gambar \ref{TabelTipe3T}.\\
+	Tabel dapat memiliki \textit{header} yang berhubungan satu dengan yang lain dan membentuk hirarki seperti pada contoh Gambar \ref{TabelTipe3}. Tabel dengan \textit{header} yang memiliki hirarki akan tetap dianggap memiliki satu baris \textit{header}. Transformasi yang dilakukan adalah dengan menggabungkan kata-kata pada tiap \textit{header} dan dijadikan sebagai satu nama \textit{header} dan secara \textit{default} dipisahkan dengan tanda '\_' untuk masing-masing \textit{header}. Penggunaan tanda '\_' dan bukan spasi dilakukan agar pengguna dapat membedakan bagian yang merupakan hasil gabungan. Hasil transformasi tabel tersebut dapat dilihat pada Gambar \ref{TabelTipe3T}.\\
 	\begin{figure}[htbp]
 	    \centering
 	    \includegraphics[width=0.75\textwidth]{resources/chapter-3-tabletype-3-transformed.png}
@@ -277,16 +276,18 @@ Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; je
 		\textit{File spreadsheet} yang dimaksud adalah data struktural seperti \textit{value} pada suatu sel, \textit{properties} suatu sel seperti warna, \textit{border}, dan \textit{alignment}, serta hal-hal lain yang berhubungan dengan bagaimana suatu \textit{file spreadsheet} ditampilkan pada aplikasi. Tipe penyimpanan yang dapat digunakan untuk menampung data ini adalah NoSQL karena tipe ini cocok untuk menangani data yang kurang terstruktur seperti \textit{file spreadsheet} yang struktur penempatan datanya berbeda tiap pengguna. Cara penyimpanan yang cocok untuk menangani struktur ini adalah \textit{document based} atau \textit{key-value}. Sehingga proses penyimpanan \textit{file spreadsheet} akan menggunakan mekanisme yang sudah disediakan oleh aplikasi EtherCalc dengan menggunakan redis.
 
 		\item Penyimpanan Data dan Label \\
-		Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi \textit{tuple} relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple}.
+		Tipe penyimpanan yang cocok digunakan adalah basis data relasional (SQL) karena data yang dibuat dalam bentuk tabel pada umumnya dapat dikonversikan menjadi \textit{tuple} relasional. Data dan label yang telah ditentukan menggunakan tabel konfigurasi dijadikan bentuk yang dapat diterima basis data relasional. Label akan dijadikan nama kolom pada basis data, dan data akan dijadikan dalam bentuk baris-baris.
 
-		\begin{figure}[htb]
-		    \centering
-		    \includegraphics[width=0.6\textwidth]{resources/chapter-3-relational-tuple.png}
-		    \caption{Contoh \textit{Tuple} Relasional}
-			\label{RelationalTuple}
-		\end{figure}
+		% Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi bentuk relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple}.
 
-		Setelah data dan label dijadikan \textit{tuple} relasional, \textit{tuple} dimasukan ke dalam basis data dengan menggunakan operasi \textit{insert} ke dalam tabel pada basis data. Tipe penyimpanan yang cocok digunakan adalah basis data relasional (SQL) karena data yang dibuat dalam bentuk tabel pada umumnya dapat dikonversikan menjadi \textit{tuple} relasional.
+		% \begin{figure}[htb]
+		%     \centering
+		%     \includegraphics[width=0.6\textwidth]{resources/chapter-3-relational-tuple.png}
+		%     \caption{Contoh \textit{Tuple} Relasional}
+		% 	\label{RelationalTuple}
+		% \end{figure}
+
+		% Setelah data dan label dijadikan \textit{tuple} relasional, \textit{tuple} dimasukan ke dalam basis data dengan menggunakan operasi \textit{insert} ke dalam tabel pada basis data. Tipe penyimpanan yang cocok digunakan adalah basis data relasional (SQL) karena data yang dibuat dalam bentuk tabel pada umumnya dapat dikonversikan menjadi \textit{tuple} relasional.
 	\end{enumerate}
 
 	\subsection{Alur Penyimpanan Data}
@@ -305,11 +306,14 @@ Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; je
 	Kasus yang dapat terjadi pada basis data tempat penyimpanan data yang berasal dari \textit{spreadsheet} adalah diubahnya data tersebut secara manual oleh entitas lain. Pada aplikasi yang dibuat, aplikasi hanya bekerja sebagai media untuk mengumpulkan data sehingga perubahan yang terjadi pada basis data, tidak akan ditampilkan kembali menjadi bentuk \textit{spreadsheet} pada aplikasi. Selain itu, perubahan data langsung pada basis data tanpa melalui media yang disediakan sangat tidak disarankan.
 
 \section{Analisis Interaksi antar \textit{Spreadsheet}}
+Interaksi yang akan dibahas terdiri dari dua jenis yakni interaksi data dan interaksi penyimpanan. Pada interaksi data akan dijelaskan bagaimana data pada dua atau lebih \textit{spreadsheet} dapat saling berinteraksi dalam bentuk fragmen. Sedangkan pada interaksi penyimpanan akan dijelaskan bagaimana aplikasi menyelesaikan permasalahan konflik penyimpanan yang terjadi akibat interaksi dua atau lebih \textit{spreadsheet}.
+
+\subsection{Interaksi Data}
 Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifikasikan menjadi empat tipe berdasarkan fragmen data yang dikumpulkan yakni; tidak berhubungan, horizontal, vertikal, dan gabungan.
-	\subsection{Fragmen Tidak Berhubungan}
+	\subsubsection{Fragmen Tidak Berhubungan}
 	Dua atau lebih \textit{spreadsheet} dapat dikatakan tidak saling berpotongan fragmennya jika \textit{spreadsheet} tersebut tidak menyimpan data pada tabel yang sama pada basis data. Pada kasus tersebut, data pada kedua atau lebih \textit{spreadsheet} dapat dianggap tidak saling melengkapi dan dapat berdiri sendiri.
 	
-	\subsection{Fragmen Horizontal}
+	\subsubsection{Fragmen Horizontal}
 	Fragmen horizontal terjadi ketika dua atau lebih \textit{spreadsheet} menyimpan pada tabel basis data yang sama dimana data yang disimpan memiliki jumlah, nama, dan konteks kolom yang sama. Pada kasus tersebut, data pada dua atau lebih \textit{spreadsheet} akan digabungkan pada satu tabel yang sama secara horizontal. Contoh gambaran pengabungan data dapat dilihat pada Gambar \ref{HorizontalMerge}.
 
 	\begin{figure}[htb]
@@ -321,7 +325,7 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Pada gambar, data pada \textit{spreadsheet} A dan \textit{spreadsheet} B digabungkan pada satu tabel pada basis data secara horizontal (diilustrasikan dengan garis merah). Pada kasus tersebut, NIM tidak didefinisikan sebagai nilai yang unik, sehingga jika terdapat NIM yang sama pada lebih dari satu \textit{spreadsheet} maka data akan tetap digabungkan secara horizontal pada data yang sudah ada bukan menulis kembali nilai pada NIM yang bersesuaian. Namun, jika nilai NIM didefinisikan sebagai unik, maka jika NIM terdapat di lebih dari satu \textit{spreadsheet} akan ditimpa dan ditulis kembali nilainya pada NIM yang sesuai.
 
-	\subsection{Fragmen Vertikal}
+	\subsubsection{Fragmen Vertikal}
 	Fragmen vertikal terjadi ketika dua atau lebih \textit{spreadsheet} menyimpan pada tabel basis data yang sama dimana data yang disimpan memiliki satu kolom unik dengan nama dan konteks yang sama dan kolom lainnya dapat berbeda dari segi jumlah , nama, dan konteks di masing-masing \textit{spreadsheet}. Pada kasus ini, data pada dua atau lebih \textit{spreadsheet} akan digabungkan pada satu tabel yang sama secara vertikal. Contoh gambaran pengabungan data dapat dilihat pada Gambar \ref{VerticalMerge}.
 
 	\begin{figure}[htb]
@@ -333,7 +337,7 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Penggabungan secara vertikal membutuhkan suatu kolom \textit{key} dan unik yang dapat dijadikan patokan penggabungan data pada suatu baris data. Untuk masing-masing \textit{spreadsheet} yang akan digabungkan datanya, harus memiliki kolom \textit{key} dan unik yang sama dengan konteks data yang sama. Pada contoh pada gambar, kolom unik yang dipilih adalah kolom NIM. Penggabungan data dilakukan dengan mengambil data dari \textit{spreadsheet} A yakni data nilai UTS, dan dari \textit{spreadsheet} B yakni data nilai UAS, lalu dimasukkan ke dalam basis data pada tabel yang dipilih.
 
-	\subsection{Fragmen Horizontal dan Vertikal}
+	\subsubsection{Fragmen Horizontal dan Vertikal}
 	Fragmen gabungan ini terjadi ketika data yang digabungkan ada yang memiliki perbedaan kolom, ada juga yang tidak, atau juga dapat merupakan gabungan semua kolom yang ada. Contoh kasus yang dapat terjadi dapat dilihat pada Gambar \ref{BothTableMerge}.
 
 	\begin{figure}[htb]
@@ -354,6 +358,11 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Karena dari hasil penggabungan data tidak semua kolom dapat dipenuhi, maka terdapat kolom yang berisikan NULL sebagai penanda bahwa kolom tersebut kosong dan tidak mendapatkan data dari \textit{spreadsheet}.
 
+\subsection{Interaksi Penyimpanan}
+Penanganan interaksi penyimpanan menjadi penting pada saat terdapat dua atau lebih \textit{spreadsheet} memasukkan datanya pada suatu tabel yang sama. Kasus yang dapat terjadi adalah data yang telah sebelumnya dimasukkan oleh sebuah \textit{spreadsheet} dapat ditimpa oleh data dari \textit{spreadsheet} lainnya. Hal ini, jika memang tidak diharapkan, akan menyebabkan permasalahan kerusakan data. Sehingga, pada aplikasi yang dibuat, dibuat penanganan berupa tombol pengecekan yang akan menjalankan fitur yang dapat melakukan pengecekan konflik data. Jika pengguna memang ingin melakukan penimpaan terhadap data yang sudah ada, maka peringatan dari fitur ini dapat diabaikan.
+
+\subsection{Urutan Penyimpanan}
+Urutan penyimpanan antar \textit{spreadsheet} tidak akan mempengaruhi hasil dengan syarat data yang disimpan dari kedua \textit{spreadsheet} merupakan data yang \textit{disjoint} atau kelompok data yang terpisah satu dengan yang lainnya. Jika syarat tersebut tidak dipenuhi, maka pengguna harus memasukkan data dengan urutan yang benar dan diperhitungkan agar data yang masuk sesuai dengan keinginan. Sehingga, hal ini harus diperhitungkan dalam pengumpulan data yang dilakukan oleh pengguna.
 
 \section{Analisis Alur Kerja dan Alur Aplikasi} \label{Aluralur}
 Pada subbab ini, akan dijelaskan perbedaan alur kerja manusia dalam pengumpulan data menggunakan aplikasi yang dibuat dengan aplikasi biasa. Selain itu, akan dijelaskan juga perubahan alur aplikasi di dalam menangani masukan pengguna.

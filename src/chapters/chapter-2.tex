@@ -26,7 +26,32 @@ Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan 
     LibreOffice Calc memiliki berbagai kemampuan yang dimiliki oleh kebanyakan \textit{spreadsheet}. Didalam melakukan penyimpanan file, Calc menggunakan format OpenDocument. Format OpenDocument dikembangkan oleh Organization for the Advancement of Structured Information Standards (OASIS) yang bertujuan untuk membentuk \textit{open standard} bagi \textit{office document} \citep{OpenDocument}. 
 
     \subsubsection{EtherCalc} \label{AboutEtherCalc}
-    EtherCalc merupakan perangkat lunak \textit{spreadsheet online} yang \textit{open-source} yang dikembangkan oleh Audrey Tang. EtherCalc merupakan pengembangan yang didasarkan dari perangkat lunak serupa yakni WikiCalc dan SocialCalc. WikiCalc merupakan aplikasi \textit{spreadsheet} yang mengandalkan komputasi server untuk dapat berkolaborasi, sedangkan SocialCalc merupakan aplikasi \textit{spreadsheet} yang menggunakan kemampuan javascript untuk melakukan komputasi pada \textit{client-side}. EtherCalc dikembangkan diatas Node.js dan menggunakan javascript sebagai alat komputasi. Perangkat lunak hanya akan melakukan panggilan ke \textit{server} saat melakukan suatu aksi dan \textit{server} yang bertugas untuk menyimpan kumpulan aksi tersebut agar pengguna lain yang ikut berkolaborasi dapat melihat \textit{spreadsheet} yang sama satu dengan yang lain \citep{EtherCalc}. Gambar \ref{IlustrasiEtherCalc} merupakan gambaran umum cara kerja EtherCalc dalam berkolaborasi.
+    EtherCalc merupakan perangkat lunak \textit{spreadsheet online} yang \textit{open-source} yang dikembangkan oleh Audrey Tang. EtherCalc merupakan pengembangan yang didasarkan dari perangkat lunak serupa yakni WikiCalc dan SocialCalc. WikiCalc merupakan aplikasi \textit{spreadsheet} yang mengandalkan komputasi server untuk dapat berkolaborasi, sedangkan SocialCalc merupakan aplikasi \textit{spreadsheet} yang menggunakan kemampuan javascript untuk melakukan komputasi pada \textit{client-side}. EtherCalc dikembangkan diatas Node.js dan menggunakan javascript sebagai alat komputasi. 
+
+    Arsitektur aplikasi EtherCalc berjalan diatas aplikasi SocialCalc. Fungsi-fungsi dasar yang ada pada \textit{spreadsheet} hampir seluruhnya menggunakan implementasi SocialCalc. EtherCalc menjadikan aplikasi dalam bentuk Node.js, memiliki fitur kolaborasi yang lebih baik, dan beberapa fitur lain seperti pembuatan grafik data. Pada Gambar \ref{ModulEtherCalc} dapat dilihat interaksi antar modul yang terjadi pada EtherCalc.
+
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=0.6\textwidth]{resources/chapter-2-module-ethercalc.png}
+        \caption{Arsitektur Module pada EtherCalc}
+        \label{ModulEtherCalc}
+    \end{figure}  
+
+    Modul-modul tersebut memiliki tugas antara lain sebagai berikut:
+    \begin{enumerate}
+        \item Modul App \\
+        Merupakan modul utama yang berisikan variabel konstanta dan pengaturan yang dibutuhkan oleh aplikasi.
+        \item Modul Main \\
+        Modul ini bertugas sebagai modul pertama yang menerima perintah dari pengguna dan mengatur API yang ada pada aplikasi. Modul ini mengatur hubungan antara modul player, modul database, dan modul socialcalc.
+        \item Modul Socialcalc \\
+        Merupakan modul yang bertugas merepresentasikan \textit{spreadsheet} pada aplikasi. Didalam modul ini terdapat fungsi-fungsi yang dapat digunakan untuk memanipulasi sel-sel yang ada pada \textit{spreadsheet}.
+        \item Modul Database \\
+        Modul ini bertugas untuk memanipulasi basis data redis yang menyimpan perubahan-perubahan yang terjadi pada \textit{spreadsheet}.
+        \item Modul Player \\
+        Modul ini memiliki tugas untuk menjembatani \textit{front-end} dan \textit{back-end} dari aplikasi.
+    \end{enumerate}
+
+    Perangkat lunak hanya akan melakukan panggilan ke \textit{server} saat melakukan suatu aksi dan \textit{server} yang bertugas untuk menyimpan kumpulan aksi tersebut agar pengguna lain yang ikut berkolaborasi dapat melihat \textit{spreadsheet} yang sama satu dengan yang lain \citep{EtherCalc}. Gambar \ref{IlustrasiEtherCalc} merupakan gambaran umum cara kerja EtherCalc dalam berkolaborasi.
 
     \begin{figure}[htb]
         \centering
@@ -197,7 +222,14 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
 
     \subsubsection{Arsitektur Sistem}
 
-    \textit{Spreadsheet Database Management System} (SSDBMS) yang dikembangkan pada prototipe ini memiliki tiga proses utama yakni: \textit{search}, \textit{extract}, dan \textit{query}. Proses pencarian dilakukan terhadap repositori \textit{spreadsheet} yang ada di internet, lalu data \textit{spreadsheet} tersebut diekstraksi dan dijadikan tabel relasional, dan setelah itu pengguna dapat melakukan \textit{query} terhadap tabel yang telah dibentuk.
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=1\textwidth]{resources/chapter-2-senbazuru-architecture.png}
+        \caption{Arsitektur Sistem Senbazuru \citep{Chen2013-2}}
+        \label{ArsiSisSenbazuru}
+    \end{figure}
+
+    \textit{Spreadsheet Database Management System} (SSDBMS) yang dikembangkan pada prototipe ini memiliki tiga proses utama yakni: \textit{search}, \textit{extract}, dan \textit{query}. Proses pencarian dilakukan terhadap repositori \textit{spreadsheet} yang ada di internet, lalu data \textit{spreadsheet} tersebut diekstraksi dan dijadikan tabel relasional, dan setelah itu pengguna dapat melakukan \textit{query} terhadap tabel yang telah dibentuk. Gambaran arsitektur Senbazuru dapat dilihat pada Gambar \ref{ArsiSisSenbazuru}. Arsitektur ini terbagi menjadi tiga modul utama yakni Search, Extract, dan Query.
 
         \paragraph{\textit{Search}}
         Komponen pencarian ini memudahkan pengguna untuk menemukan dataset yang tepat menggunakan bantuan internet. Saat prototipe ini dikembangkan, Senbazuru telah mengindeks 1800 \textit{spreadsheet} yang didapatkan dari U.S. Census Bureau. Pengindeksan menggunakan bantuan \textit{library} Python yakni xlrd untuk mengekstraksi teks dari sel lalu menggunakan Apache Lucene untuk melakukan indeks pada teks. Pencarian menggunakan metode \textit{term frequency–inverse document frequency} (TF-IDF) untuk mendapatkan relevansi dokumen.
@@ -222,22 +254,22 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
         \paragraph{\textit{Query}}
         Setelah proses sebelumnya selesai, maka pengguna dapat memasukan perintah relasional terhadap data \textit{spreadsheet} yang telah diubah menjadi tabel relasional. Pada prototipe yang dikembangkan, perintah yang diimplementasikan adalah \textit{join} dan \textit{select}.
 
-    \subsubsection{Kesimpulan Penelitian}
+    \subsubsection{Hasil Penelitian}
     Senbazuru merupakan prototipe untuk manajemen basis data berbasis \textit{spreadsheet} yang dapat melakukan pencarian data pada internet melalui kata kunci yang diberikan. Prototipe ini berhasil melakukan ekstraksi data secara otomatis walaupun tidak terlepas dari kesalahan. Kesalahan yang terjadi masih harus seringkali dilakukan perbaikan secara manual. Namun dengan penggunaan algoritma CRF, protitipe dapat mengurangi kesalahan yang terjadi. Prototipe ini juga ditujukan sebagai demo kepada peserta konferensi VLDB dan diharapkan dapat menarik perhatian komunitas basis data.
 
 \subsection{\textit{Spreadsheet As a Relational Database Engine}}
 Penelitian \citep{Tyszkiewicz2010} pernah dilakukan terhadap pembuatan \textit{spreadsheet} menjadi mesin basis data relasional. Penelitian ini dilatarbelakangi dengan tingginya penggunaan \textit{spreadsheet} pada banyak bidang dan kurangnya kualitas data yang ada didalamnya yang dapat menyebabkan kesalahan-kesalahan terjadi pada perhitungan dan prediksi. Solusi yang dipaparkan pada penelitian ini adalah dengan menggabungkan \textit{spreadsheet} dan \textit{database engine} dengan menggunakan formula sebagai ganti dari \textit{SQL query}.
 
-    \subsubsection{Arsitektur Sistem}
+    \subsubsection{Cara Kerja Sistem}
 
     Pada implementasinya, sebuah \textit{workbook} akan memiliki satu \textit{worksheet} untuk setiap tabel data dan satu \textit{worksheet} untuk setiap \textit{view} pada basis data. Dengan menggunakan \textit{external compiler} yang menerima masukan berupa SQL yang akan mengubahnya kedalam bentuk \textit{spreadsheet}. Program tersebut akan mengubah SQL menjadi beberapa formula yang diterima oleh \textit{spreadsheet} tersebut.
 
-    Terdapat dua bagian utama pada \textit{spreadsheet} hasil implementasi yakni: tabel data dan bagian \textit{view}. Bagian tabel data adalah tempat pengguna untuk memasukkan, mengubah, serta menghapus data. Secara teori, bagian tabel data tidak memiliki formula, namun didalam implementasinya mengikuti implementasi SQL dimana perlu dilakukan validasi data dan verifikasi terhadap \textit{primary key}, \textit{foreign key}, dan batasan lain yang ada diperintah \textit{create table}. 
+    Terdapat dua bagian utama pada \textit{spreadsheet} hasil implementasi yakni: tabel data dan bagian \textit{view}. Bagian tabel data adalah tempat pengguna untuk memasukkan, mengubah, serta menghapus data. Secara teori, bagian tabel data tidak memiliki formula, namun didalam implementasinya mengikuti implementasi SQL dimana perlu dilakukan validasi data dan verifikasi terhadap \textit{primary key}, \textit{foreign key}, dan batasan lain yang ada diperintah \textit{create table}.
 
-    Bagian \textit{view worksheet} tidak dapat diubah oleh pengguna dan berisikan formula-formula yang independen terhadap data yang dimasukkan oleh pengguna. Selain itu, bagian \textit{view} berisikan kolom-kolom yang berguna sebagai \textit{intermediate result} yang selanjutnya akan digunakan oleh formula lain. Pada awalnya sel-sel akan berisikan "" yang merepresentasikan sel yang belum digunakan.
+    Bagian \textit{view worksheet} tidak dapat diubah oleh pengguna dan berisikan formula-formula yang independen terhadap data yang dimasukkan oleh pengguna. Selain itu, bagian \textit{view} berisikan kolom-kolom yang berguna sebagai \textit{intermediate result} yang selanjutnya akan digunakan oleh formula lain. Pada awalnya sel-sel akan berisikan "" (\textit{string} kosong) yang merepresentasikan sel yang belum digunakan.
 
-    \subsubsection{Kesimpulan Penelitian}
+    \subsubsection{Hasil Penelitian}
 
-    Excel dan \textit{spreadsheet} lain tidak didesain untuk menjadi \textit{database engine} sehingga kebanyakan formula akan dilakukan menggunakan \textit{linear scan} dan hal ini dapat mengurangi performansi. Beberapa cara untuk meningkatkan performansi adalah mengeksploitasi \textit{lazy evaluation} dari \textit{if statement}, mengkomputasi hanya beberapa sel tetangga yang berkaitan, serta menggunakan file atau \textit{workbook} lain untuk membagi \textit{query} dan membangkitkannya ketika dibutuhkan.
+    Formula pada excel dilakukan menggunakan \textit{linear scan} dan hal ini dapat mengurangi kinerja. Beberapa cara untuk meningkatkan kinerja adalah mengeksploitasi \textit{lazy evaluation} dari \textit{if statement}, mengkomputasi hanya beberapa sel tetangga yang berkaitan, serta menggunakan file atau \textit{workbook} lain untuk membagi \textit{query} dan membangkitkannya ketika dibutuhkan.
 
-    Pada tes perfomansi yang dilakukan pada penelitian ini dapat disimpulkan bahwa untuk operasi dasar dan \textit{query} sederhana penggunaan \textit{spreadsheet} dapat digunakan dengan baik dengan waktu yang cukup cepat. Tingkat efektifitas penggunaan pada arsitektur ini cukup rendah, namun hasil tes tersebut menunjukan bahwa arsitektur ini memiliki potensial yang dapat dikembangkan.
+    Pada tes kinerja yang dilakukan pada penelitian ini dapat disimpulkan bahwa untuk operasi dasar dan \textit{query} sederhana penggunaan \textit{spreadsheet} dapat digunakan dengan baik dengan waktu yang cukup cepat. Tingkat efektifitas penggunaan pada arsitektur ini cukup rendah, namun hasil tes tersebut menunjukan bahwa arsitektur ini memiliki potensial yang dapat dikembangkan.

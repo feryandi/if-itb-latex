@@ -62,7 +62,7 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 	    \endhead
 	    NF-01 & Data masukan pengguna disimpan secara persisten. & UC-01, UC-02 \\ \hline
 	    NF-02 & Aplikasi dapat berjalan diatas aplikasi \textit{spreadsheet} EtherCalc. & - \\ \hline
-	    NF-03 & Laporan hasil analisis \textit{response time} dan \textit{storage} yang digunakan. & - \\ \hline
+	    NF-03 & Laporan hasil pencatatan \textit{response time} fitur yang ditambahkan. & - \\ \hline
 	\end{longtable}
 	\end{small}
 
@@ -70,7 +70,7 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 	Pembangunan fitur ini diatas aplikasi EtherCalc terdiri dari lima buah modul, yaitu:
 	\begin{enumerate}
 		\item Modul \texttt{player}, bertugas sebagai jembatan antara \textit{front-end} dan \textit{back-end} dari fitur.
-		\item Modul \texttt{db}, bertugas untuk antarmuka baca tulis basis data.
+		\item Modul \texttt{mysql}, bertugas untuk antarmuka baca tulis basis data.
 		\item Modul \texttt{framefinder}, bertugas untuk mendeteksi secara otomatis bagian label dan data pada tabel.
 		\item Modul \texttt{hierarchyfinder}, bertugas untuk mendeteksi secara otomatis tabel-tabel yang ada dalam suatu \textit{sheet}.
 		\item Modul \texttt{table}, bertugas untuk mengelola tabel konfigurasi, melakukan validasi data, dan membuat representasi relasional.
@@ -80,19 +80,28 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 
 	\begin{figure}[htb]
 	    \centering
-	    \includegraphics[width=0.6\textwidth]{resources/chapter-4-module-dependecy.png}
+	    \includegraphics[width=0.4\textwidth]{resources/chapter-4-module-dependecy.png}
 	    \caption{Ketergantungan Antar Modul}
 		\label{ModuleDependency}
 	\end{figure}
 
 	\subsection{Kolaborasi Antar Modul}
-	Proses fitur ini akan dilakukan melalui modul \texttt{player} yang dapat menerima perintah pengguna melalui \textit{front-end}. Selanjutnya modul \texttt{framefinder} akan melakukan pendeteksian label dan data secara otomatis pada masing-masing tabel yang terdapat pada \textit{sheet}. Tabel-tabel tersebut didapatkan melalui modul \texttt{hierarchyfinder}. Selanjutnya, pada saat menerima perintah penyimpanan, modul \texttt{table} akan dipanggil oleh \texttt{player}. Jika data masukan sudah benar, maka modul \texttt{db} akan melakukan pennyimpanan ke dalam basis data. Kolaborasi antar modul disajikan pada Gambar \ref{ModuleFlow}.
+	Proses fitur ini akan dilakukan melalui modul \texttt{player} yang dapat menerima perintah pengguna melalui \textit{front-end}. Selanjutnya modul \texttt{framefinder} akan melakukan pendeteksian label dan data secara otomatis pada masing-masing tabel yang terdapat pada \textit{sheet}. Tabel-tabel tersebut didapatkan melalui modul \texttt{hierarchyfinder}. Selanjutnya, pada saat menerima perintah penyimpanan, modul \texttt{table} akan dipanggil oleh \texttt{player}. Jika data masukan sudah benar, maka modul \texttt{mysql} akan melakukan pennyimpanan ke dalam basis data. Kolaborasi antar modul disajikan pada Gambar \ref{ModuleFlow}.
 
 	\begin{figure}[htb]
 	    \centering
-	    \includegraphics[width=0.4\textwidth]{resources/chapter-4-module-flow.png}
+	    \includegraphics[width=0.5\textwidth]{resources/chapter-4-module-flow.png}
 	    \caption{Kolaborasi Antar Modul}
 		\label{ModuleFlow}
+	\end{figure}
+
+	Pada aplikasi Ethercalc, modul yang ditambahkan akan berada di bawah modul \texttt{player} yang sudah ada. Ilustrasi penempatan modul yang dibuat pada aplikasi EtherCalc yang sudah ada dapat dilihat pada Gambar \ref{ModulePlacing}.
+
+	\begin{figure}[htb]
+	    \centering
+	    \includegraphics[width=0.6\textwidth]{resources/chapter-4-module-placing.png}
+	    \caption{Interaksi dengan Modul yang Sudah Ada}
+		\label{ModulePlacing}
 	\end{figure}
 
 	\subsection{Arsitektur}
@@ -234,11 +243,11 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\end{small}
 	
 	\subsection{Modul DB}
-	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL. Modul ini hanya terdiri dari satu kelas utama yakni kelas \texttt{db}. Kelas ini memiliki tugas sebagai penghubung aplikasi ke basis data MySQL yang dipilih. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiModulDB}.
+	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL. Modul ini hanya terdiri dari satu kelas utama yakni kelas \texttt{mysql}. Kelas ini memiliki tugas sebagai penghubung aplikasi ke basis data MySQL yang dipilih. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiModulDB}.
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{10cm} | }
-	    \caption{Fungsi pada Kelas \texttt{DB}}
+	    \caption{Fungsi pada Kelas \texttt{mysql}}
 	    \label{FungsiModulDB}\\ \hline
 	    \centering\bfseries{Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
 	    \endfirsthead
@@ -535,7 +544,7 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\end{longtable}
 	\end{small}
 
-	Modul ini berinteraksi langsung dengan modul \texttt{player} pada saat akan melakukan penyimpanan \textit{state} tabel konfigurasi dan menampilkan tabel konfigurasi pada \textit{front-end}. Selain itu, modul ini juga berhubungan dengan modul \texttt{db} pada saat melakukan penyimpanan.
+	Modul ini berinteraksi langsung dengan modul \texttt{player} pada saat akan melakukan penyimpanan \textit{state} tabel konfigurasi dan menampilkan tabel konfigurasi pada \textit{front-end}. Selain itu, modul ini juga berhubungan dengan modul \texttt{mysql} pada saat melakukan penyimpanan.
 
 \section{Pengujian}
 Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tidak kepada aplikasi EtherCalc secara keseluruhan. Pada subbab ini akan dibahas kasus-kasus yang diuji dan hasil dari pengujian tersebut.
@@ -544,8 +553,7 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 	Pada fitur yang dibangun pada Tugas Akhir ini, pengujian yang dilakukan mempunyai tujuan yaitu:
 	\begin{enumerate}
 		\item Memastikan bahwa fitur yang diimplementasi dapat berjalan dengan baik. Pengujian yang dilakukan akan dikaitkan pada kasus-kasus penggunaan yang dapat terjadi. Dari pengujian akan dilihat kesesuaian hasil sesungguhnya dengan hasil yang diinginkan.
-		\item Menganalisis dampak penambahan dan penggunaan fitur yang diimplementasi dengan mengukur \textit{response time} fitur-fitur yang diimplementasi. Hal ini dilakukan untuk mengetahui pengaruh penambahan fitur terhadap keseluruhan aplikasi.
-		\item Menganalisis penggunaan tambahan penyimpanan yang dibutuhkan untuk menyimpan data pada dua basis data yang berbeda.
+		\item Mencatat waktu eksekusi yang dibutuhkan untuk fitur-fitur yang ditambahkan.
 	\end{enumerate}
 
 	\subsection{Lingkungan Pengujian}
@@ -569,7 +577,7 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 	\end{longtable}
 	\end{small}
 
-	\subsection{Eksekusi Pengujian}
+	\subsection{Eksekusi Pengujian} \label{skenarioujian}
 	Kasus pengujian disesuaikan dengan kebutuhan fungsional dan non-fungsional yang sudah dijelaskan pada Subbab \ref{PerancanganPL}. Setiap kasus uji diberi kode TC-XX dengan XX adalah nomor kasus uji. Daftar kasus uji dapat diperhatikan pada Tabel \ref{KasusUjiFA}.
 
 	\begin{small}
@@ -587,12 +595,9 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 		TC-04 & Pengguna dapat mengubah atribut yang ada pada tabel konfigurasi & FR-06 \\ \hline
 		TC-05 & Data dapat dimasukkan ke basis data sesuai dengan tabel konfigurasi & FR-03, FR-09, NF-01 \\ \hline
 		TC-06 & Data yang dimasukkan ke basis data berhasil divalidasi sesuai aturan pengguna & FR-07, FR-08, FR-09, NF-01 \\ \hline	
-		TC-07 & Pengujian \textit{response time} yang terjadi akibat fitur yang ditambahkan & FN-03 \\ \hline
-		TC-08 & Melakukan perbandingan penggunaan \textit{storage} untuk penyimpanan data & FN-03 \\ \hline
+		TC-07 & Pencatatan \textit{response time} pada fitur yang ditambahkan & FN-03 \\ \hline
 	\end{longtable}
 	\end{small}
 
-	Skenario dari masing-masing kasus uji dapat diperhatikan pada Lampiran A. Setiap skenario diberi kode dengan format TC-XX-YY dengan TC-XX adalah ID kasus uji dan YY adalah nomor skenario.
-
-	% \subsection{Hasil Pengujian}
-	% yokkelarin
+	\subsection{Hasil Pengujian}
+	Hasil pengujian dikaitkan dengan ID skenario pengujian yang berkaitan langsung dengan kasus uji yang telah didefinisikan pada Bab \ref{skenarioujian}. Tiap hasil pengujian mempunyai ID skenario terkait, ekspektasi, hasil uji yang dilakukan, dan diterima atau tidaknya hasil pengujian. Hasil pengujian merupakan hasil pelaksanaan skenario yang sudah dibuat dan dapat diperhatikan pada Lampiran A.
