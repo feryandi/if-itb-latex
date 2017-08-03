@@ -6,7 +6,7 @@
 %
 %--------------------------------------------------------------------%
 %
-% Berkas ini berisi struktur utama dokumen LaTeX yang akan dibuat.
+% Berkas ini berisi struktur utama dokumen LaTeaX yang akan dibuat.
 %
 %--------------------------------------------------------------------%
 
@@ -50,12 +50,21 @@
         \renewcommand{\numberline}{\figurename~\oldnumberline}%
         \listoffigures%
     }
+
+    \addcontentsline{toc}{chapter}{DAFTAR ISI} 
+    {%
+        \let\oldnumberline\numberline%
+        \renewcommand{\numberline}{\appendixname~\oldnumberline}%
+        \listofappendices%
+    }
+
     \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}  
     {%
         \let\oldnumberline\numberline%
         \renewcommand{\numberline}{\tablename~\oldnumberline}%
         \listoftables%
     }
+
     \addcontentsline{toc}{chapter}{DAFTAR TABEL}
 
     %----------------------------------------------------------------%
@@ -93,10 +102,15 @@
 
     \cleardoublepage
     \phantomsection
-    \part*{Lampiran}
-    \addcontentsline{toc}{part}{LAMPIRAN}
+    %\part*{Lampiran}
+    %\addcontentsline{toc}{part}{LAMPIRAN}
+
+    % Setting judul appendix
+    \chapterfont{\Large}
+    \titleformat{\chapter}[hang]
+      {\Large\bfseries}{\chaptertitlename\ \thechapter.\ }{0pt}{\Large\bfseries}
+    \titlespacing*{\chapter}{0pt}{-25pt}{10pt}
 
     \input{chapters/appendix-1}
-    %\input{chapters/appendix-2}
 
 \end{document}
