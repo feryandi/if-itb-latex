@@ -1,19 +1,19 @@
 \chapter{Analisis Masalah Pengumpulan Data Pada \textit{Spreadsheet}}
 
-Pada bab ini diuraikan analisis persoalan pengumpulan data pada \textit{spreadsheet} yang telah diuraikan pada Bab I. Hasil dari bab ini digunakan untuk merancang aplikasi yang akan diimplementasikan seperti yang dijelaskan pada Bab IV.
+Pada bab ini diuraikan analisis persoalan pengumpulan data pada \textit{spreadsheet} yang telah diuraikan pada Bab I. Hasil dari bab ini digunakan untuk merancang kakas yang akan diimplementasikan seperti yang dijelaskan pada Bab IV.
 
 \section{Permasalahan Pengumpulan Data Pada \textit{Spreadsheet}} \label{AspekAplikasi}
-Pada Subbab \ref{RumusanMasalah} telah dijelaskan bahwa terdapat tiga permasalahan yang muncul didalam pengumpulan data menggunakan media \textit{spreadsheet} yakni:
+Pada Subbab \ref{RumusanMasalah} telah dijelaskan bahwa terdapat tiga permasalahan yang muncul dalam pengumpulan data menggunakan media \textit{spreadsheet} yakni:
 \begin{enumerate}
 	\item Kolaborasi \\
-	Didalam pembuatan suatu \textit{spreadsheet}, kadang dibutuhkan banyak pihak untuk dapat melengkapi seluruh data yang dibutuhkan. Hal ini membuat pengembangan dan pengumpulan data membutuhkan kontribusi banyak orang \citep{Panko1998}. Untuk itu dibutuhkan fitur kolaborasi pada aplikasi \textit{spreadsheet} agar banyak pihak dapat melakukan pengumpulan data dan pengeditan secara bersamaan.
+	Dalam pembuatan suatu \textit{spreadsheet}, kadang dibutuhkan banyak pihak untuk dapat melengkapi seluruh data yang dibutuhkan. Hal ini membuat pengembangan dan pengumpulan data membutuhkan kontribusi banyak orang \citep{Panko1998}. Untuk itu dibutuhkan fitur kolaborasi pada aplikasi \textit{spreadsheet} agar banyak pihak dapat melakukan pengumpulan data dan pengeditan secara bersamaan.
 	\item Validasi \\
 	Data yang dikumpulkan pada suatu \textit{spreadsheet}, sangat rentan akan kesalahan. Bahkan pada \textit{spreadsheet} yang dibuat dengan sangat hati-hati, masih dapat ditemui sekitar 1 persen atau lebih kesalahan pada formula yang dibuat \citep{Panko1998}. Sehingga dibutuhkan mekanisme tambahan pada saat pengumpulan data untuk melakukan validasi terhadap masukan.
 	\item Penyimpanan Data \\
 	Setelah data dikumpulkan, permasalahan selanjutnya yang muncul adalah penyimpanan data tersebut. Data biasanya akan tetap tersimpan dalam bentuk berkas \textit{spreadsheet}, namun bentuk ini sulit untuk digunakan oleh aplikasi lain. Bentuk yang biasanya digunakan oleh aplikasi lain untuk dapat mengambil dan menyimpan data adalah bentuk relasional. Sehingga dibutuhkan mekanisme penyimpanan data ke dalam bentuk relasional agar data dapat dengan mudah digunakan pada aplikasi lain.
 \end{enumerate}
 
-Ketiga permasalahan tersebut yang dijadikan dasar pengembangan aplikasi pada Tugas Akhir ini dan akan dibahas pada subbab-subbab berikutnya. 
+Ketiga permasalahan tersebut yang dijadikan dasar pengembangan kakas pada Tugas Akhir ini dan akan dibahas pada subbab-subbab berikutnya. 
 
 % Pada Subbab \ref{KesalahanPenggunaan} dijelaskan bahwa terdapat dua jenis kesalahan yang dapat terjadi pada penggunaan \textit{spreadsheet} yakni kesalahan kualitatif dan kesalahan kuantitatif. Kesalahan kualitatif merupakan kesalahan penggunaan \textit{spreadsheet} yang berhubungan dengan kualitas dan prosedur penggunaan. Contoh kesalahan kualitatif yang sering terjadi adalah penggunaan \textit{spreadsheet} sebagai basis data. Kesalahan kuantitatif merupakan kesalahan yang menyebabkan keluaran menjadi salah. Contoh kesalahan kuantitatif yang sering terjadi adalah kesalahan masukan yang tidak divalidasi.
 
@@ -65,20 +65,20 @@ Ketiga permasalahan tersebut yang dijadikan dasar pengembangan aplikasi pada Tug
 
 % Dapat dilihat bahwa terdapat proses tambahan yang dilakukan pada aplikasi yang akan dibuat. Proses tersebut terdiri dari pencarian bagian label dan data serta proses validasi. Hasil dari identifikasi label dan data akan dijadikan \textit{tuple} relasional yang disimpan dalam bentuk basis data.
 
-\section{Analisis Rancangan Aplikasi \textit{Spreadsheet}}
-Dari permasalahan yang telah didefinisikan pada subbab \ref{AspekAplikasi}, dapat ditentukan beberapa hal yang harus dianalisis dalam merancang aplikasi \textit{spreadsheet} ini, diantaranya adalah:
+\section{Analisis Rancangan Kakas pada Aplikasi \textit{Spreadsheet}}
+Dari permasalahan yang telah didefinisikan pada subbab \ref{AspekAplikasi}, dapat ditentukan beberapa hal yang harus dianalisis dalam merancang kakas pada aplikasi \textit{spreadsheet} ini, diantaranya adalah:
 \begin{enumerate}
 	\item Penentuan aplikasi \textit{spreadsheet} yang akan dikembangkan dan ditambahkan fiturnya. Aplikasi harus memiliki fitur kolaborasi sehingga banyak pengguna dapat mengakses suatu \textit{spreadsheet} secara bersamaan.
 	\item Penanganan konflik yang terjadi pada saat kolaborasi.
-	\item Jenis \textit{spreadsheet} yang menjadi fokus utama untuk dapat ditangani oleh aplikasi.
-	\item Pemilihan metode interaksi aplikasi \textit{spreadsheet} dimana pengguna dapat membentuk struktur tempat pengguna lain memasukkan masukan. Contohnya dalam bentuk tabel atau formulir. Pengguna juga melengkapi domain dan batasan data yang dimasukkan.
+	\item Jenis \textit{spreadsheet} yang menjadi fokus utama untuk dapat ditangani oleh kakas.
+	\item Pemilihan metode interaksi kakas pada aplikasi \textit{spreadsheet} dimana pengguna dapat membentuk struktur tempat pengguna lain memasukkan masukan. Contohnya dalam bentuk tabel atau formulir. Pengguna juga melengkapi domain dan batasan data yang dimasukkan.
 	\item Setelah pengguna selesai merancang struktur masukan, diperlukan penentuan bagian label dan data yang berkaitan dengan label tersebut. Bagian label dan data akan dijadikan menjadi bentuk relasional yang dapat disimpan dalam basis data.
 	\item Setelah label dan data ditentukan, tabel harus direpresentasikan dalam bentuk relasional sehingga dapat dimasukkan ke dalam basis data.
 	\item Setelah data dikumpulkan, data perlu divalidasi dan dicek kesesuaiannya sesuai dengan batasan yang diberikan sehingga memenuhi domain yang ditentukan pada basis data.
 	\item Setelah proses validasi terpenuhi, diperlukan cara penyimpanan data sesuai dengan relasi \textit{tuple} yang telah ditentukan.
 	\item Interaksi antar \textit{spreadsheet} yang ingin memasukkan data pada suatu tabel yang sama perlu ditangani dan ditentukan aturannya.
 \end{enumerate}
-Pada subbab-subbab selanjutnya, akan dibahas analisis untuk kelima poin diatas yang selanjutnya akan dijadikan dasar rancangan fitur yang akan dibuat pada aplikasi \textit{spreadsheet}.
+Pada subbab-subbab selanjutnya, akan dibahas analisis untuk kelima poin diatas yang selanjutnya akan dijadikan dasar rancangan kakas yang akan dibuat pada aplikasi \textit{spreadsheet}.
 
 \section{Analisis Perbandingan Aplikasi \textit{Spreadsheet} yang Dikembangkan}
 Dari studi yang telah dilaksanakan pada subbab \ref{TeknologiSpreadsheet}, aplikasi \textit{spreadsheet} dapat dibagi berdasarkan konektivitasnya yakni \textit{offline spreadsheet} dan \textit{online spreadsheet} dan dapat juga dibagi lagi berdasarkan keterbukaan dari \textit{source code} yakni \textit{open source} dan \textit{closed source}. Pada Tabel \ref{AnalisisAplikasiDasar} dijabarkan parameter yang mendasari pemilihan aplikasi yang akan dikembangkan.
@@ -98,7 +98,7 @@ Dari studi yang telah dilaksanakan pada subbab \ref{TeknologiSpreadsheet}, aplik
 \end{longtable}
 \end{small}
 
-Dari perbandingan diatas, diambil solusi dengan menggunakan aplikasi \textit{spreadsheet} berbasis web yang dapat diakses secara konkuren dan memiliki \textit{portability} yang lebih baik. Selain itu, untuk dapat mengembangkan fitur aplikasi dengan lebih baik, akan dipilih aplikasi yang berbentuk \textit{open source}. Alasan lain dipilihnya \textit{open source} adalah aplikasi berbasis \textit{open source} dapat dipasang pada \textit{platform} yang diinginkan oleh pengguna. Pengguna atau perusahaan yang menggunakan aplikasi dapat membangun infrastrukturnya sendiri sehingga dapat mengatur privasi dan performa aplikasi sesuai dengan keinginan pengguna. Sehingga dipilih aplikasi yang memiliki tipe \textit{online spreadsheet} dan \textit{open source} yaitu EtherCalc. Fitur kolaborasi yang dibutuhkan akan ditangani oleh aplikasi EtherCalc ini dan bukan merupakan bagian dari fitur yang akan dikembangkan.
+Dari perbandingan diatas, diambil solusi dengan menggunakan aplikasi \textit{spreadsheet} berbasis web yang dapat diakses secara konkuren dan memiliki \textit{portability} yang lebih baik. Di samping itu, untuk dapat mengembangkan fitur aplikasi dengan lebih baik, akan dipilih aplikasi yang berbentuk \textit{open source}. Alasan lain dipilihnya \textit{open source} adalah aplikasi berbasis \textit{open source} dapat dipasang pada \textit{platform} yang diinginkan oleh pengguna. Pengguna atau perusahaan yang menggunakan aplikasi dapat membangun infrastrukturnya sendiri sehingga dapat mengatur privasi dan performa aplikasi sesuai dengan keinginan pengguna. Sehingga dipilih aplikasi yang memiliki tipe \textit{online spreadsheet} dan \textit{open source} yaitu EtherCalc. Fitur kolaborasi yang dibutuhkan akan ditangani oleh aplikasi EtherCalc ini dan bukan merupakan bagian dari fitur yang akan dikembangkan.
 
 \section{Analisis Penanganan Konflik saat Kolaborasi}
 
@@ -123,11 +123,11 @@ Penanganan konflik telah ditangani oleh EtherCalc menggunakan mekanisme \textit{
 \end{enumerate}
 
 \section{Analisis Jenis \textit{Spreadsheet} yang Ditangani}
-Pada Subbab \ref{JenisSpreadsheet} telah dijelaskan jenis-jenis \textit{spreadsheet} yang biasanya dibuat. Persentase jenis \textit{spreadsheet} terbesar yang dibuat berjenis \textit{data frame} dengan persentase 50.5\%. \textit{Data frame} merupakan tipe \textit{spreadsheet} yang terdiri dari 2 komponen utama: area nilai dan area atribut atau metadata (biasanya berada di atas dan atau di kiri area nilai). Karena tingginya angka penggunaan menggunakan tipe ini, aplikasi akan melakukan penanganan pada \textit{spreadsheet} bertipe \textit{data frame}.
+Pada Subbab \ref{JenisSpreadsheet} telah dijelaskan jenis-jenis \textit{spreadsheet} yang biasanya dibuat. Persentase jenis \textit{spreadsheet} terbesar yang dibuat berjenis \textit{data frame} dengan persentase 50.5\%. \textit{Data frame} merupakan tipe \textit{spreadsheet} yang terdiri dari 2 komponen utama: area nilai dan area atribut atau metadata (biasanya berada di atas dan atau di kiri area nilai). Karena tingginya angka penggunaan menggunakan tipe ini, kakas akan melakukan penanganan pada \textit{spreadsheet} bertipe \textit{data frame}.
 
-Selain itu, persentase kedua ditempati oleh jenis \textit{spreadsheet} bertipe relasi yang memiliki persentase 22.0\%. Tipe relasi ini merupakan tipe \textit{spreadsheet} yang dapat langsung diubah ke model relasional. Biasanya berupa satu \textit{header} dan kumpulan baris data. Dengan tingginya persentase tipe ini serta miripnya tipe relasi dan \textit{data frame}, tipe ini juga dipilih untuk dapat ditangani oleh aplikasi.
+Persentase kedua ditempati oleh jenis \textit{spreadsheet} bertipe relasi yang memiliki persentase 22.0\%. Tipe relasi ini merupakan tipe \textit{spreadsheet} yang dapat langsung diubah ke model relasional. Biasanya berupa satu \textit{header} dan kumpulan baris data. Dengan tingginya persentase tipe ini serta miripnya tipe relasi dan \textit{data frame}, tipe ini juga dipilih untuk dapat ditangani oleh kakas.
 
-Tipe lainnya yang teridentifikasi adalah tipe formulir, diagram, dan jadwal. Ketiga jenis ini memiliki penanganan yang berbeda-beda dan tidak memiliki sifat yang sama dengan tipe \textit{data frame} dan relasi. Sehingga, tipe ini tidak dijadikan fokus dalam pengembangan aplikasi untuk dapat ditangani. Dengan menangani hanya tipe \textit{data frame} dan relasi diharapkan telah dapat menangani 72.5\% kasus penggunaan \textit{spreadsheet} yang biasanya ditemui.
+Tipe lainnya yang teridentifikasi adalah tipe formulir, diagram, dan jadwal. Ketiga jenis ini memiliki penanganan yang berbeda-beda dan tidak memiliki sifat yang sama dengan tipe \textit{data frame} dan relasi. Sehingga, tipe ini tidak dijadikan fokus dalam pengembangan kakas untuk dapat ditangani. Dengan menangani hanya tipe \textit{data frame} dan relasi diharapkan telah dapat menangani 72.5\% kasus penggunaan \textit{spreadsheet} yang biasanya ditemui.
 
 \section{Analisis Metode Interaksi Pengguna}
 Di dalam pembangunan perangkat lunak \textit{spreadsheet} untuk mengurangi kesalahan, dapat diidentifikasikan dua metode interaksi yang dapat diimplementasi. Model interaksi yang pertama adalah menggunakan formulir sebagai basis masukan data dan metode yang kedua adalah menggunakan aplikasi \textit{spreadsheet} secara langsung sebagai media input data.
@@ -138,7 +138,7 @@ Di dalam pembangunan perangkat lunak \textit{spreadsheet} untuk mengurangi kesal
 	Metode interaksi berbasiskan \textit{spreadsheet} menggunakan antarmuka yang telah disediakan oleh aplikasi. Penggunaannya dilakukan dengan membuat format pengisian seperti membuat tabel pada \textit{spreadsheet} pada umumnya. Pada tabel harus terdapat label dan data sehingga metadata minimal yang dibutuhkan dapat dicapai. Fitur-fitur yang ada pada \textit{spreadsheet} juga tetap dapat digunakan saat pembuatan tabel yang diinginkan. Dari pembuatan tabel tersebut dilakukan identifikasi label dari data tersebut untuk selanjutnya diproses melalui penyaringan masukan dan dimasukan ke tabel yang sesuai yang ada di basis data. Untuk mengimplementasikan teknik ini harus mengubah kode pada program \textit{spreadsheet} atau mengekstensi fitur yang ada menggunakan \textit{plugin}. 
 
 	\subsection{Perbandingan Metode Masukan}
-	Kedua metode interaksi pengguna tersebut memiliki beberapa perbedaan dan efek terhadap penggunaannya baik bagi sistem maupun pengguna. Pada Tabel \ref{ModelInteraksi} dijabarkan perbandingan antara kedua metode interaksi pengguna tersebut.
+	Kedua metode interaksi pengguna tersebut memiliki beberapa perbedaan dan efek terhadap penggunaannya baik bagi aplikasi maupun pengguna. Pada Tabel \ref{ModelInteraksi} dijabarkan perbandingan antara kedua metode interaksi pengguna tersebut.
 
 	\begin{small}
 	\begin{longtable}{ | p{3cm} | p{4cm} | p{4cm} | }
@@ -155,14 +155,14 @@ Di dalam pembangunan perangkat lunak \textit{spreadsheet} untuk mengurangi kesal
   	\end{longtable}
 	\end{small}
 
-  	Pada Tugas Akhir ini, akan dipilih metode masukan pengguna dengan berbasis \textit{spreadsheet} sehingga pengguna dapat dengan lebih mudah didalam menggunakannya karena tidak memerlukan pembelajaran kembali di dalam menggunakan aplikasi. Selain itu, data yang dimasukan lebih mudah untuk dilihat secara menyeluruh dibandingkan dengan berbasis formulir yang hanya dapat menerima satu masukan dalam suatu formulir.
+  	Pada Tugas Akhir ini, akan dipilih metode masukan pengguna dengan berbasis \textit{spreadsheet} sehingga pengguna dapat dengan lebih mudah di dalam menggunakannya karena tidak memerlukan pembelajaran kembali di dalam menggunakan aplikasi. Di samping itu, data yang dimasukan lebih mudah untuk dilihat secara menyeluruh dibandingkan dengan berbasis formulir yang hanya dapat menerima satu masukan dalam suatu formulir.
 
 \section{Analisis Penentuan Bagian Data dan Label}
 Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \textit{spreadsheet} pada umumnya berbentuk tabel yang terdiri dari dua unsur utama yakni data dan label atau disebut juga tipe \textit{data frame} \citep{Chen2013}. Bagian data merupakan bagian yang biasanya dinamis dan merupakan masukan pengguna. Bagian label merupakan bagian yang memberikan keterangan dan konteks mengenai data yang dimaksud. Pada Gambar \ref{DataFrameSederhana} dapat dilihat bahwa area dengan nomor 1 disebut sebagai label yang menjelaskan data-data dibawahnya yakni pada area nomor 2.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.3\textwidth]{resources/chapter-3-simple-dataframe2.png}
+    \includegraphics[width=0.7\textwidth]{resources/chapter-3-simple-dataframe2.png}
     \caption{Contoh \textit{Data Frame} Sederhana}
 	\label{DataFrameSederhana}
 \end{figure}
@@ -184,14 +184,14 @@ Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \t
 	    \hline
 	    \centering\bfseries{Keterangan} & \centering\bfseries{Manual oleh Pengguna} & \centering\bfseries{Otomatis} \tabularnewline \hline
 	    \endhead
-	    Kelebihan & Tingkat akurasi lebih tinggi karena data dan label yang ditentukan sesuai dengan keinginan pengguna. & Kenyamanan dalam penggunaan karena pengguna tidak perlu melakukan interferensi tambahan. Selain itu, sistem kemungkinan data dan label yang diambil dapat diubah ke dalam bentuk \textit{tuple} relasional lebih tinggi. \\ \hline
+	    Kelebihan & Tingkat akurasi lebih tinggi karena data dan label yang ditentukan sesuai dengan keinginan pengguna. & Kenyamanan dalam penggunaan karena pengguna tidak perlu melakukan interferensi tambahan. Di samping itu, kemungkinan data dan label yang diambil dapat diubah ke dalam bentuk \textit{tuple} relasional lebih tinggi. \\ \hline
 	    Kekurangan & Interferensi pengguna yang banyak dan mungkinnya data dan label tidak dapat dijadikan bentuk \textit{tuple} relasional. & Algoritma ini hanya optimal jika digunakan pada tabel yang terurut vertikal. \\ \hline
   	\end{longtable}
 	\end{small}
-  	Dari perbandingan diatas, dapat dilihat terdapat kekurangan dan kelebihan didalam menggunakan salah satu metode tersebut. Berdasarkan hal tersebut, yang akan dipilih sebagai metode penentuan data dan label adalah gabungan dari kedua metode tersebut. Sistem awalnya akan melakukan \textit{parsing} terhadap struktur yang telah dibuat oleh pengguna, kemudian pengguna dapat melihat hasil dari \textit{parsing} tersebut sehingga pengguna dapat memperbaiki jika terdapat hasil pelabelan yang salah. Dengan metode gabungan ini diharapkan dapat meningkatkan akurasi dan mengurangi kesalahan \textit{parsing} yang terjadi namun tetap memberikan kenyamanan terhadap pengguna serta menjaga agar hasil pelabelan tetap dapat diubah ke dalam bentuk \textit{tuple} relasional.
+  	Dari perbandingan diatas, dapat dilihat terdapat kekurangan dan kelebihan di dalam menggunakan salah satu metode tersebut. Berdasarkan hal tersebut, yang akan dipilih sebagai metode penentuan data dan label adalah gabungan dari kedua metode tersebut. Kakas awalnya akan melakukan \textit{parsing} terhadap struktur yang telah dibuat oleh pengguna, kemudian pengguna dapat melihat hasil dari \textit{parsing} tersebut sehingga pengguna dapat memperbaiki jika terdapat hasil pelabelan yang salah. Dengan metode gabungan ini diharapkan dapat meningkatkan akurasi dan mengurangi kesalahan \textit{parsing} yang terjadi namun tetap memberikan kenyamanan terhadap pengguna serta menjaga agar hasil pelabelan tetap dapat diubah ke dalam bentuk \textit{tuple} relasional.
 
 \section{Analisis Representasi Tabel pada \textit{Spreadsheet}}
-Didalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasanya dibuat oleh pengguna dalam merepresentasikan data yang ingin disimpan. Pada jenis-jenis tabel tertentu, dibutuhkan transformasi bentuk tabel tersebut agar dapat dimasukkan ke dalam basis data bentuk relasional. Tipe-tipe tabel yang biasanya muncul di dalam pembuatan \textit{spreadsheet} beserta teknik transformasi yang akan digunakan adalah sebagai berikut:
+Dalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasanya dibuat oleh pengguna dalam merepresentasikan data yang ingin disimpan. Pada jenis-jenis tabel tertentu, dibutuhkan transformasi bentuk tabel tersebut agar dapat dimasukkan ke dalam basis data bentuk relasional. Tipe-tipe tabel yang biasanya muncul di dalam pembuatan \textit{spreadsheet} beserta teknik transformasi yang akan digunakan adalah sebagai berikut:
 \begin{enumerate}
 	\item Tabel dengan \textit{header} berada di atas data
 	\begin{figure}[htbp]
@@ -250,11 +250,11 @@ Didalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasa
 Setelah ditransformasikan, tabel akan dapat dengan mudah dijadikan \textit{tuple} relasional sehingga dapat langsung dimasukkan ke dalam basis data relasional yang dipilih.
 
 \section{Analisis Validasi Data}
-Setelah pengguna memasukan datanya kedalam struktur yang telah ditetapkan, pengecekan data dilakukan. Tujuan dari mekanisme ini adalah untuk menghindari kesalahan masukan yang terjadi. Berdasarkan pada Subbab \ref{KesalahanPenggunaan}, terdapat dua jenis tipe kesalahan \citep{Panko1998} yang bisa terjadi pada penggunaan \textit{spreadsheet} yakni kesalahan kualitatif dan kesalahan kuantitatif. Dari kedua tipe tersebut, pada Tugas Akhir ini akan lebih ditekankan kepada kesalahan kuantitatif. Kesalahan kuantitatif diambil karena merupakan jenis kesalahan yang dapat ditangani oleh aplikasi, sedangkan jenis kesalahan kuantitatif lebih berkaitan pada aturan dan konvensi pembuatan \textit{spreadsheet}.
+Mekanisme validasi data bertujuan untuk menghindari kesalahan masukan. Berdasarkan pada penelitian \citep{Panko1998}, terdapat dua jenis tipe kesalahan yang bisa terjadi pada penggunaan \textit{spreadsheet} yakni kesalahan kualitatif dan kesalahan kuantitatif. Dari kedua tipe tersebut, Tugas Akhir ini lebih menekankan kepada kesalahan kuantitatif. Kesalahan kuantitatif diambil karena merupakan jenis kesalahan yang dapat ditangani oleh kakas, sedangkan jenis kesalahan kualitatif lebih berkaitan pada aturan dan konvensi pembuatan \textit{spreadsheet}.
 
-Berdasarkan penelitian yang telah disebutkan pada Subbab \ref{KesalahanPenggunaan}, diketahui bahwa pengurangan kesalahan \textit{formula} sangat dipengaruhi oleh faktor umur, indeks prestasi, dan pengalaman pemrograman yang dapat dicapai oleh seseorang jika berlatih dan terbiasa. Namun, jenis kesalahan lain tidak dipengaruhi oleh faktor-faktor ini, sehingga tingkat kesalahan yang terjadi cukuplah konsisten tidak tergantung pengalaman. Sehingga, jenis kesalahan yang akan ditangani oleh aplikasi ini akan lebih difokuskan pada kesalahan-kesalahan yang sulit dihilangkan bahkan jika pengguna telah berpengalaman.
+Berdasarkan penelitian \citep{Howe2006}, diketahui bahwa pengurangan kesalahan \textit{formula} sangat dipengaruhi oleh faktor-faktor eksternal yang dapat diselesaikan jika berlatih dan terbiasa. Namun, jenis kesalahan lain tidak dipengaruhi oleh faktor-faktor ini, sehingga tingkat kesalahan yang terjadi cukuplah konsisten tidak tergantung pengalaman. Sehingga, jenis kesalahan yang akan ditangani oleh kakas ini akan lebih difokuskan pada kesalahan-kesalahan yang sulit dihilangkan bahkan jika pengguna telah berpengalaman.
 
-Jenis kesalahan yang akan ditangani adalah kesalahan \textit{clerical} dan non-material, \textit{rule violations}, dan kesalahan \textit{data-entry}. Dari kesalahan-kesalahan tersebut, maka terdapat tiga hal utama yang divalidasi pada aplikasi ini, yakni:
+Jenis kesalahan yang akan ditangani adalah kesalahan \textit{clerical} dan non-material, \textit{rule violations}, dan kesalahan \textit{data-entry}. Dari kesalahan-kesalahan tersebut, maka terdapat tiga hal utama yang divalidasi pada kakas ini, yakni:
 \begin{enumerate}
 	\item Validasi tipe data. Contohnya, data masukan yang seharusnya berupa \textit{integer} tidak dapat menerima masukan berupa \textit{string}.
 	\item Validasi domain masukan. Pengguna dapat juga mengatur rentang \textit{integer} yang boleh dijadikan masukan atau \textit{string} apa saja yang dapat diterima oleh sistem.
@@ -263,20 +263,20 @@ Jenis kesalahan yang akan ditangani adalah kesalahan \textit{clerical} dan non-m
 
 Kesalahan \textit{clerical} dan non-material diharapkan dapat ditangani menggunakan validasi tipe data dan domain masukan. Kesalahan \textit{data-entry} dan \textit{rule violations} diharapkan dapat ditangani menggunkan validasi tipe data, validasi domain, dan validasi relasi data.
 
-Sistem akan melakukan validasi terhadap ketiga hal tersebut dan menolak data masukan sehingga pengguna dapat memperbaiki data. Validasi akan dilakukan pada saat data akan dimasukkan ke dalam basis data. Alur validasi ini dapat dilihat pada Subbab \ref{Aluralur}.
+Kakas akan melakukan validasi terhadap ketiga hal tersebut dan menolak data masukan sehingga pengguna dapat memperbaiki data. Validasi akan dilakukan pada saat data akan dimasukkan ke dalam basis data. Letak validasi ini dapat dilihat pada alur pengumpulan data pada Subbab \ref{Aluralur}.
 
 \section{Analisis Penyimpanan Data}
 Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; jenis penyimpanan data yang digunakan, alur pengguna melakukan penyimpanan data tersebut, dan perubahan pada data di basis data. Kedua masalah ini akan dijelaskan pada dua subbab berikut.
 
 	\subsection{Jenis Penyimpanan Data} \label{JenisPenyimpanan}
-	Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spreadsheet} maupun data masukan pada struktur disimpan ke dalam basis data yang presisten. Terdapat 2 jenis data yang harus disimpan ke dalam basis data di dalam membangun aplikasi \textit{spreadsheet} ini, yakni:
+	Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spreadsheet} maupun data masukan pada struktur disimpan ke dalam basis data yang presisten. Terdapat 2 jenis data yang harus disimpan ke dalam basis data di dalam membangun kakas menggunakan aplikasi \textit{spreadsheet} ini, yakni:
 
 	\begin{enumerate}
 		\item Penyimpanan \textit{File Spreadsheet} \\
 		\textit{File spreadsheet} yang dimaksud adalah data struktural seperti \textit{value} pada suatu sel, \textit{properties} suatu sel seperti warna, \textit{border}, dan \textit{alignment}, serta hal-hal lain yang berhubungan dengan bagaimana suatu \textit{file spreadsheet} ditampilkan pada aplikasi. Tipe penyimpanan yang dapat digunakan untuk menampung data ini adalah NoSQL karena tipe ini cocok untuk menangani data yang kurang terstruktur seperti \textit{file spreadsheet} yang struktur penempatan datanya berbeda tiap pengguna. Cara penyimpanan yang cocok untuk menangani struktur ini adalah \textit{document based} atau \textit{key-value}. Sehingga proses penyimpanan \textit{file spreadsheet} akan menggunakan mekanisme yang sudah disediakan oleh aplikasi EtherCalc dengan menggunakan redis.
 
 		\item Penyimpanan Data dan Label \\
-		Tipe penyimpanan yang cocok digunakan adalah basis data relasional (SQL) karena data yang dibuat dalam bentuk tabel pada umumnya dapat dikonversikan menjadi \textit{tuple} relasional. Data dan label yang telah ditentukan menggunakan tabel konfigurasi dijadikan bentuk yang dapat diterima basis data relasional. Label akan dijadikan nama kolom pada basis data, dan data akan dijadikan dalam bentuk baris-baris.
+		Tipe penyimpanan yang cocok digunakan adalah basis data relasional (SQL) karena data yang dibuat dalam bentuk tabel pada umumnya dapat dikonversikan menjadi \textit{tuple} relasional. Data dan label yang telah ditentukan menggunakan \textit{metadata table} dijadikan bentuk yang dapat diterima basis data relasional. Label akan dijadikan nama kolom pada basis data, dan data akan dijadikan dalam bentuk baris-baris.
 
 		% Data yang disimpan merupakan hasil dari pendeteksian label dan data yang akan diubah menjadi bentuk relasional yang dapat diterima oleh basis data relasional. Contoh pengubahan yang terjadi dapat dilihat pada Gambar \ref{RelationalTuple}.
 
@@ -296,27 +296,29 @@ Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; je
 		\item Penyimpanan ke basis data dilakukan setiap mendapatkan masukan pengguna
 		\item Penyimpanan ke basis data menunggu perintah dari pengguna
 	\end{enumerate}
-	Jika menggunakan alur penyimpanan basis data yang dilakukan setiap mendapatkan masukan, terdapat beberapa kelebihan yakni sinkronisasi antara basis data yang menyimpan \textit{file spreadsheet} yakni redis dan basis data yang menyimpan data yakni basis data relasional yang dipilih. Kedua basis data ini akan memiliki data yang sama setiap waktu. Namun kelemahan alur ini adalah performansi yang akan menurun diakibatkan sistem pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. Kelemahan lainnya adalah akan sulit untuk mengembangkan aplikasi menggunakan \textit{user access control} karena sulit menentukan kapan dan oleh siapa data boleh dimasukkan ke dalam basis data.
+	Jika menggunakan alur penyimpanan basis data yang dilakukan setiap mendapatkan masukan, terdapat beberapa kelebihan yakni sinkronisasi antara basis data yang menyimpan \textit{file spreadsheet} yakni redis dan basis data yang menyimpan data yakni basis data relasional yang dipilih. Kedua basis data ini akan memiliki data yang sama setiap waktu. Namun kelemahan alur ini adalah performansi yang akan menurun diakibatkan kakas pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. Kelemahan lainnya adalah akan sulit untuk mengembangkan aplikasi menggunakan \textit{user access control} karena sulit menentukan kapan dan oleh siapa data boleh dimasukkan ke dalam basis data.
 
-	Menggunakan alur penyimpanan yang menunggu perintah dari pengguna, memiliki kelebihan performansi yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand}. Selain itu, jika akan mengembangkan aplikasi dengan \textit{user access control} akan lebih mudah untuk menentukan siapa yang memiliki akses untuk melakukan penyimpanan. Kelemahan dari alur ini adalah tidak sinkronnya kedua basis data.
+	Menggunakan alur penyimpanan yang menunggu perintah dari pengguna, memiliki kelebihan performansi yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand}. Di samping itu, jika akan mengembangkan aplikasi dengan \textit{user access control} akan lebih mudah untuk menentukan siapa yang memiliki akses untuk melakukan penyimpanan. Kelemahan dari alur ini adalah tidak sinkronnya kedua basis data.
 
-	Dari pertimbangan tersebut, alur yang akan digunakan pada aplikasi ini adalah penyimpanan ke basis data yang menunggu perintah dari pengguna karena kelebihannya pada sisi performa dan \textit{user access control}. Selain itu, tidak sinkronnya antara kedua basis data bukan merupakan masalah karena data yang ingin dikumpulkan merupakan data akhir dan data tiap perubahan yang dilakukan tidak begitu dipedulikan.
+	Dari pertimbangan tersebut, alur yang dipilih adalah penyimpanan ke basis data yang menunggu perintah dari pengguna karena kelebihannya pada sisi performa dan \textit{user access control}. Di samping itu, tidak sinkronnya antara kedua basis data bukan merupakan masalah karena data yang ingin dikumpulkan merupakan data akhir dan data tiap perubahan yang dilakukan tidak begitu dipedulikan.
 
 	\subsection{Perubahan pada Data di Basis Data}
-	Kasus yang dapat terjadi pada basis data tempat penyimpanan data yang berasal dari \textit{spreadsheet} adalah diubahnya data tersebut secara manual oleh entitas lain. Pada aplikasi yang dibuat, aplikasi hanya bekerja sebagai media untuk mengumpulkan data sehingga perubahan yang terjadi pada basis data, tidak akan ditampilkan kembali menjadi bentuk \textit{spreadsheet} pada aplikasi. Selain itu, perubahan data langsung pada basis data tanpa melalui media yang disediakan sangat tidak disarankan.
+	Kasus yang dapat terjadi pada basis data tempat penyimpanan data yang berasal dari \textit{spreadsheet} adalah diubahnya data tersebut secara manual oleh entitas lain. Pada kakas yang dibuat, kakas hanya bekerja sebagai media untuk mengumpulkan data sehingga perubahan yang terjadi pada basis data, tidak akan ditampilkan kembali menjadi bentuk \textit{spreadsheet} pada aplikasi. Di samping itu, perubahan data langsung pada basis data tanpa melalui media yang disediakan sangat tidak disarankan.
 
 \section{Analisis Interaksi antar \textit{Spreadsheet}}
 Interaksi yang akan dibahas terdiri dari dua jenis yakni interaksi data dan interaksi penyimpanan. Pada interaksi data akan dijelaskan bagaimana data pada dua atau lebih \textit{spreadsheet} dapat saling berinteraksi dalam bentuk fragmen. Sedangkan pada interaksi penyimpanan akan dijelaskan bagaimana aplikasi menyelesaikan permasalahan konflik penyimpanan yang terjadi akibat interaksi dua atau lebih \textit{spreadsheet}.
 
 \subsection{Interaksi Data}
 Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifikasikan menjadi empat tipe berdasarkan fragmen data yang dikumpulkan yakni; tidak berhubungan, horizontal, vertikal, dan gabungan.
-	\subsubsection{Fragmen Tidak Berhubungan}
+
+\begin{enumerate}
+	\item Fragmen Tidak Berhubungan\\
 	Dua atau lebih \textit{spreadsheet} dapat dikatakan tidak saling berpotongan fragmennya jika \textit{spreadsheet} tersebut tidak menyimpan data pada tabel yang sama pada basis data. Pada kasus tersebut, data pada kedua atau lebih \textit{spreadsheet} dapat dianggap tidak saling melengkapi dan dapat berdiri sendiri.
 	
-	\subsubsection{Fragmen Horizontal}
+	\item Fragmen Horizontal\\
 	Fragmen horizontal terjadi ketika dua atau lebih \textit{spreadsheet} menyimpan pada tabel basis data yang sama dimana data yang disimpan memiliki jumlah, nama, dan konteks kolom yang sama. Pada kasus tersebut, data pada dua atau lebih \textit{spreadsheet} akan digabungkan pada satu tabel yang sama secara horizontal. Contoh gambaran pengabungan data dapat dilihat pada Gambar \ref{HorizontalMerge}.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 	    \centering
 	    \includegraphics[width=1\textwidth]{resources/chapter-3-horizontal-merge.png}
 	    \caption{Contoh Penggabungan Horizontal}
@@ -325,10 +327,10 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Pada gambar, data pada \textit{spreadsheet} A dan \textit{spreadsheet} B digabungkan pada satu tabel pada basis data secara horizontal (diilustrasikan dengan garis merah). Pada kasus tersebut, NIM tidak didefinisikan sebagai nilai yang unik, sehingga jika terdapat NIM yang sama pada lebih dari satu \textit{spreadsheet} maka data akan tetap digabungkan secara horizontal pada data yang sudah ada bukan menulis kembali nilai pada NIM yang bersesuaian. Namun, jika nilai NIM didefinisikan sebagai unik, maka jika NIM terdapat di lebih dari satu \textit{spreadsheet} akan ditimpa dan ditulis kembali nilainya pada NIM yang sesuai.
 
-	\subsubsection{Fragmen Vertikal}
+	\item Fragmen Vertikal\\
 	Fragmen vertikal terjadi ketika dua atau lebih \textit{spreadsheet} menyimpan pada tabel basis data yang sama dimana data yang disimpan memiliki satu kolom unik dengan nama dan konteks yang sama dan kolom lainnya dapat berbeda dari segi jumlah , nama, dan konteks di masing-masing \textit{spreadsheet}. Pada kasus ini, data pada dua atau lebih \textit{spreadsheet} akan digabungkan pada satu tabel yang sama secara vertikal. Contoh gambaran pengabungan data dapat dilihat pada Gambar \ref{VerticalMerge}.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 	    \centering
 	    \includegraphics[width=0.9\textwidth]{resources/chapter-3-vertical-merge.png}
 	    \caption{Contoh Penggabungan Vertikal}
@@ -337,10 +339,10 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Penggabungan secara vertikal membutuhkan suatu kolom \textit{key} dan unik yang dapat dijadikan patokan penggabungan data pada suatu baris data. Untuk masing-masing \textit{spreadsheet} yang akan digabungkan datanya, harus memiliki kolom \textit{key} dan unik yang sama dengan konteks data yang sama. Pada contoh pada gambar, kolom unik yang dipilih adalah kolom NIM. Penggabungan data dilakukan dengan mengambil data dari \textit{spreadsheet} A yakni data nilai UTS, dan dari \textit{spreadsheet} B yakni data nilai UAS, lalu dimasukkan ke dalam basis data pada tabel yang dipilih.
 
-	\subsubsection{Fragmen Horizontal dan Vertikal}
+	\item Fragmen Horizontal dan Vertikal\\
 	Fragmen gabungan ini terjadi ketika data yang digabungkan ada yang memiliki perbedaan kolom, ada juga yang tidak, atau juga dapat merupakan gabungan semua kolom yang ada. Contoh kasus yang dapat terjadi dapat dilihat pada Gambar \ref{BothTableMerge}.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 	    \centering
 	    \includegraphics[width=0.9\textwidth]{resources/chapter-3-both-merge.png}
 	    \caption{Contoh Tabel Penggabungan}
@@ -349,7 +351,7 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 
 	Terdapat tiga \textit{spreadsheet} dimana data pada \textit{spreadsheet} A dan \textit{spreadsheet} C memiliki jumlah kolom yang sama dan dapat digabung secara horizontal. Sedangkan, \textit{spreadsheet} A dan \textit{spreadsheet} B memiliki jumlah kolom yang berbeda namun kolom unik yang sama yakni NIM sehingga dapat digabungkan secara vertikal. Hasil penggabungan ketiga \textit{spreadsheet} ini akan menjadi tabel yang dapat dilihat pada Gambar \ref{BothMerge}.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
 	    \centering
 	    \includegraphics[width=0.3\textwidth]{resources/chapter-3-both-merge-db.png}
 	    \caption{Contoh Penggabungan Horizontal dan Vertikal}
@@ -357,34 +359,34 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 	\end{figure}
 
 	Karena dari hasil penggabungan data tidak semua kolom dapat dipenuhi, maka terdapat kolom yang berisikan NULL sebagai penanda bahwa kolom tersebut kosong dan tidak mendapatkan data dari \textit{spreadsheet}.
+\end{enumerate}
 
 \subsection{Interaksi Penyimpanan}
-Penanganan interaksi penyimpanan menjadi penting pada saat terdapat dua atau lebih \textit{spreadsheet} memasukkan datanya pada suatu tabel yang sama. Kasus yang dapat terjadi adalah data yang telah sebelumnya dimasukkan oleh sebuah \textit{spreadsheet} dapat ditimpa oleh data dari \textit{spreadsheet} lainnya. Hal ini, jika memang tidak diharapkan, akan menyebabkan permasalahan kerusakan data. Sehingga, pada aplikasi yang dibuat, dibuat penanganan berupa tombol pengecekan yang akan menjalankan fitur yang dapat melakukan pengecekan konflik data. Jika pengguna memang ingin melakukan penimpaan terhadap data yang sudah ada, maka peringatan dari fitur ini dapat diabaikan.
+Penanganan interaksi penyimpanan menjadi penting pada saat terdapat dua atau lebih \textit{spreadsheet} memasukkan datanya pada suatu tabel yang sama. Kasus yang dapat terjadi adalah data yang telah sebelumnya dimasukkan oleh sebuah \textit{spreadsheet} dapat ditimpa oleh data dari \textit{spreadsheet} lainnya. Hal ini, jika memang tidak diharapkan, akan menyebabkan permasalahan kerusakan data. Sehingga, pada kakas yang dibuat, dibuat penanganan berupa tombol pengecekan yang akan menjalankan fitur yang dapat melakukan pengecekan konflik data. Jika pengguna memang ingin melakukan penimpaan terhadap data yang sudah ada, maka peringatan dari fitur ini dapat diabaikan.
 
-\subsection{Urutan Penyimpanan}
 Urutan penyimpanan antar \textit{spreadsheet} tidak akan mempengaruhi hasil dengan syarat data yang disimpan dari kedua \textit{spreadsheet} merupakan data yang \textit{disjoint} atau kelompok data yang terpisah satu dengan yang lainnya. Jika syarat tersebut tidak dipenuhi, maka pengguna harus memasukkan data dengan urutan yang benar dan diperhitungkan agar data yang masuk sesuai dengan keinginan. Sehingga, hal ini harus diperhitungkan dalam pengumpulan data yang dilakukan oleh pengguna.
 
 \section{Analisis Alur Kerja dan Alur Aplikasi} \label{Aluralur}
-Pada subbab ini, akan dijelaskan perbedaan alur kerja manusia dalam pengumpulan data menggunakan aplikasi yang dibuat dengan aplikasi biasa. Selain itu, akan dijelaskan juga perubahan alur aplikasi di dalam menangani masukan pengguna.
+Pada subbab ini, akan dijelaskan perbedaan alur kerja manusia dalam pengumpulan data menggunakan aplikasi yang telah ditambahkan dengan kakas yang dibuat dengan aplikasi biasa. Selain itu, akan dijelaskan juga perubahan alur aplikasi di dalam menangani masukan pengguna.
 
 \subsection{Alur Kerja}
 Terdapat perbedaan alur kerja yang terjadi jika pengguna menggunakan aplikasi yang dibuat pada Tugas Akhir. Alur kerja lama dapat dilihat pada Gambar \ref{GambarWorkflowKerjaBiasa} dan alur kerja pada aplikasi \textit{spreadsheet} yang dibagun dapat dilihat pada Gambar \ref{GambarWorkflowKerja}.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.7\textwidth]{resources/chapter-3-workflow-kerja-biasa.jpg}
-    \caption{Alur Aplikasi \textit{Spreadsheet} Biasa}
+    \includegraphics[width=1\textwidth]{resources/chapter-3-workflow-kerja-biasa.jpg}
+    \caption{Alur Pengumpulan Data Biasa}
 	\label{GambarWorkflowKerjaBiasa}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=1\textwidth]{resources/chapter-3-workflow-kerja.jpg}
-    \caption{Alur Aplikasi \textit{Spreadsheet} yang Akan Dibuat}
+    \caption{Alur Pengumpulan Data dengan Kakas yang Dibuat}
 	\label{GambarWorkflowKerja}
 \end{figure}
 
-Seperti yang digambarkan pada alur tersebut, dengan menggunakan aplikasi yang dikembangkan akan mengurangi alur yang dibutuhkan untuk mengumpulkan data. Pengurangan alur terjadi pada bagian penanganan konflik pada versi-versi \textit{spreadsheet} yang berbeda dan menjadi hanya dibutuhkan satu cara untuk mengubah data ke bentuk lain, yakni menggunakan koneksi basis data.
+Seperti yang digambarkan pada alur tersebut, dengan menggunakan aplikasi dengan kakas yang dikembangkan akan mengurangi alur yang dibutuhkan untuk mengumpulkan data. Pengurangan alur terjadi pada bagian penanganan konflik pada versi-versi \textit{spreadsheet} yang berbeda dan menjadi hanya dibutuhkan satu cara untuk mengubah data ke bentuk lain, yakni menggunakan koneksi basis data.
 
 \subsection{Alur Aplikasi}
 Aplikasi yang dibuat akan mengubah alur penggunaan \textit{spreadsheet} yang umum dengan menambahkan mekanisme-mekanisme yang dibutuhkan. Alur aplikasi yang lama dapat dilihat pada Gambar \ref{GambarWorkflowBiasa} dan aplikasi \textit{spreadsheet} yang dibangun pada Tugas Akhir ini pada Gambar \ref{GambarWorkflow}.
@@ -403,7 +405,7 @@ Aplikasi yang dibuat akan mengubah alur penggunaan \textit{spreadsheet} yang umu
 	\label{GambarWorkflow}
 \end{figure}
 
-Dapat dilihat bahwa terdapat proses tambahan yang dilakukan pada aplikasi yang akan dibuat. Proses tersebut terdiri dari pencarian bagian label dan data jika menggunakan pencarian otomatis, pengaturan tabel konfigurasi untuk aturan masukkan ke basis data, serta proses validasi. Fokus aplikasi ini hanya sampai menyimpan data pada basis data, sehingga permasalahan \textit{input} dan \textit{output} berupa \textit{file} tidak ditangani. Alur kolaborasi bukan merupakan fokus pengembangan Tugas Akhir ini sehingga akan ditangani oleh aplikasi \textit{spreadsheet} yang dipilih.
+Dapat dilihat bahwa terdapat proses tambahan yang dilakukan pada aplikasi yang telah ditambahkan kakas yang dibuat pada Tugas Akhir ini. Proses tersebut terdiri dari pencarian bagian label dan data jika menggunakan pencarian otomatis, pengaturan \textit{metadata table} untuk aturan masukkan ke basis data, serta proses validasi. Fokus kakas ini hanya sampai menyimpan data pada basis data, sehingga permasalahan \textit{input} dan \textit{output} berupa \textit{file} tidak ditangani. Alur kolaborasi bukan merupakan fokus pengembangan kakas pada Tugas Akhir ini sehingga akan ditangani oleh aplikasi \textit{spreadsheet} yang dipilih.
 
 % \section{Rencana Tindak Lanjut}
 % Berdasarkan analisa yang telah dijelaskan pada bab-bab sebelumnya, pada Tugas Akhir ini akan dibangun aplikasi \textit{spreadsheet} dengan menggunakan EtherCalc sebagai teknologi utama. Pada Subbab \ref{TeknologiSpreadsheet} telah dijelaskan bahwa EtherCalc merupakan perangkat lunak \textit{spreadsheet} yang \textit{open source} dan memiliki kemampuan kolaborasi didalam penggunaannya. Sehingga dengan menggunakan EtherCalc, aspek-aspek yang telah dijelaskan pada Subbab \ref{AspekAplikasi} yang harus ada didalam pembangunan \textit{spreadsheet} ini sudah dapat dipenuhi. Pada Tugas Akhir ini akan dilakukan pengembangan dari EtherCalc yang berupa identifikasi label dan data, penanganan validasi data dan keterhubungannya dengan basis data relasional. Alur kerja dari aplikasi \textit{spreadsheet} yang akan dibuat dapat dilihat pada Gambar \ref{GambarWorkflow} pada Subbab \ref{AspekAplikasi}.

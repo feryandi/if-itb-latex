@@ -1,14 +1,14 @@
 \chapter{Studi Literatur}
 
-Pada bab ini akan dideskripsikan kajian literatur yang terkait dengan persoalan Tugas Akhir. Studi literatur ini akan dijadikan dasar didalam melakukan penyelesaian persoalan yang telah didefinisikan.
+Pada bab ini akan dideskripsikan kajian literatur yang terkait dengan persoalan Tugas Akhir. Studi literatur ini akan dijadikan dasar di dalam melakukan penyelesaian persoalan yang telah didefinisikan.
 
 \section{\textit{Spreadsheet}}
-Bagian ini akan membahas mengenai definisi umum \textit{spreadsheet} serta teknologi yang sering digunakan didalam membuat \textit{spreadsheet}. Dengan adanya definisi umum ini diharapkan dapat menyamakan persepsi mengenai \textit{spreadsheet} yang dimaksud pada Tugas Akhir ini. Teknologi yang dijelaskan pada bagian ini merupakan teknologi yang memungkinkan untuk dijadikan dasar pengembangan perangkat lunak pada Tugas Akhir ini.
+Bagian ini akan membahas mengenai definisi umum \textit{spreadsheet} serta teknologi yang sering digunakan di dalam membuat \textit{spreadsheet}. Dengan adanya definisi umum ini diharapkan dapat menyamakan persepsi mengenai \textit{spreadsheet} yang dimaksud pada Tugas Akhir ini. Teknologi yang dijelaskan pada bagian ini merupakan teknologi yang memungkinkan untuk dijadikan dasar pengembangan perangkat lunak pada Tugas Akhir ini.
 
 \subsection{Definisi Umum}
 Secara harafiah, \textit{spreadsheet} adalah suatu perangkat lunak yang dapat melakukan kalkulasi terhadap angka serta mengorganisir informasi yang ada di dalamnya berdasarkan kolom dan baris \citep{meriamwebster-spreadsheet}. Konsep dasar pada aplikasi \textit{spreadsheet} modern adalah sebuah aplikasi yang berupa sekumpulan sel terdiri dari baris dan kolom yang disebut \textit{sheet} yang dapat digambarkan sebagai matriks yang besar \citep{Ronen1989}.
 
-Sel-sel pada \textit{spreadsheet} dapat diisi data berupa data mentah maupun formula. Data mentah dapat berupa angka, teks, tanggal, dan nilai mata uang. Formula merupakan perintah yang dapat dimengerti komputer untuk menghitung dan memanipulasi data pada sel. Data hasil pengolahan dan masukan pada \textit{spreadsheet} ditampilkan dalam bentuk sel yang namanya terdiri dari nama kolom dan nilai baris (Contoh: A1 untuk kolom pertama dan baris pertama). Selain itu, sel tersebut juga dapat memiliki \textit{properties} berupa \textit{value} yang diisikan, format sel, serta format data yang digunakan.
+Sel-sel pada \textit{spreadsheet} dapat diisi data berupa data mentah maupun formula. Data mentah dapat berupa angka, teks, tanggal, dan nilai mata uang. Formula merupakan perintah yang dapat dimengerti komputer untuk menghitung dan memanipulasi data pada sel. Data hasil pengolahan dan masukan pada \textit{spreadsheet} ditampilkan dalam bentuk sel yang namanya terdiri dari nama kolom dan nilai baris (Contoh: A1 untuk kolom pertama dan baris pertama). Di samping itu, sel tersebut juga dapat memiliki \textit{properties} berupa \textit{value} yang diisikan, format sel, serta format data yang digunakan.
 
 \subsection{Teknologi \textit{Spreadsheet}} \label{TeknologiSpreadsheet}
 Perkembangan teknologi \textit{spreadsheet} digital modern dimulai pada tahun 1978, saat Bricklin mengembangkan \textit{working prototype} dari konsep dasar \textit{spreadsheet} menggunakan Integer BASIC. Pada tahun yang sama, Frankston dan Fylstra bergabung dan membentuk sebuah perangkat lunak bernama VisiCalc (Visible Calculator) yang merupakan sebuah perangkat lunak \textit{spreadsheet} pertama yang bekerja dengan baik dan sukses dipasaran. Setelah keberhasilan VisiCalc, mulai muncul aplikasi serupa yang semakin baik salah satunya adalah Lotus. Dengan berkembangnya daya komputasi dan munculnya konsep \textit{graphical user interface}, Microsoft mengembangkan Microsoft Excel yang merupakan \textit{spreadsheet} pertama yang menggunakan antarmuka grafis dan menggunakan \textit{mouse} sebagai alat kontrol \citep{power2004brief}.
@@ -23,7 +23,7 @@ Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan 
     \subsubsection{LibreOffice Calc}
     LibreOffice adalah perangkat lunak yang dikembangkan oleh komunitas dan proyek dari organisasi non-profit bernama The Document Foundation. LibreOffice adalah perangkat lunak yang gratis dan \textit{open source} yang awalnya didasarkan pada perangkat lunak serupa yakni OpenOffice.org dan merupakan pengembangan lanjutan dari OpenOffice yang paling aktif. Hampir serupa dengan Microsoft Office, LibreOffice memberikan 6 perangkat lunak yang ada di dalamnya yakni: Writer (pemrosesan teks), Calc (\textit{spreadsheet}), Impress (presentasi), Draw (grafik dan vektor), Base (basisdata), dan Math (editor formula) \citep{LibreOffice}. 
 
-    LibreOffice Calc memiliki berbagai kemampuan yang dimiliki oleh kebanyakan \textit{spreadsheet}. Didalam melakukan penyimpanan file, Calc menggunakan format OpenDocument. Format OpenDocument dikembangkan oleh Organization for the Advancement of Structured Information Standards (OASIS) yang bertujuan untuk membentuk \textit{open standard} bagi \textit{office document} \citep{OpenDocument}. 
+    LibreOffice Calc memiliki berbagai kemampuan yang dimiliki oleh kebanyakan \textit{spreadsheet}. Di dalam melakukan penyimpanan file, Calc menggunakan format OpenDocument. Format OpenDocument dikembangkan oleh Organization for the Advancement of Structured Information Standards (OASIS) yang bertujuan untuk membentuk \textit{open standard} bagi \textit{office document} \citep{OpenDocument}. 
 
     \subsubsection{EtherCalc} \label{AboutEtherCalc}
     EtherCalc merupakan perangkat lunak \textit{spreadsheet online} yang \textit{open-source} yang dikembangkan oleh Audrey Tang. EtherCalc merupakan pengembangan yang didasarkan dari perangkat lunak serupa yakni WikiCalc dan SocialCalc. WikiCalc merupakan aplikasi \textit{spreadsheet} yang mengandalkan komputasi server untuk dapat berkolaborasi, sedangkan SocialCalc merupakan aplikasi \textit{spreadsheet} yang menggunakan kemampuan javascript untuk melakukan komputasi pada \textit{client-side}. EtherCalc dikembangkan diatas Node.js dan menggunakan javascript sebagai alat komputasi. 
@@ -44,7 +44,7 @@ Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan 
         \item Modul Main \\
         Modul ini bertugas sebagai modul pertama yang menerima perintah dari pengguna dan mengatur API yang ada pada aplikasi. Modul ini mengatur hubungan antara modul player, modul database, dan modul socialcalc.
         \item Modul Socialcalc \\
-        Merupakan modul yang bertugas merepresentasikan \textit{spreadsheet} pada aplikasi. Didalam modul ini terdapat fungsi-fungsi yang dapat digunakan untuk memanipulasi sel-sel yang ada pada \textit{spreadsheet}.
+        Merupakan modul yang bertugas merepresentasikan \textit{spreadsheet} pada aplikasi. Di dalam modul ini terdapat fungsi-fungsi yang dapat digunakan untuk memanipulasi sel-sel yang ada pada \textit{spreadsheet}.
         \item Modul Database \\
         Modul ini bertugas untuk memanipulasi basis data redis yang menyimpan perubahan-perubahan yang terjadi pada \textit{spreadsheet}.
         \item Modul Player \\
@@ -64,11 +64,11 @@ Saat ini, perangkat lunak berupa \textit{spreadsheet} sangat banyak variasi dan 
     Google Sheet merupakan salah satu perangkat lunak pada \textit{office suite} miliki Google. Google Sheet dapat berjalan diatas tiga \textit{platform} yang berbeda yakni: sebagai \textit{web application}, Chrome apps, dan \textit{mobile apps}. Sheet memiliki kemampuan berkolaborasi secara \textit{real-time} dan menyediakan fitur-fitur \textit{spreadsheet} yang ada pada umumnya. Sheet memiliki fitur \textit{revision history} sehingga setiap orang dapat melihat perubahan yang terjadi, \textit{add-ons} yang dapat menambahkan fitur kepada Sheet melalui program yang dibuat oleh komunitas serta fitur \textit{chat} dengan kolaborator. Google Sheet dikembangkan menggunakan bahasa \textit{javascript} yang memberikan kemampuan penyimpanan dan kolaborasi secara \textit{real-time} \citep{GoogleSheet}.
 
     \subsubsection{OnlyOffice}
-    Merupakan perangkat lunak sebagai \textit{service} yang dikembangkan oleh Ascensio System SIA. OnlyOffice merupakan \textit{office suite} yang berjalan diatas \textit{web application} yang dipadukan dengan sistem \textit{customer relationship management}. OnlyOffice tidak hanya terdiri dari \textit{online office editor} namun juga terdapat fitur managemen dokumen, manajemen proyek, \textit{mail service}, serta manajemen pelanggan seperti kontak, \textit{invoice}, \textit{opportonities}, dan \textit{task}. OnlyOffice ditujukan kepada bisnis yang membutuhkan perangkat lunak yang dapat mengorganisir kebutuhan bisnis didalam satu aplikasi yang saling terintegrasi \citep{OnlyOffice}. 
+    Merupakan perangkat lunak sebagai \textit{service} yang dikembangkan oleh Ascensio System SIA. OnlyOffice merupakan \textit{office suite} yang berjalan diatas \textit{web application} yang dipadukan dengan sistem \textit{customer relationship management}. OnlyOffice tidak hanya terdiri dari \textit{online office editor} namun juga terdapat fitur managemen dokumen, manajemen proyek, \textit{mail service}, serta manajemen pelanggan seperti kontak, \textit{invoice}, \textit{opportonities}, dan \textit{task}. OnlyOffice ditujukan kepada bisnis yang membutuhkan perangkat lunak yang dapat mengorganisir kebutuhan bisnis di dalam satu aplikasi yang saling terintegrasi \citep{OnlyOffice}. 
 
 
 \section{Penggunaan \textit{Spreadsheet}}
-\textit{Spreadsheet} dapat digunakan untuk melakukan kalkulasi terhadap suatu rumus atau formula yang sulit jika dikalkulasikan dengan cara manual. Selain itu, \textit{spreadsheet} dapat juga digunakan untuk melakukan ramalan terhadap suatu perubahan variabel masukan. Pada perkembangannya, \textit{spreadsheet} memiliki fitur-fitur tambahan seperti visualisasi data dan ekstraksi data penting dari kumpulan data yang ada.
+\textit{Spreadsheet} dapat digunakan untuk melakukan kalkulasi terhadap suatu rumus atau formula yang sulit jika dikalkulasikan dengan cara manual. Di samping itu, \textit{spreadsheet} dapat juga digunakan untuk melakukan ramalan terhadap suatu perubahan variabel masukan. Pada perkembangannya, \textit{spreadsheet} memiliki fitur-fitur tambahan seperti visualisasi data dan ekstraksi data penting dari kumpulan data yang ada.
 
 Penelitian tentang penggunaan \textit{spreadsheet} pada bisnis pernah dilakukan sebelumnya pada tahun 2014. Subjek yang diteliti adalah akuntan manajemen \citep{Bradbard2014}. Pada penelitian tersebut, didapatkan gambaran umum mengenai penggunaan \textit{spreadsheet} secara umum. Menurut hasil penelitian tersebut beberapa fitur yang sering digunakan oleh pengguna \textit{spreadsheet} secara terurut dari yang paling sering digunakan adalah sebagai berikut,
 
@@ -120,13 +120,13 @@ Penelitian yang dilakukan oleh Panko juga menemukan 88\% dari 113 \textit{spread
     Powell, Baker \& Lawson (2007) & 50 & - & 86\%  & Kesalahan perhitungan dan formula \\ \hline
   \end{longtable}
   \end{small}
-Dari kumpulan data diatas, dapat dilihat bahwa didalam pembentukan \textit{spreadsheet} pada bidang bisnis, tidak mungkin terlepas dari kesalahan. Dengan tingginya tingkat kesalahan ini, bisnis dapat mengalami kerugian secara material maupun moral yang cukup besar \citep{EUSPRIGHorrorStories}. Hal ini mengindikasikan bahwa tingginya tingkat kesalahan harus dapat diselesaikan agar tidak terjadi kerugian di dalam penggunaan \textit{spreadsheet} terutama dalam bisnis.
+Dari kumpulan data diatas, dapat dilihat bahwa di dalam pembentukan \textit{spreadsheet} pada bidang bisnis, tidak mungkin terlepas dari kesalahan. Dengan tingginya tingkat kesalahan ini, bisnis dapat mengalami kerugian secara material maupun moral yang cukup besar \citep{EUSPRIGHorrorStories}. Hal ini mengindikasikan bahwa tingginya tingkat kesalahan harus dapat diselesaikan agar tidak terjadi kerugian di dalam penggunaan \textit{spreadsheet} terutama dalam bisnis.
 
 \subsection{Tipe Kesalahan dalam Penggunaan \textit{Spreadsheet}} \label{KesalahanPenggunaan}
 Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan kepada penggunanya untuk melakukan banyak manipulasi dan pengelolaan data. Tingginya fleksibilitas ini dapat berakibat mudahnya \textit{human error} terjadi pada saat penggunaan \textit{spreadsheet} yang menyebabkan terjadinya kesalahan-kesalahan pada data. Tipe-tipe kesalahan pada \textit{spreadsheet} dapat dibagi menjadi dua jenis tipe kesalahan yakni kesalahan kuantitatif, dan kesalahan kualitatif \citep{Panko1998}. 
 
     \subsubsection{Kesalahan Kualitatif}
-    Kesalahan kualitatif merupakan kesalahan yang berhubungan dengan kualitas \textit{spreadsheet} tersebut lebih menitikberatkan pada kebiasaan dan prosedur yang salah didalam pembuatan \textit{spreadsheet}. Beberapa kesalahan yang dapat diklasifikasikan sebagai kesalahan kualitatif adalah \citep{Powell2009}:
+    Kesalahan kualitatif merupakan kesalahan yang berhubungan dengan kualitas \textit{spreadsheet} tersebut lebih menitikberatkan pada kebiasaan dan prosedur yang salah di dalam pembuatan \textit{spreadsheet}. Beberapa kesalahan yang dapat diklasifikasikan sebagai kesalahan kualitatif adalah \citep{Powell2009}:
 
     \begin{enumerate}
         \item Melakukan \textit{hard-code} pada suatu angka di dalam formula
@@ -135,10 +135,10 @@ Tingkat fleksibilitas \textit{spreadsheet} yang tinggi memberikan keleluasaan ke
         \item Tidak adanya dokumentasi mengenai \textit{spreadsheet} yang dibuat
     \end{enumerate}
 
-    Kesalahan ini tidak langsung mengakibatkan nilai hasil keluaran yang salah namun menurunkan kualitas dari \textit{spreadsheet} tersebut \citep{Rajalingham2001}. Selain itu, kesalahan kualitatif dapat menyebabkan kesalahan kuantitatif terutama pada saat penggunaan fungsi analisis \textit{what-if} pada \textit{spreadsheet} \citep{Panko1998}.
+    Kesalahan ini tidak langsung mengakibatkan nilai hasil keluaran yang salah namun menurunkan kualitas dari \textit{spreadsheet} tersebut \citep{Rajalingham2001}. Di samping itu, kesalahan kualitatif dapat menyebabkan kesalahan kuantitatif terutama pada saat penggunaan fungsi analisis \textit{what-if} pada \textit{spreadsheet} \citep{Panko1998}.
 
     \subsubsection{Kesalahan Kuantitatif}
-    Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah didalam operasi perhitungannya. Kesalahan jenis ini dapat dibagi menjadi empat jenis kesalahan \citep{Howe2006}, yakni:
+    Kesalahan ini mengakibatkan \textit{spreadsheet} mengeluarkan hasil dan nilai yang salah di dalam operasi perhitungannya. Kesalahan jenis ini dapat dibagi menjadi empat jenis kesalahan \citep{Howe2006}, yakni:
 
     % \begin{enumerate}
     %     \item Kesalahan mekanikal (\textit{mechanical error}) yang biasanya terjadi akibat kesalahan pengetikan angka atau rujukan sel yang salah pada suatu formula
@@ -185,10 +185,10 @@ Pada penelitian yang dilakukan oleh Chen dan Cafarella, \textit{spreadsheet} dap
 Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ahli dan didapatkan bahwa 50.5\% \textit{spreadsheet} merupakan tipe \textit{data frame}, dimana 32.5\% memiliki label atribut dibagian atas atau bawah. Sedangkan 49.5\% \textit{spreadsheet} bertipe \textit{non-data frame} terdiri dari 22.0\% relasi, 10.5\% formulir, 3.5\% diagram, 3\% berupa \textit{list}, dan 10.5\% lainnya \citep{Chen2013}.
 
 \subsection{Pengolahan Data pada \textit{Spreadsheet}}
-    \textit{Extract-Transform-Load} (ETL) adalah proses yang digunakan sebagai metode integrasi data dari beberapa sumber dan aplikasi. ETL biasanya digunakan pada saat melakukan proses \textit{data warehouse} dimana data dari sumber eksternal diambil, lalu ditransformasikan ke bentuk yang sesuai dengan kebutuhan (didalam prosesnya bisa terkadung pengecekan kualitas), dan memasukannya ke dalam basisdata yang telah ditentukan \citep{Bansal2014}. Terdapat tiga fase pada proses ETL yakni:
+    \textit{Extract-Transform-Load} (ETL) adalah proses yang digunakan sebagai metode integrasi data dari beberapa sumber dan aplikasi. ETL biasanya digunakan pada saat melakukan proses \textit{data warehouse} dimana data dari sumber eksternal diambil, lalu ditransformasikan ke bentuk yang sesuai dengan kebutuhan (di dalam prosesnya bisa terkadung pengecekan kualitas), dan memasukannya ke dalam basisdata yang telah ditentukan \citep{Bansal2014}. Terdapat tiga fase pada proses ETL yakni:
 
     \begin{enumerate}
-        \item \textit{Extract}, fase pertama ini adalah proses yang melakukan ekstraksi data dari sumber yang dipilih. Data biasanya tersedia didalam format \textit{flat file} seperti csv, xls, dan txt atau melalui klien RESTful.
+        \item \textit{Extract}, fase pertama ini adalah proses yang melakukan ekstraksi data dari sumber yang dipilih. Data biasanya tersedia dalam format \textit{flat file} seperti csv, xls, dan txt atau melalui klien RESTful.
         \item \textit{Transform}, pada fase ini data dibersihkan agar sesuai dengan skema tujuan. Beberapa cara untuk mentransformasikan data adalah dengan menormalisasi data, menghapus duplikasi, melakukan pengecekan terhadap batasan-batasan, melakukan \textit{filtering}, melakukan pengurutan dan pengelompokan, atau fungsi-fungsi lain yang didefinisikan.
         \item \textit{Load}, pada fase ini data yang telah ditransformasikan dimasukan ke dalam \textit{data mart} atau \textit{data warehouse} yang ditentukan.
     \end{enumerate}
@@ -199,7 +199,7 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
         \paragraph{\textit{Frame Finder}}
         Tujuan dari proses \textit{frame finder} adalah mengidentifikasi wilayah nilai dan wilayah atribut yang dapat berupa \textit{left attribute} maupun \textit{top attribute}. Untuk mensimplifikasi permasalahan, Chen menganggap bahwa \textit{data frame} tidak akan berada sejajar secara horisontal, namun hanya secara vertikal. Sehingga proses ini dapat disimplifikasi menjadi labeling terhadap baris per baris. Label yang akan diberikan adalah \textit{title}, \textit{header}, \textit{data}, dan \textit{footnote}.
 
-        Pelabelan dapat dilakukan dengan algoritma \textit{conditional random field} (CRF) karena terdapat keterkaitan antara satu baris terhadap baris yang lain didalam penggunaan baris. Contohnya, jika baris telah teridentifikasi sebagai \textit{header}, maka besar kemungkinan bahwa baris selanjutnya adalah \textit{data} atau \textit{header}. CRF memiliki kemampuan untuk melakukan \textit{machine learning} yang memperhitungkan label pada elemen sebelumnya.
+        Pelabelan dapat dilakukan dengan algoritma \textit{conditional random field} (CRF) karena terdapat keterkaitan antara satu baris terhadap baris yang lain dalam penggunaan baris. Contohnya, jika baris telah teridentifikasi sebagai \textit{header}, maka besar kemungkinan bahwa baris selanjutnya adalah \textit{data} atau \textit{header}. CRF memiliki kemampuan untuk melakukan \textit{machine learning} yang memperhitungkan label pada elemen sebelumnya.
 
         \paragraph{\textit{Hierarcy Extractor}}
         Proses ini bertujuan untuk mendapatkan hirarki dari atribut-atribut yang ada. Masukan dari proses ini adalah \textit{data frame} dengan \textit{top attribute} dan \textit{left attribute} dan keluarannya berupa hirarki untuk masing-masing atribut atas dan kiri tersebut. Proses ini dapat dilakukan melalui dua algoritma: \textit{classification} dan \textit{enforced-tree classification}.
@@ -218,13 +218,13 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
     \subsection{\textit{Senbazuru: A Prototype Spreadsheet Database Management System}}
     Senbazuru \citep{Chen2013-2} merupakan prototipe yang dikembangkan dengan tujuan untuk mempermudah pencarian, pengaksesan, pengubahan, dan melakukan \textit{query} terhadap \textit{spreadsheet}. Pengembangan ini ingin menyelesaikan permasalahan dimana data \textit{spreadsheet} sangat tersebar diberbagai tempat sehingga untuk mendapatkan informasi yang diinginkan atau membandingkan antar informasi di dalam beberapa \textit{spreadsheet} sangatlah sulit. 
 
-    Didalam pengembangan prototipe ini, kesulitan teknikal yang harus dihadapi adalah proses ekstraksi dan perbaikan data. Didalam melakukan ekstraksi data, harus dilakukan beberapa proses berikut: mendeteksi mana atribut dan nilai, mengidentifikasi hirarki atribut, membentuk \textit{relational tuple}, dan membentuk \textit{tuple} tersebut menjadi tabel relasional. Dari hasil dari ekstrasi ini, masih sangat mungkin memiliki kesalahan sehingga proses perbaikan diperlukan didalam pembentukan tabel relasional ini. Proses perbaikan pada protitipe ini dilakukan manual dengan bantuan pengguna.
+    Di dalam pengembangan prototipe ini, kesulitan teknikal yang harus dihadapi adalah proses ekstraksi dan perbaikan data. Di dalam melakukan ekstraksi data, harus dilakukan beberapa proses berikut: mendeteksi mana atribut dan nilai, mengidentifikasi hirarki atribut, membentuk \textit{relational tuple}, dan membentuk \textit{tuple} tersebut menjadi tabel relasional. Dari hasil dari ekstrasi ini, masih sangat mungkin memiliki kesalahan sehingga proses perbaikan diperlukan di dalam pembentukan tabel relasional ini. Proses perbaikan pada protitipe ini dilakukan manual dengan bantuan pengguna.
 
     \subsubsection{Arsitektur Sistem}
 
     \begin{figure}[!htb]
         \centering
-        \includegraphics[width=1\textwidth]{resources/chapter-2-senbazuru-architecture.png}
+        \includegraphics[width=0.7\textwidth]{resources/chapter-2-senbazuru-architecture.png}
         \caption{Arsitektur Sistem Senbazuru \citep{Chen2013-2}}
         \label{ArsiSisSenbazuru}
     \end{figure}
@@ -258,15 +258,15 @@ Penelitian ini menggunakan sampel 200 \textit{spreadsheet} yang dilabeli oleh ah
     Senbazuru merupakan prototipe untuk manajemen basis data berbasis \textit{spreadsheet} yang dapat melakukan pencarian data pada internet melalui kata kunci yang diberikan. Prototipe ini berhasil melakukan ekstraksi data secara otomatis walaupun tidak terlepas dari kesalahan. Kesalahan yang terjadi masih harus seringkali dilakukan perbaikan secara manual. Namun dengan penggunaan algoritma CRF, protitipe dapat mengurangi kesalahan yang terjadi. Prototipe ini juga ditujukan sebagai demo kepada peserta konferensi VLDB dan diharapkan dapat menarik perhatian komunitas basis data.
 
 \subsection{\textit{Spreadsheet As a Relational Database Engine}}
-Penelitian \citep{Tyszkiewicz2010} pernah dilakukan terhadap pembuatan \textit{spreadsheet} menjadi mesin basis data relasional. Penelitian ini dilatarbelakangi dengan tingginya penggunaan \textit{spreadsheet} pada banyak bidang dan kurangnya kualitas data yang ada didalamnya yang dapat menyebabkan kesalahan-kesalahan terjadi pada perhitungan dan prediksi. Solusi yang dipaparkan pada penelitian ini adalah dengan menggabungkan \textit{spreadsheet} dan \textit{database engine} dengan menggunakan formula sebagai ganti dari \textit{SQL query}.
+Penelitian \citep{Tyszkiewicz2010} pernah dilakukan terhadap pembuatan \textit{spreadsheet} menjadi mesin basis data relasional. Penelitian ini dilatarbelakangi dengan tingginya penggunaan \textit{spreadsheet} pada banyak bidang dan kurangnya kualitas data yang ada di dalamnya yang dapat menyebabkan kesalahan-kesalahan terjadi pada perhitungan dan prediksi. Solusi yang dipaparkan pada penelitian ini adalah dengan menggabungkan \textit{spreadsheet} dan \textit{database engine} dengan menggunakan formula sebagai ganti dari \textit{SQL query}.
 
     \subsubsection{Cara Kerja Sistem}
 
-    Pada implementasinya, sebuah \textit{workbook} akan memiliki satu \textit{worksheet} untuk setiap tabel data dan satu \textit{worksheet} untuk setiap \textit{view} pada basis data. Dengan menggunakan \textit{external compiler} yang menerima masukan berupa SQL yang akan mengubahnya kedalam bentuk \textit{spreadsheet}. Program tersebut akan mengubah SQL menjadi beberapa formula yang diterima oleh \textit{spreadsheet} tersebut.
+    Pada implementasinya, sebuah \textit{workbook} akan memiliki satu \textit{worksheet} untuk setiap tabel data dan satu \textit{worksheet} untuk setiap \textit{view} pada basis data. Dengan menggunakan \textit{external compiler} yang menerima masukan berupa SQL yang akan mengubahnya ke dalam bentuk \textit{spreadsheet}. Program tersebut akan mengubah SQL menjadi beberapa formula yang diterima oleh \textit{spreadsheet} tersebut.
 
-    Terdapat dua bagian utama pada \textit{spreadsheet} hasil implementasi yakni: tabel data dan bagian \textit{view}. Bagian tabel data adalah tempat pengguna untuk memasukkan, mengubah, serta menghapus data. Secara teori, bagian tabel data tidak memiliki formula, namun didalam implementasinya mengikuti implementasi SQL dimana perlu dilakukan validasi data dan verifikasi terhadap \textit{primary key}, \textit{foreign key}, dan batasan lain yang ada diperintah \textit{create table}.
+    Terdapat dua bagian utama pada \textit{spreadsheet} hasil implementasi yakni: tabel data dan bagian \textit{view}. Bagian tabel data adalah tempat pengguna untuk memasukkan, mengubah, serta menghapus data. Secara teori, bagian tabel data tidak memiliki formula, namun di dalam implementasinya mengikuti implementasi SQL dimana perlu dilakukan validasi data dan verifikasi terhadap \textit{primary key}, \textit{foreign key}, dan batasan lain yang ada diperintah \textit{create table}.
 
-    Bagian \textit{view worksheet} tidak dapat diubah oleh pengguna dan berisikan formula-formula yang independen terhadap data yang dimasukkan oleh pengguna. Selain itu, bagian \textit{view} berisikan kolom-kolom yang berguna sebagai \textit{intermediate result} yang selanjutnya akan digunakan oleh formula lain. Pada awalnya sel-sel akan berisikan "" (\textit{string} kosong) yang merepresentasikan sel yang belum digunakan.
+    Bagian \textit{view worksheet} tidak dapat diubah oleh pengguna dan berisikan formula-formula yang independen terhadap data yang dimasukkan oleh pengguna. Di samping itu, bagian \textit{view} berisikan kolom-kolom yang berguna sebagai \textit{intermediate result} yang selanjutnya akan digunakan oleh formula lain. Pada awalnya sel-sel akan berisikan "" (\textit{string} kosong) yang merepresentasikan sel yang belum digunakan.
 
     \subsubsection{Hasil Penelitian}
 

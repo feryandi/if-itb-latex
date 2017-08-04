@@ -3,49 +3,50 @@
 \section{Perancangan Perangkat Lunak} \label{PerancanganPL}
 Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebutuhan fungsional dan non-fungsional, desain perangkat lunak, serta interaksinya.
 
-	\subsection{Deskripsi Umum Aplikasi}
-	Aplikasi pengumpulan data yang dibuat merupakan pengembangan terhadap aplikasi \textit{spreadsheet} kolaboratif yang sudah ada sebelumnya yakni EtherCalc. Aplikasi yang ditambahkan ini yang akan melakukan pengaturan koneksi ke basis data. Saat pengguna menginginkan penyimpanan data ke dalam basis data yang dituju, aplikasi ini akan melakukan pencarian bagian label dan data dan melakukan validasi masukan sebelum memasukkan data ke dalam basis data. 
+	\subsection{Deskripsi Umum Kakas}
+	Kakas pengumpulan data yang dibuat merupakan pengembangan terhadap aplikasi \textit{spreadsheet} kolaboratif yang sudah ada sebelumnya yakni EtherCalc. Kakas yang ditambahkan ini yang akan melakukan pengaturan koneksi ke basis data. Saat pengguna menginginkan penyimpanan data ke dalam basis data yang dituju, kakas ini akan melakukan pencarian bagian label dan data dan melakukan validasi masukan sebelum memasukkan data ke dalam basis data. 
 
 	\subsection{Spesifikasi Kebutuhan}
-	Pada subbab ini akan dipaparkan \textit{use case} aplikasi yang akan dibuat serta kebutuhan fungsional dan non-fungsional dari aplikasi. Kasus penggunaan oleh pengguna diberi ID dengan format UC-XX dengan UC menyatakan \textit{use case} dan XX menyatakan nomor. Pengguna adalah pihak yang menggunakan aplikasi \textit{spreadsheet} yang sudah ditambahkan fitur pengumpulan data. Kasus penggunaan oleh pengguna dijelaskan pada Tabel \ref{KebutuhanPengguna}.
+	Pada subbab ini akan dipaparkan \textit{use case} kakas yang akan dibuat serta kebutuhan fungsional dan non-fungsional dari kakas. Kasus penggunaan oleh pengguna diberi ID dengan format UC-XX dengan UC menyatakan \textit{use case} dan XX menyatakan nomor. Pengguna adalah pihak yang menggunakan aplikasi \textit{spreadsheet} yang sudah ditambahkan kakas pengumpulan data. Kasus penggunaan oleh pengguna dijelaskan pada Tabel \ref{KebutuhanPengguna}.
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{10cm} | }
 	    \caption{Kasus Penggunaan oleh Pengguna}
 	    \label{KebutuhanPengguna}\\ \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    UC-01 & Pengguna dapat menentukan basis data tujuan dengan konfigurasi basis data yang diinginkan. \\ \hline
 	    UC-02 & Pengguna dapat menyimpan data yang dikumpulkan ke dalam basis data pada saat dibutuhkan. \\ \hline
-	    UC-03 & Pengguna dapat menambah dan mengurangi tabel yang ingin disimpan secara manual maupun otomatis. \\ \hline
-	    UC-04 & Pengguna dapat memperbaiki atribut tabel yang ingin disimpan. \\ \hline
-	    UC-05 & Pengguna dapat memberikan batasan dan validasi pada suatu domain data. \\ \hline
+	    UC-03 & Pengguna dapat mendefinisikan \textit{metadata table} yang ingin disimpan secara manual maupun otomatis oleh kakas. \\ \hline
+	    UC-04 & Pengguna dapat mengubah metadata pada \textit{metadata table} yang ingin disimpan. \\ \hline
+	    UC-05 & Pengguna dapat mendefinisikan aturan validasi data. \\ \hline
+	    UC-06 & Pengguna dapat mengunggah berkas \textit{spreadsheet} ke dalam aplikasi. \\ \hline
 	\end{longtable}
 	\end{small}
 
-	Berdasarkan kasus penggunaan di atas, dirancang kebutuhan fungsional perangkat lunak yang diberi ID dengan format FR-XX dengan FR merupakan singkatan dari \textit{functional requirement} dan XX menyatakan nomor kebutuhan. Kebutuhan fungsional dijelaskan pada Tabel \ref{KebutuhanFungsional}.
+	Untuk \textit{use case} dengan kode UC-06, sudah ditangani oleh aplikasi \textit{EtherCalc} sehingga tidak akan ditangani oleh kakas yang akan dikembangkan. Berdasarkan kasus penggunaan di atas, dirancang kebutuhan fungsional perangkat lunak yang diberi ID dengan format FR-XX dengan FR merupakan singkatan dari \textit{functional requirement} dan XX menyatakan nomor kebutuhan. Kebutuhan fungsional dijelaskan pada Tabel \ref{KebutuhanFungsional}.
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{6cm} | p{4cm} | }
-	    \caption{Kebutuhan Fungsional Aplikasi}
+	    \caption{Kebutuhan Fungsional Kakas}
 	    \label{KebutuhanFungsional}\\ \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
 	    \endhead
-	    FR-01 & Aplikasi dapat melakukan koneksi kepada basis data yang ditentukan oleh pengguna melalui data masukan berupa \textit{host}, \textit{port}, \textit{username}, \textit{password}, dan \textit{database} dari basis data yang dituju. & UC-01 \\ \hline
-	    FR-02 & Aplikasi dapat melakukan perintah basis data kepada basis data yang dituju. & UC-01, UC-02 \\ \hline
-	    FR-03 & Aplikasi menyediakan tombol untuk melakukan \textit{commit} terhadap data yang akan disimpan. & UC-02 \\ \hline
-	    FR-04 & Aplikasi menyediakan fitur menambah dan mengurangi tabel baik secara pendeteksian otomatis maupun manual. & UC-03 \\ \hline
-	    FR-05 & Aplikasi dapat menampilkan hasil identifikasi label dan data dalam bentuk tabel. & UC-03, UC-04 \\ \hline
-	    FR-06 & Aplikasi menyediakan fitur bagi pengguna agar dapat mengubah hasil identifikasi label dan data. & UC-04 \\ \hline
-	    FR-07 & Aplikasi menyediakan fitur bagi pengguna agar dapat menambahkan batasan masukan pada suatu data. & UC-05 \\ \hline
-	    FR-08 & Aplikasi dapat melakukan validasi data masukan sesuai dengan batasan yang diberikan oleh pengguna. & UC-05 \\ \hline
-	    FR-09 & Aplikasi dapat memberitahukan kesalahan validasi yang terjadi. & UC-05 \\ \hline
+	    FR-01 & Kakas dapat melakukan koneksi kepada basis data yang ditentukan oleh pengguna melalui data masukan berupa \textit{host}, \textit{port}, \textit{username}, \textit{password}, dan \textit{database} dari basis data yang dituju. & UC-01 \\ \hline
+	    FR-02 & Kakas dapat melakukan perintah basis data kepada basis data yang dituju. & UC-01, UC-02 \\ \hline
+	    FR-03 & Kakas menyediakan fitur untuk dapat melakukan penyimpanan data saat pengguna ingin melakukan penyimpanan. & UC-02 \\ \hline
+	    FR-04 & Kakas menyediakan fitur menambah dan mengurangi \textit{metadata table} baik secara pendeteksian otomatis maupun manual. & UC-03 \\ \hline
+	    FR-05 & Kakas dapat menampilkan hasil identifikasi label dan data dalam bentuk \textit{metadata table}. & UC-03, UC-04 \\ \hline
+	    FR-06 & Kakas menyediakan fitur bagi pengguna agar dapat mengubah hasil identifikasi label dan data. & UC-04 \\ \hline
+	    FR-07 & Kakas menyediakan fitur bagi pengguna agar dapat menambahkan dan mengubah batasan masukan pada suatu data. & UC-05 \\ \hline
+	    FR-08 & Kakas dapat melakukan validasi data masukan sesuai dengan batasan yang diberikan oleh pengguna. & UC-05 \\ \hline
+	    FR-09 & Kakas dapat memberitahukan kesalahan validasi yang terjadi. & UC-05 \\ \hline
 	\end{longtable}
 	\end{small}
 
@@ -53,16 +54,15 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{6cm} | p{4cm} | }
-	    \caption{Kebutuhan Non-fungsional Aplikasi}
+	    \caption{Kebutuhan Non-fungsional Kakas}
 	    \label{KebutuhanNonfungsional}\\ \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{ID} & \centering\bfseries{Keterangan} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
+	    \centering\bfseries{ID} & \centering\bfseries{Deskripsi} & \centering\bfseries{ID Use Case Terkait} \tabularnewline \hline
 	    \endhead
 	    NF-01 & Data masukan pengguna disimpan secara persisten. & UC-01, UC-02 \\ \hline
-	    NF-02 & Aplikasi dapat berjalan diatas aplikasi \textit{spreadsheet} EtherCalc. & - \\ \hline
-	    NF-03 & Laporan hasil pencatatan \textit{response time} fitur yang ditambahkan. & - \\ \hline
+	    NF-02 & Kakas dapat berjalan diatas aplikasi \textit{spreadsheet} EtherCalc. & - \\ \hline
 	\end{longtable}
 	\end{small}
 
@@ -73,7 +73,7 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 		\item Modul \texttt{mysql}, bertugas untuk antarmuka baca tulis basis data.
 		\item Modul \texttt{framefinder}, bertugas untuk mendeteksi secara otomatis bagian label dan data pada tabel.
 		\item Modul \texttt{hierarchyfinder}, bertugas untuk mendeteksi secara otomatis tabel-tabel yang ada dalam suatu \textit{sheet}.
-		\item Modul \texttt{table}, bertugas untuk mengelola tabel konfigurasi, melakukan validasi data, dan membuat representasi relasional.
+		\item Modul \texttt{table}, bertugas untuk mengelola \textit{metadata table}, melakukan validasi data, dan membuat representasi relasional.
 	\end{enumerate}
 
 	Ketergantungan antar modul dapat dilihat pada Gambar \ref{ModuleDependency}
@@ -134,7 +134,7 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 	    MYSQL_PASSWORD: user
 	\end{lstlisting}
 
-	Untuk menyimpan \textit{state} konfigurasi tabel dan \textit{mapping} tabel konfigurasi dengan data pada basis data, digunakan dua tabel basis data yang sudah didefinisikan sebelumnya. Kedua tabel basis data ini dinamakan s\_database\_state dan s\_database\_wlog, kedua tabel ini tidak memiliki keterhubungan. Atribut yang terdapat pada kedua tabel ini dapat dilihat pada diagram struktur basis data pada Gambar \ref{StructureDiagram}.
+	Untuk menyimpan \textit{state} konfigurasi tabel dan \textit{mapping} \textit{metadata table} dengan data pada basis data, digunakan dua tabel basis data yang sudah didefinisikan sebelumnya. Kedua tabel basis data ini dinamakan s\_database\_state dan s\_database\_wlog, kedua tabel ini tidak memiliki keterhubungan. Atribut yang terdapat pada kedua tabel ini dapat dilihat pada diagram struktur basis data pada Gambar \ref{StructureDiagram}.
 
 	\begin{figure}[htb]
 	    \centering
@@ -143,9 +143,9 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 		\label{StructureDiagram}
 	\end{figure}
 
-	Tabel konfigurasi yang ditampilkan kepada pengguna akan berasal dari tabel s\_database\_state dan juga disimpan pada tabel tersebut. Kegunaan  s\_database\_wlog adalah mencatat pemetaan data kepada tabel konfigurasi sehingga saat tabel konfigurasi dihapus, data yang berasal dari tabel konfigurasi tersebut dapat juga dihapus.
+	\textit{metadata table} yang ditampilkan kepada pengguna akan berasal dari tabel s\_database\_state dan juga disimpan pada tabel tersebut. Kegunaan  s\_database\_wlog adalah mencatat pemetaan data kepada \textit{metadata table} sehingga saat \textit{metadata table} dihapus, data yang berasal dari \textit{metadata table} tersebut dapat juga dihapus.
 
-	Modul-modul dan fitur dibuat diatas aplikasi EtherCalc, sehingga arsitektur aplikasi akan mengikuti arsitektur aplikasi EtherCalc yang telah dijelaskan pada Subbab \ref{TeknologiSpreadsheet}.
+	Modul-modul dan fitur dibuat diatas aplikasi EtherCalc, sehingga arsitektur kakas akan mengikuti arsitektur aplikasi EtherCalc yang telah dijelaskan pada Subbab \ref{TeknologiSpreadsheet}.
 
 \section{Implementasi}
 Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab \ref{KebutuhanModul} dengan menggunakan bahasa Javascript, menyesuaikan dengan modul lain yang telah ada pada aplikasi EtherCalc. Pada bagian ini akan dijelaskan antarmuka dan modul-modul yang diimplementasikan.
@@ -159,26 +159,26 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 		\label{Antarmuka1}
 	\end{figure}
 
-	Terdapat dua bagian utama pada antarmuka ini, yang pertama adalah area pengaturan basis data dimana pengguna bisa dapat mengatur koneksi ke basis data yang diinginkan. Yang kedua adalah area tempat tabel konfigurasi dapat ditambahkan dan dikurangi berdasarkan masukan pengguna. Pada bagian kiri area tabel konfigurasi, terdapat dua pilihan metode untuk membuat tabel konfigurasi yakni secara manual maupun otomatis. Kedua area ini dapat dilihat pada Gambar \ref{Antarmuka2}.
+	Terdapat dua bagian utama pada antarmuka ini, yang pertama adalah area pengaturan basis data dimana pengguna bisa dapat mengatur koneksi ke basis data yang diinginkan. Yang kedua adalah area tempat \textit{metadata table} dapat ditambahkan dan dikurangi berdasarkan masukan pengguna. Pada bagian kiri area \textit{metadata table}, terdapat dua pilihan metode untuk membuat \textit{metadata table} yakni secara manual maupun otomatis. Kedua area ini dapat dilihat pada Gambar \ref{Antarmuka2}.
 
 	\begin{figure}[htbp]
 	    \centering
 	    \includegraphics[width=1.0\textwidth]{resources/chapter-4-interface-2.png}
-	    \caption{Antarmuka Tabel Konfigurasi}
+	    \caption{Antarmuka \textit{metadata table}}
 		\label{Antarmuka2}
 	\end{figure}
 
-	Pada bagian tabel konfigurasi, pengguna dapat menentukan nama label, tipe data, nilai-nilai yang diizinkan, dan relasinya terhadap kumpulan sel lain untuk suatu kolom data. Selain itu, pengguna dapat juga mengubah nama tabel tujuan ke basis data serta menghapus tabel konfigurasi. Jika terjadi kesalahan pada saat validasi, pengguna akan diberikan pesan kesalahan dan diharapkan untuk memperbaiki data pada sel yang dianggap memiliki kesalahan. Interaksi ini dapat dilihat pada Gambar \ref{Antarmuka3}.
+	Pada bagian \textit{metadata table}, pengguna dapat menentukan nama label, tipe data, nilai-nilai yang diizinkan, dan relasinya terhadap kumpulan sel lain untuk suatu kolom data. Pengguna dapat juga mengubah nama tabel tujuan ke basis data serta menghapus \textit{metadata table}. Jika terjadi kesalahan pada saat validasi, pengguna akan diberikan pesan kesalahan dan diharapkan untuk memperbaiki data pada sel yang dianggap memiliki kesalahan. Interaksi ini dapat dilihat pada Gambar \ref{Antarmuka3}.
 
 	\begin{figure}[htbp]
 	    \centering
 	    \includegraphics[width=1.0\textwidth]{resources/chapter-4-interface-3a.png}
-	    \caption{Antarmuka Perubahan Tabel Konfigurasi}
+	    \caption{Antarmuka Perubahan \textit{metadata table}}
 		\label{Antarmuka3}
 	\end{figure}
 	
 	\subsection{Modul Main}
-	Modul \texttt{Main} tidak dibuat dari awal karena mengembangkan dari modul yang telah ada dari aplikasi EtherCalc. Modul ini yang menyediakan API agar dapat digunakan oleh aplikasi. Seluruh API ini akan dipanggil melalui modul \texttt{Player}. API yang ditambahkan pada Tugas Akhir ini adalah:
+	Modul \texttt{Main} tidak dibuat dari awal karena mengembangkan dari modul yang telah ada dari aplikasi EtherCalc. Modul ini yang menyediakan API agar dapat digunakan oleh kakas. Seluruh API ini akan dipanggil melalui modul \texttt{Player}. API yang ditambahkan pada Tugas Akhir ini adalah:
 	\begin{enumerate}
 		\item \texttt{POST /\_database/connect} \\
 		Digunakan untuk melakukan pengecekan koneksi ke basis data. Parameter yang dibutuhkan adalah:
@@ -191,22 +191,22 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 		\end{itemize}
 	
 		\item \texttt{POST /\_database/state} \\
-		Digunakan untuk melakukan penyimpanan \textit{state} tabel konfigurasi. Parameter yang dibutuhkan adalah:
+		Digunakan untuk melakukan penyimpanan \textit{state} \textit{metadata table}. Parameter yang dibutuhkan adalah:
 		\begin{itemize} 
-			\item tables: data tabel konfigurasi dalam bentuk JSON.
+			\item tables: data \textit{metadata table} dalam bentuk JSON.
 			\item setting: pengaturan koneksi ke basis data yang dipilih berupa JSON Object.
 		\end{itemize}
 
 		\item \texttt{POST /\_database/state/[spreadsheet\_id]} \\
-		Digunakan untuk mendapatkan data \textit{state} tabel konfigurasi pada suatu \textit{spreadsheet}. Parameter yang dibutuhkan adalah::
+		Digunakan untuk mendapatkan data \textit{state} \textit{metadata table} pada suatu \textit{spreadsheet}. Parameter yang dibutuhkan adalah::
 		\begin{itemize}
 			\item setting: pengaturan koneksi ke basis data yang dipilih berupa JSON Object.
 		\end{itemize}
 
 		\item \texttt{POST /\_database/create} \\
-		Digunakan untuk melakukan penyimpanan data yang telah dikumpulkan sesuai dengan aturan pada tabel konfigurasi. Parameter yang dibutuhkan adalah:
+		Digunakan untuk melakukan penyimpanan data yang telah dikumpulkan sesuai dengan aturan pada \textit{metadata table}. Parameter yang dibutuhkan adalah:
 		\begin{itemize} 
-			\item table: data dari tabel konfigurasi yang telah diubah menjadi bentuk relasional dalam bentuk JSON.
+			\item table: data dari \textit{metadata table} yang telah diubah menjadi bentuk relasional dalam bentuk JSON.
 			\item setting: pengaturan koneksi ke basis data yang dipilih berupa JSON Object.
 		\end{itemize}
 	
@@ -224,18 +224,18 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{2cm} | p{10cm} | }
 	    \caption{Fungsi pada Kelas \texttt{Player}}
 	    \label{FungsiModulPlayer}\\ \hline
-	    \centering\bfseries{Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    refreshView & Melakukan pembaharuan tampilan sehingga menunjukkan tabel terbaru.\\ \hline
 	    getDBSetting & Mengambil pengaturan basis data yang telah diberikan pengguna.\\ \hline
 	    saveState & Menyimpan pengaturan yang telah dilakukan ke basis data.\\ \hline
 	    loadState & Mengambil pengaturan yang pernah disimpan pada basis data.\\ \hline
 	    saveConfig & Melakukan penyimpanan konfigurasi tabel yang dilakukan oleh pengguna. \\ \hline
-	    deleteTable & Menghapus tabel konfigurasi yang dipilih.\\ \hline
-	    addManual & Menambahkan tabel konfigurasi baru sesuai dengan masukan pengguna.\\ \hline
+	    deleteTable & Menghapus \textit{metadata table} yang dipilih.\\ \hline
+	    addManual & Menambahkan \textit{metadata table} baru sesuai dengan masukan pengguna.\\ \hline
 	    connect & Melakukan koneksi ke basis data yang dipilih. \\ \hline
 	    save & Melakukan pemanggilan terhadap modul \texttt{table} dan melakukan penyimpanan ke basis data. \\ \hline
 	    scan & Melakukan identifikasi tabel melalui pemanggilan modul \texttt{framefinder} yang selanjutnya akan menampilkan hasil identifikasi dan kolom perubahan konfigurasi yang dapat diisi pengguna. \\ \hline
@@ -243,16 +243,16 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\end{small}
 	
 	\subsection{Modul DB}
-	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL. Modul ini hanya terdiri dari satu kelas utama yakni kelas \texttt{mysql}. Kelas ini memiliki tugas sebagai penghubung aplikasi ke basis data MySQL yang dipilih. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiModulDB}.
+	Modul basis data digunakan sebagai antarmuka modul lain untuk melakukan operasi I/O basis data. Pada Tugas Akhir ini, basis data yang digunakan adalah MySQL. Modul ini hanya terdiri dari satu kelas utama yakni kelas \texttt{mysql}. Kelas ini memiliki tugas sebagai penghubung kakas ke basis data MySQL yang dipilih. Fungsi-fungsi yang terdapat pada kelas ini dapat dilihat pada Tabel \ref{FungsiModulDB}.
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{10cm} | }
 	    \caption{Fungsi pada Kelas \texttt{mysql}}
 	    \label{FungsiModulDB}\\ \hline
-	    \centering\bfseries{Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    createTable & Fungsi yang digunakan untuk membuat Table tempat pengisian data.\\ \hline
 	    isTableExists & Melakukan pengecekan ada atau tidaknya tabel tersebut pada basis data.\\ \hline
@@ -327,10 +327,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{3cm} | p{10cm} | }
 	    \caption{Kelas pada Modul \texttt{FrameFinder}}
 	    \label{KelasModulFF}\\ \hline
-	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Kelas} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    LoadSheet & Kelas ini berfungsi sebagai kelas yang melakukan pengambilan data dan konversi sel dan \textit{sheet} pada \textit{spreadsheet} ke dalam bentuk kelas-kelas yang ada pada modul ini.\\ \hline
 	    MySheet & Merupakan kelas bentukan yang merepresentasikan \textit{sheet} pada \textit{spreadsheet} yang dipilih.\\ \hline
@@ -347,10 +347,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{4cm} | p{9cm} | }
 	    \caption{Fungsi pada Kelas LoadSheet}
 	    \label{FungsiLoadSheet}\\ \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    loadSheetDict & Fungsi ini merupakan fungsi utama yang bertugas untuk membuat representasi \textit{spreadsheet} yang diterima ke dalam kelas MySheet.\\ \hline
 	    getValueType & Untuk mendapatkan tipe representasi data yang diberikan oleh \textit{spreadsheet}. Contoh: tanggal, nominal uang, desimal, dan lain-lain.\\ \hline
@@ -373,10 +373,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{3cm} | p{8cm} | }
 	    \caption{Atribut pada Kelas MySheet}
 	    \label{AtributMySheet}\\ \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    sheetdict & Merupakan representasi kumpulan sel-sel pada suatu \textit{sheet}. Tiap sel direpresentasikan dalam bentuk kelas MyCell.\\ \hline
 	    mergerowdict & Merupakan kumpulan sel-sel yang digabungkan.\\ \hline
@@ -391,10 +391,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{4cm} | p{9cm} | }
 	    \caption{Fungsi pada Kelas MySheet}
 	    \label{FungsiMySheet}\\ \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    getCellsArray & Digunakan untuk mendapatkan seluruh refresentasi sel pada kelas ini dalam bentuk \textit{array}.\\ \hline
 	    addMergeCell & Digunakan pada saat terdapat sel yang digabungkan. Sel tersebut akan dimasukkan ke dalam daftar \textit{merged cells}.\\ \hline
@@ -409,10 +409,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{3cm} | p{8cm} | }
 	    \caption{Atribut pada Kelas MyCell}
 	    \label{AtributMyCell}\\ \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    x & Merupakan letak sel pada koordinat X.\\ \hline
 	    y & Merupakan letak sel pada koordinat Y. \\ \hline
@@ -440,10 +440,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	% \begin{longtable}{ | p{4cm} | p{9cm} | }
 	%     \caption{Fungsi pada Kelas MyCell}
 	%     \label{FungsiMyCell}\\ \hline
-	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	%     \endfirsthead
 	%     \hline
-	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	%     \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	%     \endhead
 	%     writestrAlignstyle & Mendapatkan representasi \textit{string} untuk \textit{align} pada sel. Digunakan pada saat penulisan ke dalam file untuk dibaca pada algoritma CRF.\\ \hline
 	%     writestrBorderstyle & Mendapatkan representasi \textit{string} untuk \textit{border} pada sel. Digunakan pada saat penulisan ke dalam file untuk dibaca pada algoritma CRF.\\ \hline
@@ -503,16 +503,16 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	File tersebut ditulis dalam format \texttt{namafile\_namasheet\_bariske [fitur-fitur pada baris] label}. File ini yang akan diolah oleh algoritma dan digunakan untuk memprediksi label dari setiap baris tersebut. Algoritma yang digunakan adalah Conditional Random Field dan menggunakan aplikasi CRFPP yang berjalan eksternal diluar kelas ini untuk membaca file, membaca model, serta memprediski label.
 
 	\subsection{Modul Table}
-	Modul \texttt{table} memiliki tugas untuk mengelola tampilan dan isi tabel konfigurasi, melakukan validasi data masukan, dan membuat representasi relasional yang dapat diterima oleh basis data. Modul \texttt{table} hanya memiliki satu kelas yakni kelas \texttt{table}. Kelas ini memiliki 8 atribut yang dapat dilihat pada Tabel \ref{AtributTable}.
+	Modul \texttt{table} memiliki tugas untuk mengelola tampilan dan isi \textit{metadata table}, melakukan validasi data masukan, dan membuat representasi relasional yang dapat diterima oleh basis data. Modul \texttt{table} hanya memiliki satu kelas yakni kelas \texttt{table}. Kelas ini memiliki 8 atribut yang dapat dilihat pada Tabel \ref{AtributTable}.
 
 	\begin{small}
 	\begin{longtable}{ | p{3cm} | p{8cm} | }
 	    \caption{Atribut pada Kelas Table}
 	    \label{AtributTable}\\ \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Atribut} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    sheet & Berisikan data untuk masing-masing sel pada suatu \textit{sheet}.\\ \hline
 	    rows & Representasi tabel yang berisikan; nama \textit{header}, kolom data, dan aturan-aturan validasi.\\ \hline
@@ -531,10 +531,10 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\begin{longtable}{ | p{4cm} | p{9cm} | }
 	    \caption{Fungsi pada Kelas LoadSheet}
 	    \label{FungsiLoadSheet}\\ \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Nama Fungsi} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 	    ParseData & Melakukan \textit{parse} terhadap data dari \textit{spreadsheet} menjadi bentuk objek tabel. \\ \hline
 		TupleSerializeWithChecker & Digunakan untuk mengubah struktur tabel menjadi tabel relasional dan melakukan validasi data masukan sesuai dengan aturan yang diminta pengguna.\\ \hline
@@ -544,7 +544,7 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	\end{longtable}
 	\end{small}
 
-	Modul ini berinteraksi langsung dengan modul \texttt{player} pada saat akan melakukan penyimpanan \textit{state} tabel konfigurasi dan menampilkan tabel konfigurasi pada \textit{front-end}. Selain itu, modul ini juga berhubungan dengan modul \texttt{mysql} pada saat melakukan penyimpanan.
+	Modul ini berinteraksi langsung dengan modul \texttt{player} pada saat akan melakukan penyimpanan \textit{state} \textit{metadata table} dan menampilkan \textit{metadata table} pada \textit{front-end}. Selain itu, modul ini juga berhubungan dengan modul \texttt{mysql} pada saat melakukan penyimpanan.
 
 \section{Pengujian}
 Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tidak kepada aplikasi EtherCalc secara keseluruhan. Pada subbab ini akan dibahas kasus-kasus yang diuji dan hasil dari pengujian tersebut.
@@ -563,10 +563,10 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 	\begin{longtable}{ | p{3cm} | p{9cm} | }
 	    \caption{Spesifikasi Lingkungan Pengujian}
 	    \label{LingPengujian}\\ \hline
-	    \centering\bfseries{Komponen} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Komponen} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endfirsthead
 	    \hline
-	    \centering\bfseries{Komponen} & \centering\bfseries{Keterangan} \tabularnewline \hline
+	    \centering\bfseries{Komponen} & \centering\bfseries{Deskripsi} \tabularnewline \hline
 	    \endhead
 		Prosesor & AMD A8-4500M APU with Radeon(tm) HD Graphics 1.90GHz\\ \hline
 		Memori Fisik & 12 GB\\ \hline
@@ -578,11 +578,11 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 	\end{small}
 
 	\subsection{Eksekusi Pengujian} \label{skenarioujian}
-	Kasus pengujian disesuaikan dengan kebutuhan fungsional dan non-fungsional yang sudah dijelaskan pada Subbab \ref{PerancanganPL}. Setiap kasus uji diberi kode TC-XX dengan XX adalah nomor kasus uji. Daftar kasus uji dapat diperhatikan pada Tabel \ref{KasusUjiFA}.
+	Kasus pengujian disesuaikan dengan kebutuhan fungsional dan non-fungsional yang sudah dijelaskan pada Subbab \ref{PerancanganPL}. Setiap kasus uji diberi kode TC-XX dengan XX adalah nomor kasus uji. Daftar kasus uji dapat dilihat pada Tabel \ref{KasusUjiFA}.
 
 	\begin{small}
 	\begin{longtable}{ | p{2cm} | p{8cm} | p{3cm} | }
-	    \caption{Kasus Uji Fitur Aplikasi}
+	    \caption{Kasus Uji Fitur Kakas}
 	    \label{KasusUjiFA}\\ \hline
 	    \centering\bfseries{ID} & \centering\bfseries{Tujuan} & \centering\bfseries{ID kebutuhan terkait} \tabularnewline \hline
 	    \endfirsthead
@@ -591,13 +591,13 @@ Pengujian dilakukan hanya kepada fitur yang di buat pada Tugas Akhir ini dan tid
 	    \endhead
 		TC-01 & Terkoneksi ke basis data MySQL yang dipilih pengguna dan dapat menggunakan basis data tersebut& FR-01, FR-02 \\ \hline
 		TC-02 & Mendeteksi label dan data secara otomatis pada \textit{spreadsheet} & FR-04, FR-05 \\ \hline
-		TC-03 & Menambahkan tabel konfigurasi secara manual sesuai dengan masukan pengguna & FR-04 \\ \hline
-		TC-04 & Pengguna dapat mengubah atribut yang ada pada tabel konfigurasi & FR-06 \\ \hline
-		TC-05 & Data dapat dimasukkan ke basis data sesuai dengan tabel konfigurasi & FR-03, FR-09, NF-01 \\ \hline
+		TC-03 & Menambahkan \textit{metadata table} secara manual sesuai dengan masukan pengguna & FR-04 \\ \hline
+		TC-04 & Pengguna dapat mengubah atribut yang ada pada \textit{metadata table} & FR-06 \\ \hline
+		TC-05 & Data dapat dimasukkan ke basis data sesuai dengan \textit{metadata table} & FR-03, FR-09, NF-01 \\ \hline
 		TC-06 & Data yang dimasukkan ke basis data berhasil divalidasi sesuai aturan pengguna & FR-07, FR-08, FR-09, NF-01 \\ \hline	
 		TC-07 & Pencatatan \textit{response time} pada fitur yang ditambahkan & FN-03 \\ \hline
 	\end{longtable}
 	\end{small}
 
 	\subsection{Hasil Pengujian}
-	Hasil pengujian dikaitkan dengan ID skenario pengujian yang berkaitan langsung dengan kasus uji yang telah didefinisikan pada Bab \ref{skenarioujian}. Tiap hasil pengujian mempunyai ID skenario terkait, ekspektasi, hasil uji yang dilakukan, dan diterima atau tidaknya hasil pengujian. Hasil pengujian merupakan hasil pelaksanaan skenario yang sudah dibuat dan dapat diperhatikan pada Lampiran A.
+	Hasil pengujian dikaitkan dengan ID skenario pengujian yang berkaitan langsung dengan kasus uji yang telah didefinisikan pada Bab \ref{skenarioujian}. Tiap hasil pengujian mempunyai ID skenario terkait, ekspektasi, hasil uji yang dilakukan, dan diterima atau tidaknya hasil pengujian. Hasil pengujian merupakan hasil pelaksanaan skenario yang sudah dibuat dan dapat dilihat pada Lampiran A.

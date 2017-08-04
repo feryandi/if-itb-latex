@@ -6,7 +6,7 @@
 %
 %--------------------------------------------------------------------%
 %
-% Berkas ini berisi struktur utama dokumen LaTeaX yang akan dibuat.
+% Berkas ini berisi struktur utama dokumen LaTeX yang akan dibuat.
 %
 %--------------------------------------------------------------------%
 
@@ -44,27 +44,20 @@
     \titleformat*{\section}{\centering\bfseries\Large\MakeUpperCase}
     
     \tableofcontents
-    \addcontentsline{toc}{chapter}{DAFTAR ISI} 
+    \addcontentsline{toc}{chapter}{DAFTAR ISI}
+    \afterpage{\null\newpage}
+    \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
     {%
         \let\oldnumberline\numberline%
         \renewcommand{\numberline}{\figurename~\oldnumberline}%
         \listoffigures%
     }
-
-    \addcontentsline{toc}{chapter}{DAFTAR ISI} 
-    {%
-        \let\oldnumberline\numberline%
-        \renewcommand{\numberline}{\appendixname~\oldnumberline}%
-        \listofappendices%
-    }
-
-    \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}  
+    \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
     {%
         \let\oldnumberline\numberline%
         \renewcommand{\numberline}{\tablename~\oldnumberline}%
         \listoftables%
     }
-
     \addcontentsline{toc}{chapter}{DAFTAR TABEL}
 
     %----------------------------------------------------------------%
@@ -97,6 +90,7 @@
     \bibliography{references}
     \bibliographystyle{apa}
 
+    \backmatter
     % Index
     \appendix
 
