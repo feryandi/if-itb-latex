@@ -23,7 +23,8 @@
 \begin{document}
 
     %Basic configuration
-    \title{Pengembangan Aplikasi Pengumpulan Data Menggunakan \textit{Spreadsheet}}
+    %\title{Pengembangan Aplikasi Pengumpulan Data Menggunakan \textit{Spreadsheet}}
+    \title{Pengembangan Kakas Pengumpulan Data dalam Format \textit{Spreadsheet}}
     \date{}
     \author{
         Feryandi Nurdiantoro \\
@@ -45,8 +46,8 @@
     
     \tableofcontents
     \addcontentsline{toc}{chapter}{DAFTAR ISI}
-    \afterpage{\null\newpage}
-    \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+    % \afterpage{\null\newpage}
+    % \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
     {%
         \let\oldnumberline\numberline%
         \renewcommand{\numberline}{\figurename~\oldnumberline}%
@@ -102,9 +103,12 @@
     % Setting judul appendix
     \chapterfont{\Large}
     \titleformat{\chapter}[hang]
-      {\Large\bfseries}{\chaptertitlename\ \thechapter.\ }{0pt}{\Large\bfseries}
+      {\Large\bfseries}
+      {\chaptertitlename\ \thechapter.\ }{0pt}
+        {\Large\bfseries}
     \titlespacing*{\chapter}{0pt}{-25pt}{10pt}
 
     \input{chapters/appendix-1}
+    \input{chapters/appendix-2}
 
 \end{document}

@@ -21,32 +21,34 @@ Untuk dapat mengurangi kesalahan-kesalahan yang sering terjadi pada \textit{spre
 
 Seperti yang telah dijelaskan pada latar belakang, salah satu penggunaan aplikasi \textit{spreadsheet} adalah sebagai media pengumpulan data. Beberapa permasalahan yang muncul dalam pengumpulan data adalah kolaborasi, validasi, dan penyimpanan data. Pengumpulan data dapat dilakukan oleh banyak orang secara bersama-sama sehingga dapat menyebabkan konflik pada data masukan. Konflik ini bisa terjadi karena terdapat lebih dari satu versi file yang diubah secara bersama-sama. Di samping itu, data yang dimasukkan biasanya tidak melalui proses validasi sehingga dapat menyalahi domain data yang seharusnya. Setelah data dikumpulkan ke dalam bentuk \textit{spreadsheet}, diperlukan media penyimpanan data sehingga data tidak terisolasi. Contoh dari media penyimpanan tersebut adalah menggunakan basis data. 
 
-Hal-hal tersebut merupakan beberapa masalah utama yang cukup penting untuk diselesaikan terutama dalam penggunaannya pada bisnis dan komersial sehingga akan dibentuk sebuah kakas yang membantu mengurangi tingkat kesalahan pada \textit{spreadsheet}. Dalam rangka pembangunan kakas, terdapat beberapa permasalahan yang menjadi perhatian pada tugas akhir ini, yaitu
+Hal-hal tersebut merupakan beberapa masalah utama yang cukup penting untuk diselesaikan terutama dalam penggunaannya pada bisnis dan komersial sehingga akan dibentuk sebuah kakas yang membantu pengumpulan data pada format \textit{spreadsheet}. Dalam rangka pembangunan kakas, terdapat beberapa permasalahan yang menjadi perhatian pada tugas akhir ini, yaitu:
 
 \begin{enumerate}
-    \item Bagaimana cara menangani konflik yang terjadi pada saat kolaborasi?
+    %\item Bagaimana cara menangani konflik yang terjadi pada saat kolaborasi?
     \item Bagaimana cara melakukan validasi terhadap data masukan?
-    \item Bagaimana cara penentuan bagian label dan data pada \textit{spreadsheet} untuk dijadikan skema relasi?
+    \item Bagaimana cara data pada \textit{spreadsheet} dapat disimpan pada basis data?
     \item Bagaimana cara melakukan penyimpanan data yang telah dibuat?
-    \item Bagaimana perubahan alur kerja yang terjadi akibat penggunaan kakas yang dibuat?
+    \item Bagaimana proposal perubahan alur kerja yang terjadi akibat penggunaan kakas yang dibuat?
 \end{enumerate}
 
 \section{Tujuan}
 
-Tujuan yang ingin dicapai dalam Tugas Akhir ini adalah mengembangkan perangkat lunak pengumpulan data berbentuk \textit{spreadsheet} yang dapat melakukan validasi dan menemukan kesalahan pada data masukan. Dengan adanya perangkat lunak ini diharapkan dapat memvalidasi data masukan dengan lebih baik dan diharapkan mempercepat pengumpulan data.
+Tujuan yang ingin dicapai dalam Tugas Akhir ini adalah mengembangkan perangkat lunak pengumpulan data berbentuk \textit{spreadsheet} yang dapat mengubah data dalam format \textit{spreadsheet} menjadi data relasional serta melakukan validasi pada data masukan. Dengan adanya perangkat lunak ini diharapkan dapat dilakukan epengumpulan data yang disertai validasi data masukan.
 
 \section{Batasan Masalah}
 
 Dalam pengerjaan Tugas Akhir ini, terdapat beberapa batasan-batasan yang perlu diperhatikan. Batasan tersebut ditujukan untuk memperjelas dan memfokuskan objek penelitian dan pengembangan tugas akhir. Batasan-batasan masalah pengerjaan tugas akhir adalah sebagai berikut,
 
 \begin{enumerate}
-    \item Fitur kolaborasi pada \textit{spreadsheet} bukan fokus utama, fitur akan diambil dari aplikasi \textit{spreadsheet} yang telah ada.
+    %\item Fitur kolaborasi pada \textit{spreadsheet} bukan fokus utama, fitur akan diambil dari aplikasi \textit{spreadsheet} yang telah ada.
     %\item Fokus data masukan pada Tugas Akhir ini berupa data mentah yang belum direkapitulasi.
+    \item Kakas hanya dapat berjalan pada aplikasi EtherCalc.
     \item Jenis \textit{spreadsheet} yang ditangani adalah \textit{data frame} dan relasi.
-    \item Tingkat normalisasi struktur basis data yang terbentuk yang berasal dari data pada \textit{spreadsheet} bukan merupakan fokus utama pada Tugas Akhir ini.
+    \item Data disimpan dalam bentuk basis data relasional.
     \item Basis data yang didukung untuk digunakan dalam penyimpanan data hanya MySQL.
-    \item Hasil akhir dari kakas disimpan dalam bentuk basis data.
+    \item Struktur basis data dan tingkat normalisasi yang terbentuk merupakan tanggung jawab pengguna dan tidak ditangani oleh kakas.
     \item Kakas hanya mendukung penggunaan satu \textit{sheet} dalam satu \textit{spreadsheet}.
+    \item Validasi yang dilakukan hanya validasi tipe, domain, dan relasi data.
 \end{enumerate}
 
 \section{Metodologi}
@@ -54,10 +56,10 @@ Dalam pengerjaan Tugas Akhir ini, terdapat beberapa batasan-batasan yang perlu d
 Metodologi yang digunakan dalam pengerjaan Tugas Akhir ini yakni:
 \begin{enumerate}
     \item Studi Literatur \\
-    Pengerjaan tugas akhir diawali dengan mencari dan mempelajari referensi berupa jurnal ilmiah dan aplikasi-aplikasi yang telah ada sebelumnya yang dapat membantu pengembangan kakas yang dibuat pada tugas akhir ini. Literatur yang dicari dan dipelajari berkaitan dengan topik tugas akhir yaitu mengenai \textit{spreadsheet}, penggunaannya pada bisnis, kesalahan yang sering dilakukan dalam pembuatan, metode \textit{quality control} yang dapat dilakukan, serta hal-hal lain yang masih berkaitan dengan topik tugas akhir ini. 
+    Pengerjaan tugas akhir diawali dengan mencari dan mempelajari referensi berupa jurnal ilmiah dan aplikasi-aplikasi yang telah ada sebelumnya yang dapat membantu pengembangan kakas yang dibuat pada tugas akhir ini. Literatur yang dicari dan dipelajari berkaitan dengan topik tugas akhir yaitu mengenai \textit{spreadsheet}, penggunaannya pada bisnis, kesalahan yang sering dilakukan dalam pembuatan, teknik pendeteksian data yang ada pada \textit{spreadsheet}, serta hal-hal lain yang masih berkaitan dengan topik tugas akhir ini. 
     
     \item Analisis Masalah \\
-    Pada tahap ini dilakukan analisis permasalahan yang berkaitan dengan topik yang diangkat pada tugas akhir ini. Di samping itu, dilakukan penentuan spesifikasi dan fitur yang ada pada kakas tersebut sebagai bentuk solusi terhadap permasalahan yang dianalisis.
+    Pada tahap ini dilakukan analisis permasalahan yang berkaitan dengan topik yang diangkat pada tugas akhir ini. Diantaranya adalah memecah permasalahan menjadi aplikasi \textit{spreadsheet} yang dikembangkan, penanganan konflik saat berkolaborasi, jenis \textit{spreadsheet} yang ditangani, metode interaksi pengguna, penentuan bagian data dan label, representasi tabel, validasi data, penyimpanan data, interaksi antar \textit{spreadsheet}, dan proposal perubahan alur kerja.
 
     \item Perancangan Solusi \\
     Pada tahap ini dilakukan perancangan solusi yang dapat menyelesaikan masalah-masalah yang telah dijelaskan pada bagian analisis masalah. Bagian perancangan ini juga menjelaskan arsitektur yang digunakan untuk membangun perangkat lunak berdasarkan spesifikasi dan metode yang digunakan.

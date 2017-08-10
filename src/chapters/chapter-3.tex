@@ -78,7 +78,7 @@ Dari permasalahan yang telah didefinisikan pada subbab \ref{AspekAplikasi}, dapa
 	\item Setelah proses validasi terpenuhi, diperlukan cara penyimpanan data sesuai dengan relasi \textit{tuple} yang telah ditentukan.
 	\item Interaksi antar \textit{spreadsheet} yang ingin memasukkan data pada suatu tabel yang sama perlu ditangani dan ditentukan aturannya.
 \end{enumerate}
-Pada subbab-subbab selanjutnya, akan dibahas analisis untuk kelima poin diatas yang selanjutnya akan dijadikan dasar rancangan kakas yang akan dibuat pada aplikasi \textit{spreadsheet}.
+Pada subbab-subbab selanjutnya, akan dibahas analisis untuk kelima poin di atas yang selanjutnya akan dijadikan dasar rancangan kakas yang akan dibuat pada aplikasi \textit{spreadsheet}.
 
 \section{Analisis Perbandingan Aplikasi \textit{Spreadsheet} yang Dikembangkan}
 Dari studi yang telah dilaksanakan pada subbab \ref{TeknologiSpreadsheet}, aplikasi \textit{spreadsheet} dapat dibagi berdasarkan konektivitasnya yakni \textit{offline spreadsheet} dan \textit{online spreadsheet} dan dapat juga dibagi lagi berdasarkan keterbukaan dari \textit{source code} yakni \textit{open source} dan \textit{closed source}. Pada Tabel \ref{AnalisisAplikasiDasar} dijabarkan parameter yang mendasari pemilihan aplikasi yang akan dikembangkan.
@@ -98,7 +98,7 @@ Dari studi yang telah dilaksanakan pada subbab \ref{TeknologiSpreadsheet}, aplik
 \end{longtable}
 \end{small}
 
-Dari perbandingan diatas, diambil solusi dengan menggunakan aplikasi \textit{spreadsheet} berbasis web yang dapat diakses secara konkuren dan memiliki \textit{portability} yang lebih baik. Di samping itu, untuk dapat mengembangkan fitur aplikasi dengan lebih baik, akan dipilih aplikasi yang berbentuk \textit{open source}. Alasan lain dipilihnya \textit{open source} adalah aplikasi berbasis \textit{open source} dapat dipasang pada \textit{platform} yang diinginkan oleh pengguna. Pengguna atau perusahaan yang menggunakan aplikasi dapat membangun infrastrukturnya sendiri sehingga dapat mengatur privasi dan performa aplikasi sesuai dengan keinginan pengguna. Sehingga dipilih aplikasi yang memiliki tipe \textit{online spreadsheet} dan \textit{open source} yaitu EtherCalc. Fitur kolaborasi yang dibutuhkan akan ditangani oleh aplikasi EtherCalc ini dan bukan merupakan bagian dari fitur yang akan dikembangkan.
+Dari perbandingan di atas, diambil solusi dengan menggunakan aplikasi \textit{spreadsheet} berbasis web yang dapat diakses secara konkuren dan memiliki \textit{portability} yang lebih baik. Di samping itu, untuk dapat mengembangkan fitur aplikasi dengan lebih baik, akan dipilih aplikasi yang berbentuk \textit{open source}. Alasan lain dipilihnya \textit{open source} adalah aplikasi berbasis \textit{open source} dapat dipasang pada \textit{platform} yang diinginkan oleh pengguna. Pengguna atau perusahaan yang menggunakan aplikasi dapat membangun infrastrukturnya sendiri sehingga dapat mengatur privasi dan performa aplikasi sesuai dengan keinginan pengguna. Sehingga dipilih aplikasi yang memiliki tipe \textit{online spreadsheet} dan \textit{open source} yaitu EtherCalc. Fitur kolaborasi yang dibutuhkan akan ditangani oleh aplikasi EtherCalc ini dan bukan merupakan bagian dari fitur yang akan dikembangkan.
 
 \section{Analisis Penanganan Konflik saat Kolaborasi}
 
@@ -158,7 +158,7 @@ Di dalam pembangunan perangkat lunak \textit{spreadsheet} untuk mengurangi kesal
   	Pada Tugas Akhir ini, akan dipilih metode masukan pengguna dengan berbasis \textit{spreadsheet} sehingga pengguna dapat dengan lebih mudah di dalam menggunakannya karena tidak memerlukan pembelajaran kembali di dalam menggunakan aplikasi. Di samping itu, data yang dimasukan lebih mudah untuk dilihat secara menyeluruh dibandingkan dengan berbasis formulir yang hanya dapat menerima satu masukan dalam suatu formulir.
 
 \section{Analisis Penentuan Bagian Data dan Label}
-Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \textit{spreadsheet} pada umumnya berbentuk tabel yang terdiri dari dua unsur utama yakni data dan label atau disebut juga tipe \textit{data frame} \citep{Chen2013}. Bagian data merupakan bagian yang biasanya dinamis dan merupakan masukan pengguna. Bagian label merupakan bagian yang memberikan keterangan dan konteks mengenai data yang dimaksud. Pada Gambar \ref{DataFrameSederhana} dapat dilihat bahwa area dengan nomor 1 disebut sebagai label yang menjelaskan data-data dibawahnya yakni pada area nomor 2.
+Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \textit{spreadsheet} pada umumnya berbentuk tabel yang terdiri dari dua unsur utama yakni data dan label atau disebut juga tipe \textit{data frame} \citep{Chen2013}. Bagian data merupakan bagian yang biasanya dinamis dan merupakan masukan pengguna. Bagian label merupakan bagian yang memberikan keterangan dan konteks mengenai data yang dimaksud. Pada Gambar \ref{DataFrameSederhana} dapat dilihat bahwa area dengan nomor 1 disebut sebagai label yang menjelaskan data dibawahnya yakni pada area nomor 2.
 
 \begin{figure}[htb]
     \centering
@@ -188,7 +188,7 @@ Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \t
 	    Kekurangan & Interferensi pengguna yang banyak dan mungkinnya data dan label tidak dapat dijadikan bentuk \textit{tuple} relasional. & Algoritma ini hanya optimal jika digunakan pada tabel yang terurut vertikal. \\ \hline
   	\end{longtable}
 	\end{small}
-  	Dari perbandingan diatas, dapat dilihat terdapat kekurangan dan kelebihan di dalam menggunakan salah satu metode tersebut. Berdasarkan hal tersebut, yang akan dipilih sebagai metode penentuan data dan label adalah gabungan dari kedua metode tersebut. Kakas awalnya akan melakukan \textit{parsing} terhadap struktur yang telah dibuat oleh pengguna, kemudian pengguna dapat melihat hasil dari \textit{parsing} tersebut sehingga pengguna dapat memperbaiki jika terdapat hasil pelabelan yang salah. Dengan metode gabungan ini diharapkan dapat meningkatkan akurasi dan mengurangi kesalahan \textit{parsing} yang terjadi namun tetap memberikan kenyamanan terhadap pengguna serta menjaga agar hasil pelabelan tetap dapat diubah ke dalam bentuk \textit{tuple} relasional.
+  	Dari perbandingan di atas, dapat dilihat terdapat kekurangan dan kelebihan di dalam menggunakan salah satu metode tersebut. Berdasarkan hal tersebut, yang akan dipilih sebagai metode penentuan data dan label adalah gabungan dari kedua metode tersebut. Kakas awalnya akan melakukan \textit{parsing} terhadap struktur yang telah dibuat oleh pengguna, kemudian pengguna dapat melihat hasil dari \textit{parsing} tersebut sehingga pengguna dapat memperbaiki jika terdapat hasil pelabelan yang salah. Dengan metode gabungan ini diharapkan dapat meningkatkan akurasi dan mengurangi kesalahan \textit{parsing} yang terjadi namun tetap memberikan kenyamanan terhadap pengguna serta menjaga agar hasil pelabelan tetap dapat diubah ke dalam bentuk \textit{tuple} relasional.
 
 \section{Analisis Representasi Tabel pada \textit{Spreadsheet}}
 Dalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasanya dibuat oleh pengguna dalam merepresentasikan data yang ingin disimpan. Pada jenis-jenis tabel tertentu, dibutuhkan transformasi bentuk tabel tersebut agar dapat dimasukkan ke dalam basis data bentuk relasional. Tipe-tipe tabel yang biasanya muncul di dalam pembuatan \textit{spreadsheet} beserta teknik transformasi yang akan digunakan adalah sebagai berikut:
@@ -197,7 +197,7 @@ Dalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasany
 	\begin{figure}[htbp]
 	    \centering
 	    \includegraphics[width=0.8\textwidth]{resources/chapter-3-tabletype-1.png}
-	    \caption{Tabel dengan \textit{Header} Berada Diatas Data}
+	    \caption{Tabel dengan \textit{Header} Berada Di atas Data}
 		\label{TabelTipe1}
 	\end{figure}\\
 	Representasi tabel jenis ini dapat langsung dibuat ke dalam bentuk relasional tanpa harus mengubah struktur tabel. Contoh tabel jenis ini dapat dilihat pada Gambar \ref{TabelTipe1}. Bagian \textit{header} merupakan baris pertama pada tabel, dan baris kedua hingga seterusnya merupakan bagian data. Bentuk ini tidak membutuhkan transformasi agar dapat dimasukkan ke dalam basis data bentuk relasional.
@@ -209,7 +209,7 @@ Dalam pembuatan \textit{spreadsheet}, terdapat beberapa jenis tabel yang biasany
 	    \caption{Tabel dengan \textit{Header} Berada di Kiri dan Atas Data}
 		\label{TabelTipe2}
 	\end{figure}\\
-	Tabel dapat memiliki lebih dari satu \textit{header} di lokasi yang berbeda. Contoh tabel jenis ini dapat dilihat pada Gambar \ref{TabelTipe2}. Representasi tabel dimana \textit{header} bukan hanya di bagian atas saja, maka \textit{header} yang dianggap hanya yang di bagian atas. Bagian yang akan dianggap sebagai \textit{header} adalah kolom yang keseluruhannya berisi \textit{header} dan berada diatas data. Pada contoh diatas, \textit{header} adalah baris pertama. Sedangkan \textit{header} di kiri tabel yang satu baris dengan data akan dianggap data dengan nama \textit{header} yang dapat ditentukan oleh pengguna. Dengan demikian, representasi tabel tersebut akan menjadi mirip dengan tipe tabel sebelumnya. Representasi tabel setelah transformasi dapat dilihat pada Gambar \ref{TabelTipe2T}.\\
+	Tabel dapat memiliki lebih dari satu \textit{header} di lokasi yang berbeda. Contoh tabel jenis ini dapat dilihat pada Gambar \ref{TabelTipe2}. Representasi tabel dimana \textit{header} bukan hanya di bagian atas saja, maka \textit{header} yang dianggap hanya yang di bagian atas. Bagian yang akan dianggap sebagai \textit{header} adalah kolom yang keseluruhannya berisi \textit{header} dan berada di atas data. Pada contoh di atas, \textit{header} adalah baris pertama. Sedangkan \textit{header} di kiri tabel yang satu baris dengan data akan dianggap data dengan nama \textit{header} yang dapat ditentukan oleh pengguna. Dengan demikian, representasi tabel tersebut akan menjadi mirip dengan tipe tabel sebelumnya. Representasi tabel setelah transformasi dapat dilihat pada Gambar \ref{TabelTipe2T}.\\
 	\begin{figure}[htbp]
 	    \centering
 	    \includegraphics[width=0.8\textwidth]{resources/chapter-3-tabletype-2-transformed.png}
@@ -296,9 +296,23 @@ Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; je
 		\item Penyimpanan ke basis data dilakukan setiap mendapatkan masukan pengguna
 		\item Penyimpanan ke basis data menunggu perintah dari pengguna
 	\end{enumerate}
-	Jika menggunakan alur penyimpanan basis data yang dilakukan setiap mendapatkan masukan, terdapat beberapa kelebihan yakni sinkronisasi antara basis data yang menyimpan \textit{file spreadsheet} yakni redis dan basis data yang menyimpan data yakni basis data relasional yang dipilih. Kedua basis data ini akan memiliki data yang sama setiap waktu. Namun kelemahan alur ini adalah performansi yang akan menurun diakibatkan kakas pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. Kelemahan lainnya adalah akan sulit untuk mengembangkan aplikasi menggunakan \textit{user access control} karena sulit menentukan kapan dan oleh siapa data boleh dimasukkan ke dalam basis data.
 
-	Menggunakan alur penyimpanan yang menunggu perintah dari pengguna, memiliki kelebihan performansi yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand}. Di samping itu, jika akan mengembangkan aplikasi dengan \textit{user access control} akan lebih mudah untuk menentukan siapa yang memiliki akses untuk melakukan penyimpanan. Kelemahan dari alur ini adalah tidak sinkronnya kedua basis data.
+	Pada Tabel \ref{ModelAlurPenyimpanan} dijabarkan perbandingan antara kedua kemungkinan alur penyimpanan data tersebut.
+
+	\begin{small}
+	\begin{longtable}{ | p{3cm} | p{4cm} | p{4cm} | }
+	    \caption{Perbandingan Alur Penyimpanan}
+	    \label{ModelAlurPenyimpanan}\\ \hline
+	    \centering\bfseries{Parameter} & \centering\bfseries{Dilakukan Setiap Mendapat Masukan} & \centering\bfseries{Menunggu Perintah Pengguna} \tabularnewline \hline
+	    \endfirsthead
+	    \hline
+	    \centering\bfseries{Parameter} & \centering\bfseries{Dilakukan Setiap Mendapat Masukan} & \centering\bfseries{Menunggu Perintah Pengguna} \tabularnewline \hline
+	    \endhead
+	    Sinkronisasi & Basis data yang menyimpan \textit{file spreadsheet} yakni redis dan basis data yang menyimpan data yakni basis data relasional yang dipilih tersinkronisasi setiap saat. & Antara kedua basis data tidak selalu sinkron setiap saat. \\ \hline
+	    Kinerja & Performansi yang akan menurun diakibatkan kakas pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. & Performansi yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand} \\ \hline
+	    Akses penyimpanan & Sulit untuk mengembangkan aplikasi menggunakan \textit{user access control} karena sulit menentukan kapan dan oleh siapa data boleh dimasukkan ke dalam basis data. & Mengembangkan aplikasi dengan \textit{user access control} akan lebih mudah untuk menentukan siapa yang memiliki akses untuk melakukan penyimpanan.\\ \hline
+  	\end{longtable}
+	\end{small}
 
 	Dari pertimbangan tersebut, alur yang dipilih adalah penyimpanan ke basis data yang menunggu perintah dari pengguna karena kelebihannya pada sisi performa dan \textit{user access control}. Di samping itu, tidak sinkronnya antara kedua basis data bukan merupakan masalah karena data yang ingin dikumpulkan merupakan data akhir dan data tiap perubahan yang dilakukan tidak begitu dipedulikan.
 

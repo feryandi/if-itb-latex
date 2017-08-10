@@ -7,5 +7,5 @@ install:
 	mv build/thesis.pdf output
 
 clean:
-	rm -f output/* build/*
+	rm -r output build
 	find . -iname "*~" -exec rm '{}' ';'
