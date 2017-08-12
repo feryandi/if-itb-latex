@@ -55,8 +55,15 @@
 
 % Hypenation
 \include{config/hypenation-id}
-\hyphenpenalty=5000 
-\tolerance=1000
+%\hyphenpenalty=5000
+%\tolerance=1000
+%\lefthyphenmin=2
+%\righthyphenmin=2
+\hyphenpenalty=10000
+\tolerance=1
+\lefthyphenmin=99
+\righthyphenmin=99
+\sloppy
 
 % Line satu setengah spasi
 \renewcommand{\baselinestretch}{1.5}

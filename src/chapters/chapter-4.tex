@@ -154,6 +154,8 @@ Subbab perancangan perangkat lunak menjelaskan deskripsi aplikasi, analisis kebu
 		\label{ArchDiagram}
 	\end{figure}
 
+	Pada diagram arsitektur terlihat bahwa masih terdapat dua basis data yakni redis dan MySQL. Hal ini dilakukan agar data mengenai format dan cara ditampilkan pada aplikasi EtherCalc tetap disimpan pada basis data redis sedangkan data yang ingin dikumpulkan dan digabungkan oleh pengguna dimasukkan pada basis data relasional MySQL.
+
 	% Modul-modul dan fitur dibuat di atas aplikasi EtherCalc, sehingga arsitektur kakas akan mengikuti arsitektur aplikasi EtherCalc yang telah dijelaskan pada Subbab \ref{TeknologiSpreadsheet}.
 
 \section{Implementasi}
@@ -235,7 +237,7 @@ Implementasi dilakukan dengan membangun modul yang telah dijabarkan pada Subbab 
 	Tabel akan dibuat pada basis data yang ditentukan, setiap tabel merepresentasikan suatu tabel pada \textit{spreadsheet} yang ditentukan oleh pengguna. \textit{Header} yang didefinisikan oleh pengguna pada \textit{spreadsheet} akan dijadikan \textit{column} pada tabel basis data, tipe yang dibentuk mengikuti masukan pengguna. Tiap baris data yang ada dibawah \textit{header} pada \textit{spreadsheet} akan ditranslasikan menjadi bentuk relasional agar dapat dimasukan ke dalam tabel.
 	
 	\subsection{Modul Hierarchyfinder}
-	Modul \texttt{hierarchyfinder} menggunakan algoritma \textit{hierarchical clustering} untuk dapat mengetahui mana yang merupakan suatu kesatuan tabel pada suatu \textit{sheet}. Modul ini dapat menentukan tabel-tabel yang terdapat pada suatu \textit{sheet} yang selanjutnya akan dilakukan identifikasi label oleh modul \texttt{framefinder}. Algoritma \textit{hierarchical clustering} yang digunakan menganggap setiap sel pada \textit{spreadsheet} merupakan suatu node. Sel-sel yang bersebelahan dengan sel tersebut akan dianggap tetangga sehingga memiliki jarak sama dengan 0. Sel yang digabungkan dengan sel lain akan dihitung sebagai satu \textit{node}. Aturan perhitungan jarak antar \textit{node} dapat dilihat pada kode di Kode \ref{KodeJarak}.\\
+	Modul \texttt{hierarchyfinder} menggunakan algoritma kNN jenis \textit{hierarchical clustering} untuk dapat mengetahui mana yang merupakan suatu kesatuan tabel pada suatu \textit{sheet}. Modul ini dapat menentukan tabel-tabel yang terdapat pada suatu \textit{sheet} yang selanjutnya akan dilakukan identifikasi label oleh modul \texttt{framefinder}. Algoritma \textit{hierarchical clustering} yang digunakan menganggap setiap sel pada \textit{spreadsheet} merupakan suatu node. Sel-sel yang bersebelahan dengan sel tersebut akan dianggap tetangga sehingga memiliki jarak sama dengan 0. Sel yang digabungkan dengan sel lain akan dihitung sebagai satu \textit{node}. Aturan perhitungan jarak antar \textit{node} dapat dilihat pada kode di Kode \ref{KodeJarak}.\\
 
 	\begin{lstlisting}[frame=single, basicstyle=\linespread{1}\scriptsize\listingsfont, captionpos=b, caption={Perhitungan Jarak \textit{Node}}, label=KodeJarak]
 	# Fungsi cellDistance(v1, v2)

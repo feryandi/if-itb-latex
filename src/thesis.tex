@@ -9,7 +9,6 @@
 % Berkas ini berisi struktur utama dokumen LaTeX yang akan dibuat.
 %
 %--------------------------------------------------------------------%
-
 \documentclass[11pt, a4paper, onecolumn, oneside, final]{book}
 
 \input{config/if-itb-thesis.sty}
@@ -94,6 +93,7 @@
     \backmatter
     % Index
     \appendix
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 
     \cleardoublepage
     \phantomsection
