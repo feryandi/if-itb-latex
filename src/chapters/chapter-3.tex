@@ -109,7 +109,7 @@ Dari perbandingan di atas, diambil solusi dengan menggunakan aplikasi \textit{sp
 	\label{MekanismeKonflik}
 \end{figure}
 
-Penanganan konflik telah ditangani oleh EtherCalc menggunakan mekanisme \textit{conflict resolution} yang berasal dari SocialCalc. Mekanisme penanganan konflik menggunakan fitur \textit{undo}/\textit{redo} yang telah ada. Gambaran mekanisme tersebut dapat dilihat pada Gambar \ref{MekanismeKonflik}. Berdasarkan gambaran tersebut dan \textit{website} resmi dari EtherCalc, langkah-langkah penanganan konflik yang terjadi adalah sebagai berikut:
+Penanganan konflik pada saat lebih dari satu pengguna memasukkan data pada suatu \textit{spreadsheet} yang sama telah ditangani oleh EtherCalc menggunakan mekanisme \textit{conflict resolution} yang berasal dari SocialCalc. Mekanisme penanganan konflik menggunakan fitur \textit{undo}/\textit{redo} yang telah ada. Gambaran mekanisme tersebut dapat dilihat pada Gambar \ref{MekanismeKonflik}. Berdasarkan gambaran tersebut dan \textit{website} resmi dari EtherCalc, langkah-langkah penanganan konflik yang terjadi adalah sebagai berikut:
 
 \begin{enumerate}
 	\item Ketika klien mengirimkan suatu perintah. Perintah tersebut dimasukkan ke \textit{pending queue}.
@@ -171,7 +171,7 @@ Pada pembuatan \textit{spreadsheet} pada umumnya, didapatkan bahwa kebanyakan \t
 	Penentuan label dan data dilakukan oleh pengguna secara langsung saat pembuatan tabel. Pengguna sendiri yang menentukan area mana yang merupakan label dan data mana yang dijelaskan oleh label tersebut. Dengan metode manual ini, pengguna dapat menyesuaikan bentuk tabel sesuai keinginan mereka. Metode ini menyerahkan sepenuhnya tanggungjawab keterhubungan sel label dan sel data kepada pengguna. Metode yang digunakan adalah menerima masukan dari pengguna berupa suatu \textit{script} yang mendefinisikan letak tabel, \textit{header}, dan data pada \textit{spreadsheet}.
 
 	\subsection{Secara Otomatis}
-	Penentuan secara otomatis dimulai dari pencarian tabel pada \textit{spreadsheet}. Hal ini dilakukan karena tabel dapat lebih dari satu pada sebuah \textit{spreadsheet}. Penentuan tabel dilakukan menggunakan algoritma k-Nearest Neighbour (kNN). Setelah tabel ditemukan, pencarian label dan data dapat menggunakan algoritma seperti yang telah dijelaskan pada Subbab \ref{metodepencarian}. Mekanisme untuk mengidentifikasi label dan data dapat dilakukan melalui 3 tahapan yakni, \textit{frame finder}, \textit{hierarchy extractor}, dan \textit{tuple builder}. Pada tahap pertama yakni \textit{frame finder} bertujuan untuk mengidentifikasi wilayah nilai (data) dan wilayah atribut (label) yang dapat berupa \textit{left attribute} maupun \textit{top attribute}. Tahap selanjutnya adalah \textit{hierarchy extractor} bertujuan untuk mendapatkan hirarki dari atribut-atribut yang ada sehingga label yang tertulis dapat dicari keterhubungan dan konteksnya terhadap data yang ada. Tahap terakhir adalah \textit{tuple builder} yang mentrasformasikan data dan label tersebut dalam bentuk \textit{tuple} yang dapat diterima oleh basis data relasional.
+	Penentuan secara otomatis dimulai dari pencarian tabel pada \textit{spreadsheet}. Hal ini dilakukan karena tabel dapat lebih dari satu pada sebuah \textit{spreadsheet}. Penentuan tabel dilakukan menggunakan algoritma k-Nearest Neighbour (kNN) sehingga ditemukan kedekatan antar sel, lalu mengelompokkannya sehingga diketahui koordinat sel mana saja yang merupakan suatu kesatuan tabel. Setelah tabel ditemukan, pencarian label dan data dapat menggunakan algoritma seperti yang telah dijelaskan pada Subbab \ref{metodepencarian}. Mekanisme untuk mengidentifikasi label dan data dapat dilakukan melalui 3 tahapan yakni, \textit{frame finder}, \textit{hierarchy extractor}, dan \textit{tuple builder}. Pada tahap pertama yakni \textit{frame finder} bertujuan untuk mengidentifikasi wilayah nilai (data) dan wilayah atribut (label) yang dapat berupa \textit{left attribute} maupun \textit{top attribute}. Tahap selanjutnya adalah \textit{hierarchy extractor} bertujuan untuk mendapatkan hirarki dari atribut-atribut yang ada sehingga label yang tertulis dapat dicari keterhubungan dan konteksnya terhadap data yang ada. Tahap terakhir adalah \textit{tuple builder} yang mentrasformasikan data dan label tersebut dalam bentuk \textit{tuple} yang dapat diterima oleh basis data relasional.
 
 	\subsection{Perbandingan Metode Penentuan}
 	Untuk mengetahui perbandingan kedua metode, pada Tabel \ref{MetodePenentuan} dijelaskan kelebihan dan kekurangan dua metode yang telah disebutkan sebelumnya.
@@ -256,8 +256,8 @@ Berdasarkan penelitian \citep{Howe2006}, diketahui bahwa pengurangan kesalahan \
 
 Jenis kesalahan yang akan ditangani adalah kesalahan \textit{clerical} dan non-material, \textit{rule violations}, dan kesalahan \textit{data-entry}. Dari kesalahan-kesalahan tersebut, maka terdapat tiga hal utama yang divalidasi pada kakas ini, yakni:
 \begin{enumerate}
-	\item Validasi tipe data. Contohnya, data masukan yang seharusnya berupa \textit{integer} tidak dapat menerima masukan berupa \textit{string}.
-	\item Validasi domain masukan. Pengguna dapat juga mengatur rentang \textit{integer} yang boleh dijadikan masukan atau \textit{string} apa saja yang dapat diterima oleh sistem.
+	\item Validasi tipe data. Untuk pengembangan Tugas Akhir ini, hanya diimplementasi empat jenis validasi tipe data yakni \textit{integer}, \textit{double}, \textit{string}, dan \textit{boolean}. Contoh kasus validasi adalah ketika data masukan yang seharusnya berupa \textit{integer} tidak dapat menerima masukan berupa \textit{string}.
+	\item Validasi domain masukan. Pada pengembangan Tugas Akhir ini, hanya diimplementasi validasi domain yang berupa aturan \textit{range}, lebih besar, lebih kecil, sama dengan, dan nilai diskrit. Aturan validasi juga hanya terbatas hanya satu aturan pada satu atribut pada \textit{metadata table}.
 	\item Validasi relasi data. Data masukan dapat berupa nilai yang harus ada pada tabel lain, contohnya terdapat 2 tabel yakni nilai mahasiswa dan identitas mahasiswa. Tabel nilai mahasiswa memiliki kolom NIM yang nilainya harus ada pada tabel identitas mahasiswa. Pada \textit{spreadsheet} biasanya hal ini diatasi dengan menggunakan perintah VLOOKUP.
 \end{enumerate}
 
@@ -269,7 +269,7 @@ Kakas akan melakukan validasi terhadap ketiga hal tersebut dan menolak data masu
 Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; jenis penyimpanan data yang digunakan, alur pengguna melakukan penyimpanan data tersebut, dan perubahan pada data di basis data. Kedua masalah ini akan dijelaskan pada dua subbab berikut.
 
 	\subsection{Jenis Penyimpanan Data} \label{JenisPenyimpanan}
-	Data yang telah dimasukan oleh pengguna baik data bentuk struktur \textit{spreadsheet} maupun data masukan pada struktur disimpan ke dalam basis data yang presisten. Terdapat 2 jenis data yang harus disimpan ke dalam basis data di dalam membangun kakas menggunakan aplikasi \textit{spreadsheet} ini, yakni:
+	Terdapat 2 jenis data yang harus disimpan ke dalam basis data di dalam membangun kakas menggunakan aplikasi \textit{spreadsheet} ini, yakni:
 
 	\begin{enumerate}
 		\item Penyimpanan \textit{File Spreadsheet} \\
@@ -308,8 +308,8 @@ Terdapat tiga permasalahan pada penyimpanan data yang perlu dianalisis yakni; je
 	    \hline
 	    \centering\bfseries{Parameter} & \centering\bfseries{Dilakukan Setiap Mendapat Masukan} & \centering\bfseries{Menunggu Perintah Pengguna} \tabularnewline \hline
 	    \endhead
-	    Sinkronisasi & Basis data yang menyimpan \textit{file spreadsheet} yakni redis dan basis data yang menyimpan data yakni basis data relasional yang dipilih tersinkronisasi setiap saat. & Antara kedua basis data tidak selalu sinkron setiap saat. \\ \hline
-	    Kinerja & Performansi yang akan menurun diakibatkan kakas pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. & Performansi yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand} \\ \hline
+	    Sinkronisasi & Data yang ada pada basis data yang menyimpan \textit{file spreadsheet} yakni redis dan data pada basis data relasional tersinkronisasi setiap saat. & Data diantara kedua basis data tidak selalu sinkron setiap saat. \\ \hline
+	    Kinerja & Kinerja yang akan menurun diakibatkan kakas pendeteksian label dan data yang harus dilakukan setiap saat menerima masukan. & Kinerja yang lebih baik dibandingkan alur sebelumnya karena penyimpanan dilakukan \textit{on demand} \\ \hline
 	    Akses penyimpanan & Sulit untuk mengembangkan aplikasi menggunakan \textit{user access control} karena sulit menentukan kapan dan oleh siapa data boleh dimasukkan ke dalam basis data. & Mengembangkan aplikasi dengan \textit{user access control} akan lebih mudah untuk menentukan siapa yang memiliki akses untuk melakukan penyimpanan.\\ \hline
   	\end{longtable}
 	\end{small}
@@ -376,14 +376,14 @@ Data yang dikumpulkan pada dua atau lebih \textit{spreadsheet} dapat diklasifika
 \end{enumerate}
 
 \subsection{Interaksi Penyimpanan}
-Penanganan interaksi penyimpanan menjadi penting pada saat terdapat dua atau lebih \textit{spreadsheet} memasukkan datanya pada suatu tabel yang sama. Kasus yang dapat terjadi adalah data yang telah sebelumnya dimasukkan oleh sebuah \textit{spreadsheet} dapat ditimpa oleh data dari \textit{spreadsheet} lainnya. Hal ini, jika memang tidak diharapkan, akan menyebabkan permasalahan kerusakan data. Sehingga, pada kakas yang dibuat, dibuat penanganan berupa tombol pengecekan yang akan menjalankan fitur yang dapat melakukan pengecekan konflik data. Jika pengguna memang ingin melakukan penimpaan terhadap data yang sudah ada, maka peringatan dari fitur ini dapat diabaikan.
+Penanganan interaksi penyimpanan menjadi penting pada saat terdapat dua atau lebih \textit{spreadsheet} memasukkan datanya pada suatu tabel yang sama. Kasus yang dapat terjadi adalah data yang telah sebelumnya dimasukkan oleh sebuah \textit{spreadsheet} dapat ditimpa oleh data dari \textit{spreadsheet} lainnya. Hal ini, jika memang tidak diharapkan, akan menyebabkan permasalahan kerusakan data. Pada kakas yang dibuat, diberikan penanganan berupa tombol pengecekan yang akan menjalankan fitur yang dapat melakukan pengecekan konflik data. Jika pengguna memang ingin melakukan penimpaan terhadap data yang sudah ada, maka peringatan dari fitur ini dapat diabaikan.
 
-Urutan penyimpanan antar \textit{spreadsheet} tidak akan mempengaruhi hasil dengan syarat data yang disimpan dari kedua \textit{spreadsheet} merupakan data yang \textit{disjoint} atau kelompok data yang terpisah satu dengan yang lainnya. Jika syarat tersebut tidak dipenuhi, maka pengguna harus memasukkan data dengan urutan yang benar dan diperhitungkan agar data yang masuk sesuai dengan keinginan. Sehingga, hal ini harus diperhitungkan dalam pengumpulan data yang dilakukan oleh pengguna.
+Urutan penyimpanan antar \textit{spreadsheet} tidak akan mempengaruhi hasil dengan syarat data yang disimpan dari kedua \textit{spreadsheet} merupakan data yang \textit{disjoint} atau kelompok data yang terpisah satu dengan yang lainnya. Jika syarat tersebut tidak dipenuhi, maka pengguna harus memasukkan data dengan urutan yang benar dan diperhitungkan agar data yang masuk sesuai dengan keinginan. Hal ini harus diperhitungkan dalam pengumpulan data yang dilakukan oleh pengguna.
 
-\section{Analisis Alur Kerja dan Alur Aplikasi} \label{Aluralur}
-Pada subbab ini, akan dijelaskan perbedaan alur kerja manusia dalam pengumpulan data menggunakan aplikasi yang telah ditambahkan dengan kakas yang dibuat dengan aplikasi biasa. Selain itu, akan dijelaskan juga perubahan alur aplikasi di dalam menangani masukan pengguna.
+\section{Analisis Alur Kerja Manusia dan Kakas} \label{Aluralur}
+Pada subbab ini, akan dijelaskan perbedaan alur kerja manusia dalam pengumpulan data menggunakan aplikasi yang telah ditambahkan dengan kakas yang dibuat dengan aplikasi biasa. Selain itu, akan dijelaskan juga perubahan alur kakas di dalam menangani masukan pengguna.
 
-\subsection{Alur Kerja}
+\subsection{Alur Kerja Manusia}
 Terdapat perbedaan alur kerja yang terjadi jika pengguna menggunakan aplikasi yang dibuat pada Tugas Akhir. Alur kerja lama dapat dilihat pada Gambar \ref{GambarWorkflowKerjaBiasa} dan alur kerja pada aplikasi \textit{spreadsheet} yang dibagun dapat dilihat pada Gambar \ref{GambarWorkflowKerja}.
 
 \begin{figure}[!htb]
@@ -402,8 +402,8 @@ Terdapat perbedaan alur kerja yang terjadi jika pengguna menggunakan aplikasi ya
 
 Seperti yang digambarkan pada alur tersebut, dengan menggunakan aplikasi dengan kakas yang dikembangkan akan mengurangi alur yang dibutuhkan untuk mengumpulkan data. Pengurangan alur terjadi pada bagian penanganan konflik pada versi-versi \textit{spreadsheet} yang berbeda dan menjadi hanya dibutuhkan satu cara untuk mengubah data ke bentuk lain, yakni menggunakan koneksi basis data.
 
-\subsection{Alur Aplikasi}
-Aplikasi yang dibuat akan mengubah alur penggunaan \textit{spreadsheet} yang umum dengan menambahkan mekanisme-mekanisme yang dibutuhkan. Alur aplikasi yang lama dapat dilihat pada Gambar \ref{GambarWorkflowBiasa} dan aplikasi \textit{spreadsheet} yang dibangun pada Tugas Akhir ini pada Gambar \ref{GambarWorkflow}.
+\subsection{Alur Kerja Kakas}
+Kakas yang dibuat akan mengubah alur aplikasi \textit{spreadsheet} yang umum dengan menambahkan mekanisme-mekanisme yang dibutuhkan. Alur aplikasi yang lama dapat dilihat pada Gambar \ref{GambarWorkflowBiasa} dan aplikasi \textit{spreadsheet} yang dibangun pada Tugas Akhir ini pada Gambar \ref{GambarWorkflow}.
 
 \begin{figure}[htb]
     \centering
@@ -415,7 +415,7 @@ Aplikasi yang dibuat akan mengubah alur penggunaan \textit{spreadsheet} yang umu
 \begin{figure}[htb]
     \centering
     \includegraphics[width=1\textwidth]{resources/chapter-3-workflow.jpg}
-    \caption{Alur Aplikasi \textit{Spreadsheet} yang Akan Dibuat}
+    \caption{Alur Aplikasi \textit{Spreadsheet} dengan Kakas yang Dibuat}
 	\label{GambarWorkflow}
 \end{figure}
 
